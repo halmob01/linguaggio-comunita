@@ -52,7 +52,8 @@ test('26 scene: prologo, 11 decisioni, consolidamento, 4 esercizi e ponte verso 
   assert.equal(story.scenes.filter(x=>x.type==='decision').length,11);
   assert.deepEqual(story.scenes.filter(x=>x.type==='decision').map(x=>x.id),['patto','mercato','acqua','assemblea','nuovi_arrivi','promessa','scuola','voce','statua','confine','pericolo']);
   assert.equal(story.scenes.filter(x=>x.activity==='quiz').length,4);
-  assert.equal(story.scenes.at(-2).id,'ex_punti_vista');
+  assert.equal(story.scenes.at(-2).id,'trasferimento');
+  assert.equal(story.scenes.at(-4).id,'ex_punti_vista');
   assert.deepEqual(story.scenes.slice(0,5).map(x=>x.type),Array(5).fill('narrative'));
   assert.deepEqual(story.stats.map(x=>x.id),['fiducia','risorse','coesione']);
   assert.ok(story.scenes.at(-1).text.includes('Ettore'));
