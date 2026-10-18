@@ -269,16 +269,16 @@
       "choices": [
         {
           "id": "migliore",
-          "label": "Quale scelta rende più forte la comunità in ogni situazione.",
+          "label": "Quale decisione ha protetto meglio tutti gli abitanti.",
           "correct": false,
-          "feedback": "Un indicatore da solo non può dire quale sia la scelta migliore per tutti e in ogni situazione.",
+          "feedback": "Le barre mostrano conseguenze parziali, non quale decisione avrebbe protetto tutti in ogni circostanza.",
           "why": "I valori descrivono aspetti diversi e ipotetici; possono aumentare e diminuire nello stesso turno."
         },
         {
           "id": "errore",
-          "label": "Quale decisione ha commesso il gruppo quando un valore è sceso.",
+          "label": "Quale errore personale ha commesso chi ha deciso.",
           "correct": false,
-          "feedback": "Un valore che diminuisce non segnala automaticamente un errore o un comportamento egoista.",
+          "feedback": "Un valore che diminuisce non rivela automaticamente un errore personale: anche una scelta ragionevole può avere un costo.",
           "why": "Una decisione può avere un costo anche quando è motivata da un obiettivo comprensibile."
         },
         {
@@ -295,7 +295,7 @@
       "type": "reflection",
       "activity": "quiz",
       "title": "Un fatto o un giudizio?",
-      "text": "Dopo l'incendio qualcuno scrive: «Tre case sono state distrutte». Quale altra frase contiene un'interpretazione, invece di una semplice descrizione?",
+      "text": "In un esempio inventato, dopo un incendio qualcuno scrive: «Tre case sono state distrutte». Quale frase aggiunge un'interpretazione invece di descrivere soltanto un fatto?",
       "art": "memoria",
       "objective": "Distinguere un'osservazione da una valutazione o interpretazione.",
       "difficulty": "media",
@@ -335,9 +335,9 @@
       "choices": [
         {
           "id": "anziano",
-          "label": "Il racconto più antico rappresenta meglio ciò che conta per tutti.",
+          "label": "Il racconto più antico riesce a descrivere meglio le cause.",
           "correct": false,
-          "feedback": "L'età di un racconto non basta a renderlo completo o condiviso da tutti.",
+          "feedback": "Un racconto antico può conservare elementi importanti, ma l'età non garantisce una spiegazione migliore delle cause.",
           "why": "Ogni testimonianza può mettere in evidenza aspetti differenti dello stesso evento."
         },
         {
@@ -349,9 +349,9 @@
         },
         {
           "id": "dettagli",
-          "label": "Il racconto con più dettagli è sempre quello più importante per tutti.",
+          "label": "Il racconto più dettagliato restituisce tutta la vicenda.",
           "correct": false,
-          "feedback": "Avere più dettagli non significa rappresentare automaticamente il punto di vista di tutta la comunità.",
+          "feedback": "I dettagli arricchiscono una testimonianza, ma anche un racconto accurato seleziona alcuni aspetti e ne lascia fuori altri.",
           "why": "L'importanza che diamo a una storia dipende anche da quali persone e valori scegliamo di ricordare."
         }
       ]
