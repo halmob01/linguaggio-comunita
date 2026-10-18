@@ -13,7 +13,7 @@
   const ar=window.ComunitaArabic||{ui:{},scenes:{}};
   const t=value=>language==='ar'?(ar.ui?.[value]||value):value;
   function translateUI(html){return language==='ar'?html.replace(/>([^<>]+)</g,(all,content)=>{
-    const m=content.match(/^(\\s*)(.*?)(\\s*)$/s);
+    const m=content.match(/^(\s*)(.*?)(\s*)$/s);
     return '>'+m[1]+t(m[2])+m[3]+'<';
   }):html;}
   function localizeStory(){
