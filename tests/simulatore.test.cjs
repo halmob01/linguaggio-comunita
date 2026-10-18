@@ -76,6 +76,14 @@ test('catalogo arabo: tutti i titoli presenti, senza modificare gli ID',()=>{
   assert.ok(translated);
   for(const scene of story.scenes)assert.ok(translated.scenes[scene.id]?.title,scene.id);
   assert.equal(Object.keys(translated.scenes).length,story.scenes.length);
+  for(const scene of story.scenes){
+    const translation=translated.scenes[scene.id];
+    assert.ok(translation.text?.trim(),`Testo arabo mancante: ${scene.id}`);
+    for(const choice of scene.choices||[]){
+      const ch=translation.choices?.[choice.id];
+      for(const field of ['label','feedback','why'])assert.ok(ch?.[field]?.trim(),`${scene.id}/${choice.id}/${field}`);
+    }
+  }
 });
 
 test('ogni scelta ha feedback, e solo i quattro esercizi hanno una chiave di correzione',()=>{
