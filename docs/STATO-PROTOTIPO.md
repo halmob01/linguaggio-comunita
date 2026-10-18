@@ -1,33 +1,34 @@
 # Stato prototipo — 18 ottobre 2026
 
-**Ramo:** `feat/primo-simulatore` di `halmob01/linguaggio-comunita`. L'applicazione non è ancora stata pubblicata su GitHub Pages e non è stata approvata per la classe.
+**Ramo:** `feat/primo-simulatore`. PR [#1](https://github.com/halmob01/linguaggio-comunita/pull/1) in bozza; progetto statico GitHub Pages, non ancora distribuito alla classe.
 
-## Riuso effettivo
+## Funzionalità implementate
 
-Origine: `halmob01/epica-romanzo` / `base-feudo`, commit `90b798bd54920cdea5d20d272ffc36349520c537`.
+- Riuso di `engine.js` da `epica-romanzo/base-feudo`, sorgente commit `90b798bd54920cdea5d20d272ffc36349520c537`; grafica ereditata da Feudo.
+- Cinque card di richiamo iniziale, tre scelte che modificano tre indicatori, scena della memoria collettiva con scelta interpretativa e riepilogo finale.
+- **Quattro esercizi di riflessione** nel segmento precedente al ponte con l'epica: gettoni/convenzioni, compromessi, fatto vs interpretazione, differenti punti di vista sul racconto.
+- Gli esercizi hanno tre alternative ciascuno, una risposta meglio fondata, feedback specifico sulle risposte sbagliate, spiegazione della corretta dopo la scelta e nessun voto.
+- La crisi e la sua variazione degli indicatori sono richiamate nel secondo esercizio. L'ultima domanda sul racconto prepara l'apertura verso Ettore.
+- Salvataggio e ripristino locali; nessuna classifica, login, backend o raccolta di dati personali.
 
-- `engine.js` copiato dalla base tecnica, invariato: validazione dati, scelta/conseguenza, progressione e restore.
-- `stile.css` e `simulazione.css` derivano dagli stili e dai pattern di Feudo/Epica.
-- `storia.js` sostituisce interamente gli episodi omerici con cinque card di richiamo, tre decisioni (patto, scambi, crisi), una card sulla memoria, una riflessione e una card-ponte verso Ettore.
-- `comunita-map.js` contiene illustrazioni SVG proprie, reattive agli indicatori.
-- `comunita-app.js` contiene interfaccia, progressione del prologo, salvataggio locale, ripresa della sessione, feedback e riepilogo personalizzato.
-- `index.html` + `comunita.css` completano l'app mobile-first.
+## Verifiche eseguite
 
-Il finale cita la **scelta reale** fatta nel patto, nella crisi e nella selezione del racconto. Nessun voto, classifica, login o invio di dati degli studenti.
+- **Skill allegata `verifiche-didattiche`**: istruzioni lette, script eseguito su quattro item normalizzati; 0 errori, 0 avvisi, nessuna risposta corretta unica più lunga. Le posizioni nell'ordine di presentazione sono B–C–A–B.
+- Test interni della skill: 8 superati.
+- Suite `tests/simulatore.test.cjs`: 81 combinazioni della simulazione e 81 combinazioni di risposte degli esercizi, ripristino di stato, limiti 0–100, assenza di punteggio sugli esercizi, struttura delle scene e sintassi JavaScript.
+- CI GitHub Actions: esito positivo dopo le modifiche.
 
-## Test
+Dettagli: [REVIEW-ESERCIZI.md](REVIEW-ESERCIZI.md).
 
-`node --test tests/*.test.cjs`, Node 20+. Il test percorre **81 combinazioni di scelte** con ripristino della sessione dopo ogni avanzamento, verifica gli effetti, l'intervallo 0–100, le illustrazioni e i riferimenti agli script. Workflow GitHub Actions configurato sulla pull request.
+## Limiti
 
-**Non verificato qui:** prova visuale in browser reale e su iPhone Android; tempi effettivi in aula; qualità degli SVG su ogni schermo; compatibilità di dispositivi datati. Non dichiarare pronto per uso in classe prima di questi test.
+**Non verificati:** rendering e navigazione in un browser reale e su smartphone, tempi di completamento e prova didattica con studenti. I delta degli indicatori sono convenzioni del gioco, non dati scientifici. Il motore non valuta produzioni scritte o competenze argomentative autonome.
 
-## Nota didattica
+## Controlli prima del merge
 
-Le scelte e i delta sono ipotesi didattiche da rivedere col docente: non dati scientifici o giudizi morali. I contenuti delle 5 card rispettano la struttura e il significato del prologo concordato; sono stati lievemente condensati per il mobile. La riflessione finale propone **punti di vista narrativi differenti**, nessuna risposta giusta unica.
+1. Prova visuale su desktop e un telefono reale, compresi prologo e schermi finali.
+2. Controllo dei quattro item su display piccolo e del feedback dopo risposte corrette/sbagliate.
+3. Revisione docente degli scenari, dei valori numerici e delle formulazioni.
+4. Verifica del tempo effettivo della lezione, stimato in **35–45 minuti compresa la discussione**.
 
-## Prossimi controlli prima del merge
-
-1. Aprire il branch con server statico o GitHub Pages in anteprima ed eseguire tutto il percorso, anche da telefono.
-2. Verificare tempi e leggibilità di prologo, scelte, feedback e conclusione.
-3. Rivedere con il docente le tre situazioni: quale patto, che tipo di scambio, quale minaccia e quali delta.
-4. Accertare che il passaggio finale a Ettore non anticipi la spiegazione dell'Iliade.
+Non considerare la PR un rilascio finale destinato alla classe finché questi controlli non sono completati.
