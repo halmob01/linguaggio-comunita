@@ -59,7 +59,7 @@
     $('landingArt').innerHTML=art.markup('villaggio');
     const saved=load();
     $('resume').hidden=!saved;
-    if(saved){$('resume').textContent=saved.phase==='end'?'Rivedi il tuo finale →':'Riprendi la tua comunità →';}
+    if(saved){$('resume').textContent=t(saved.phase==='end'?'Rivedi il tuo finale →':'Riprendi la tua comunità →');}
     window.scrollTo?.(0,0);
   }
   function start(){
@@ -111,15 +111,18 @@
   }
   function outcome(){
     const x=session.last,scene=story.scenes[session.index],quiz=scene.activity==='quiz';
+    const localizedChoice=scene.choices?.find(c=>c.id===x.choiceId);
+    const feedback=localizedChoice?.feedback||x.feedback;
+    const why=localizedChoice?.why||x.why;
     const chosen=quiz?scene.choices.find(c=>c.id===x.choiceId):null;
     const correct=quiz?scene.choices.find(c=>c.correct===true):null;
     const gotIt=!!(chosen&&chosen.correct===true);
     return `<div class="eyebrow">${quiz?'Feedback formativo':scene.type==='reflection'?'Interpretazione':'Conseguenza della scelta'}</div>
       <h1>${quiz?(gotIt?'Hai individuato il punto':'Vediamo il ragionamento'):scene.type==='reflection'?'Una storia, più punti di vista':'Che cosa è cambiato?'}</h1>
-      <p class="ep-lead">${esc(x.feedback)}</p>
+      <p class="ep-lead">${esc(feedback)}</p>
       ${quiz&&!gotIt&&correct?`<div class="lc-context"><strong>La spiegazione da ricordare</strong><span>${esc(correct.label)}</span></div>`:''}
       ${x.changes.length?`<div class="ep-change-list">${x.changes.map(d=>`<div class="ep-change"><span>${esc(d.label)}</span><b class="${d.delta>0?'ep-up':'ep-down'}">${d.delta>0?'+':''}${d.delta}</b></div>`).join('')}</div>`:''}
-      <div class="note"><b>Perché conta</b><p>${esc(x.why)}</p></div>
+      <div class="note"><b>Perché conta</b><p>${esc(why)}</p></div>
       <button class="btn" type="button" data-action="next">Continua →</button>`;
   }
   function ending(){
@@ -166,7 +169,7 @@
     const scene=engine.currentScene(story,session);
     $('map').innerHTML=art.markup(scene?.art||'ponte',session.values);
     $('hud').innerHTML=hud();
-    $('chapterTag').textContent=scene?.id==='racconto'||scene?.id==='un_secolo'||scene?.id==='ponte'?'La memoria':'La comunità';
+    $('chapterTag').textContent=t(scene?.id==='racconto'||scene?.id==='un_secolo'||scene?.id==='ponte'?'La memoria':'La comunità');
     $('turnTag').textContent=`${session.index+1} / ${chapters}`;
     if(session.phase==='end'){
       $('prologue').hidden=true;$('panel').innerHTML=ending();
