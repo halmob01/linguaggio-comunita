@@ -70,7 +70,7 @@
     return '';
   }
   function decision(scene){
-    return `<div class="eyebrow">${scene.activity==='quiz'?'Esercizio di riflessione · senza voto':scene.type==='reflection'?'La memoria collettiva':'Esperimento · scegli e osserva'}</div>
+    return `<div class="eyebrow">${scene.activity==='quiz'?'Esercizio di riflessione · senza voto':scene.type==='reflection'?(scene.id.startsWith('epica_')?'Confronta le tradizioni':'La memoria collettiva'):'Esperimento · scegli e osserva'}</div>
       <h1>${esc(scene.title)}</h1><p class="ep-lead">${esc(scene.text)}</p>
       ${context(scene)}
       <div class="ep-choices">${scene.choices.map((ch,i)=>`<button type="button" class="opt ep-choice" data-choice="${esc(ch.id)}">
@@ -94,7 +94,7 @@
   function ending(){
     const recap=engine.recap(story,session);
     const crisis=selected('pericolo'), memory=selected('racconto');
-    return `<div class="eyebrow">Fine della simulazione · ponte con l'epica</div>
+    return `<div class="eyebrow">Fine del percorso · dalla comunità all'epica</div>
       <h1>Il mondo che abbiamo inventato</h1>
       <p class="ep-lead">Le vostre regole hanno organizzato la vita comune. Poi avete vissuto una crisi e scelto che cosa raccontare alle generazioni successive.</p>
       <div class="lc-summary">
@@ -104,9 +104,9 @@
       </div>
       <h3>Le conseguenze della vostra simulazione</h3>
       <div class="ep-change-list">${recap.values.map(v=>`<div class="ep-change"><span>${esc(v.label)}</span><b>${v.before} → ${v.after}</b></div>`).join('')}</div>
-      <p class="ep-notice">Hai affrontato ${decisionCount} decisioni collettive e collegato il gioco alla tua scuola. I quattro esercizi ti hanno restituito spiegazioni per ragionare: non danno un voto e non cambiano gli indicatori.</p>
+      <p class="ep-notice">Hai affrontato ${decisionCount} decisioni collettive e collegato il gioco alla tua scuola. I quattro esercizi e i tre confronti sull'epica ti hanno aiutato a ragionare: non danno un voto e non cambiano gli indicatori.</p>
       <div class="note"><b>Che cosa ho imparato?</b><p>Prima sapevamo già che il linguaggio costruisce accordi e realtà condivise. Oggi abbiamo imparato tre cose nuove: 1. Le decisioni collettive richiedono compromessi fra bisogni diversi. 2. La memoria di una comunità seleziona alcuni eventi e ne dimentica altri. 3. Ogni racconto sceglie protagonisti, valori e punti di vista.</p></div>
-      <div class="note"><b>La domanda per la prossima lezione</b><p>Quando una persona agisce, perché la sua storia può raccontare il destino di un’intera comunità?</p><p>Conosceremo Ettore, il difensore di Troia.</p></div>
+      <div class="note"><b>La domanda per la prossima lezione</b><p>Quando una persona agisce, perché la sua storia può raccontare il destino di un’intera comunità?</p><p>Dopo aver confrontato diverse tradizioni, conosceremo Ettore, il difensore di Troia.</p></div>
       <div class="row"><button class="btn" data-action="restart">Ricomincia</button>
       <button class="btn ghost" data-action="menu">Torna all'inizio</button></div>`;
   }
@@ -118,7 +118,7 @@
     $('prologue').innerHTML=`<div class="pro-card" role="document">
       <div class="pro-art pro-in">${art.markup(scene.art,session.values)}</div>
       <div class="pro-body">
-        <div class="pro-top"><div class="eyebrow">${isReview?'Ripasso':initially?'Dalle lezioni precedenti':'Racconto'} · ${initially||isReview?ix+1:ix+1}/${total}</div>
+        <div class="pro-top"><div class="eyebrow">${isReview?'Ripasso':initially?'Dalle lezioni precedenti':scene.id.startsWith('epica_')?'Le grandi tradizioni epiche':'Racconto'} · ${initially||isReview?ix+1:ix+1}/${total}</div>
           <button class="pill" data-action="${isReview?'close-review':'menu'}" aria-label="${isReview?'Chiudi il ripasso':'Torna all’inizio'}">${isReview?'Chiudi':'Esci'}</button></div>
         <h2 class="pro-title">${esc(scene.title)}</h2>
         <p class="pro-text">${esc(scene.text)}</p>
