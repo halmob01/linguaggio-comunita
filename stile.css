@@ -1,8 +1,8 @@
 /* Layout: la mappa domina. Su schermo largo mappa e misure a sinistra, scene e ordini a destra. Su telefono: barra, mappa, misure, scena.
-   Look: pagina bianca, rosso araldico per azioni e pericolo, inchiostro per il testo. Un solo tema deliberato. */
+   Look: carta chiara, blu petrolio per azioni e accenti, inchiostro blu per il testo. */
 :root {
-  --white: #ffffff; --ink: #1c1416; --red: #c8102e; --red-dark: #96091f; --red-pale: #fdeaed;
-  --paper: #fbf7f2; --line: #e9dfe0; --mute: #6c5f63; --soft: #f4efec;
+  --white: #ffffff; --ink: #172d3b; --red: #146b78; --red-dark: #0d4d5a; --red-pale: #e5f3f2;
+  --paper: #f4f8f7; --line: #dce8e8; --mute: #5d7078; --soft: #eaf3f2;
   --display: 'Alfa Slab One', 'Rockwell', Georgia, serif; --ui: 'Public Sans', system-ui, sans-serif;
   color-scheme: light;
 }
