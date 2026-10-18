@@ -105,7 +105,7 @@
       <h3>Le conseguenze della vostra simulazione</h3>
       <div class="ep-change-list">${recap.values.map(v=>`<div class="ep-change"><span>${esc(v.label)}</span><b>${v.before} → ${v.after}</b></div>`).join('')}</div>
       <p class="ep-notice">Hai affrontato ${decisionCount} decisioni collettive e collegato il gioco alla tua scuola. I quattro esercizi ti hanno restituito spiegazioni per ragionare: non danno un voto e non cambiano gli indicatori.</p>
-      <div class="note"><b>Che cosa ho imparato?</b><p>Le parole permettono di costruire regole e istituzioni condivise. Ogni decisione comporta conseguenze e compromessi. I racconti selezionano ciò che una comunità ricorda: è la funzione sociopoietica del linguaggio.</p></div>
+      <div class="note"><b>Che cosa ho imparato?</b><p>Prima sapevamo già che il linguaggio costruisce accordi e realtà condivise. Oggi abbiamo imparato tre cose nuove: 1. Le decisioni collettive richiedono compromessi fra bisogni diversi. 2. La memoria di una comunità seleziona alcuni eventi e ne dimentica altri. 3. Ogni racconto sceglie protagonisti, valori e punti di vista.</p></div>
       <div class="note"><b>La domanda per la prossima lezione</b><p>Quando una persona agisce, perché la sua storia può raccontare il destino di un’intera comunità?</p><p>Conosceremo Ettore, il difensore di Troia.</p></div>
       <div class="row"><button class="btn" data-action="restart">Ricomincia</button>
       <button class="btn ghost" data-action="menu">Torna all'inizio</button></div>`;
