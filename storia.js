@@ -895,7 +895,7 @@
       "id": "epica_sintesi",
       "type": "narrative",
       "title": "Le idee fondamentali dell'epica",
-      "text": "Da ricordare: 1. Le tradizioni epiche sono nate e si sono trasformate in società diverse dalla nostra, con rapporti differenti fra oralità, memoria e scrittura. 2. Non sono semplici cronache: tramandano e discutono valori, origini, doveri e paure. 3. Le grandi tradizioni non danno tutte la stessa risposta: Gilgamesh interroga la mortalità; Iliade e Odissea mostrano guerra, ritorno e legami; l'Eneide riflette sul destino collettivo; i poemi indiani sui doveri in conflitto; le tradizioni norrene su onore e destino. 4. Un eroe può rappresentare una domanda che riguarda un intero popolo.",
+      "text": "Da ricordare: 1. Le epiche sono opere e tradizioni nate in contesti differenti: oralità e scrittura non si escludono. 2. Non sono cronache neutrali: raccontano origini, valori e conflitti, ma la ricerca storica deve verificare i fatti attraverso le fonti. 3. Non propongono una morale unica: Gilgamesh interroga la morte; Iliade e Odissea affrontano guerra e ritorno; l'Eneide il dovere verso una comunità futura; Mahabharata e Ramayana i doveri e i legami; le tradizioni norrene onore e destino. 4. Le scelte di un personaggio possono rappresentare una domanda collettiva.",
       "art": "parole"
     },
     {
@@ -985,7 +985,7 @@
       "id": "miti_conclusione",
       "type": "narrative",
       "title": "Che cosa resta da ricordare?",
-      "text": "Le storie antiche e moderne selezionano protagonisti, conflitti e valori. Non tutte le versioni sono ugualmente attendibili: per ricostruire un fatto bisogna confrontare prove e testimonianze. Per capire una comunità, invece, chiediamoci anche perché sceglie proprio quella storia, chi la racconta e chi non viene ascoltato. Ora possiamo incontrare Ettore: un difensore di Troia ricordato anche attraverso il poema della parte avversaria.",
+      "text": "Che cosa abbiamo imparato di nuovo? Primo: ogni società seleziona vicende e personaggi per raccontare ciò che considera importante. Secondo: racconti diversi possono attribuire significati differenti allo stesso evento, ma i fatti non si decidono a maggioranza: vanno verificati attraverso fonti e prove. Terzo: i miti non appartengono soltanto al passato: sport, cinema, monumenti e piattaforme continuano a costruire memorie condivise. Domanda finale: chi ha il potere di trasformare un avvenimento in una storia che tutti ricordano?",
       "art": "memoria"
     },
     {
