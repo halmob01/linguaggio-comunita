@@ -8,12 +8,13 @@
   <meta name="description" content="Attività didattica interattiva: linguaggio, convenzioni condivise, comunità e memoria collettiva.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Public+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Cairo:wght@400;500;600;700&family=Public+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="stile.css">
   <link rel="stylesheet" href="simulazione.css">
   <link rel="stylesheet" href="comunita.css">
 </head>
 <body>
+  <nav class="lc-language" aria-label="Lingua / اللغة"><button type="button" id="langToggle" aria-label="Cambia lingua / تغيير اللغة" aria-pressed="false">عربي</button></nav>
   <section id="landing" class="ep-landing" aria-label="Introduzione all'attività">
     <header class="ep-mast">
       <div class="ep-brand">LINGUAGGIO / COMUNITÀ</div>
@@ -27,9 +28,9 @@
     <div class="lc-intro-grid">
       <div class="lc-cover" id="landingArt" aria-hidden="true"></div>
       <article class="lc-start">
-        <span class="ep-kicker">Percorso · 45–60 minuti con discussione</span>
+        <span class="ep-kicker">Percorso esteso · consigliate due lezioni</span>
         <h2>TUTTO COMINCIA DA UNA REGOLA</h2>
-        <p>Cinque brevi card di ripasso, undici decisioni con conseguenze, esercizi e una sintesi finale prima dell'epica.</p>
+        <p>Cinque card di ripasso, undici decisioni, esercizi e un confronto fra le grandi tradizioni epiche, prima di incontrare Ettore.</p>
         <button class="btn" type="button" data-action="start">Fonda la tua comunità →</button>
         <button id="resume" class="btn ghost" type="button" data-action="resume" hidden>Riprendi il percorso →</button>
       </article>
@@ -63,6 +64,7 @@
   <script src="engine.js"></script>
   <script src="storia.js"></script>
   <script src="comunita-map.js"></script>
+  <script src="ar.js"></script>
   <script src="comunita-app.js"></script>
 </body>
 </html>

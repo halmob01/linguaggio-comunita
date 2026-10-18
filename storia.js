@@ -727,6 +727,268 @@
       ]
     },
     {
+      "id": "epica_domanda",
+      "type": "narrative",
+      "title": "Una domanda attraversa i secoli",
+      "text": "Nella vostra città avete scelto quali eventi ricordare. Molto prima dei libri di scuola e dei mezzi di comunicazione moderni, altri popoli si ponevano domande simili: da dove veniamo? Chi siamo? Che cosa dobbiamo agli altri? Che cosa resta di noi dopo la morte? Le grandi narrazioni epiche sono alcune delle risposte che hanno tramandato.",
+      "art": "memoria"
+    },
+    {
+      "id": "epica_sapere",
+      "type": "narrative",
+      "title": "Quando il sapere si ascoltava",
+      "text": "In molte società antiche racconti, canti, formule e rituali aiutavano a conservare e trasmettere conoscenze e valori. Poeti e narratori si rivolgevano a un pubblico che ascoltava e ricordava. Non significa che tutti fossero analfabeti o che mancasse la scrittura: oralità e testi scritti hanno convissuto in modi diversi. L'epica non era un manuale di storia: mescolava memoria, immaginazione, credenze e modelli di comportamento.",
+      "art": "parole"
+    },
+    {
+      "id": "epica_gilgamesh",
+      "type": "narrative",
+      "title": "Gilgamesh: che cosa resta di noi?",
+      "text": "Nell'antica Mesopotamia, l'Epopea di Gilgamesh racconta un re che, dopo la morte dell'amico Enkidu, cerca di sfuggire alla propria mortalità. Non trova una vita senza fine: il viaggio costringe a interrogarsi sui limiti umani. La domanda che il racconto lascia alla comunità è potente: se tutti moriamo, che cosa rende significativa una vita?",
+      "art": "memoria"
+    },
+    {
+      "id": "epica_iliade",
+      "type": "narrative",
+      "title": "Iliade: quanto costa la gloria?",
+      "text": "Nell'Iliade, ambientata durante la guerra di Troia, la collera di Achille mette in crisi i rapporti fra guerrieri e comunità. Il poema mostra gloria e onore, ma anche dolore, perdita e conseguenze della violenza. Non dice semplicemente che combattere è sempre giusto: mette in scena valori in conflitto.",
+      "art": "crisi"
+    },
+    {
+      "id": "epica_odissea",
+      "type": "narrative",
+      "title": "Odissea: che cosa significa tornare?",
+      "text": "L'Odissea racconta il difficile ritorno di Odisseo a Itaca. Astuzia, ospitalità, riconoscimento e desiderio di ritrovare casa attraversano il viaggio. La comunità non si definisce soltanto in guerra: contano anche i legami, il rispetto dell'ospite e la possibilità di ritrovare il proprio posto.",
+      "art": "reti"
+    },
+    {
+      "id": "epica_eneide",
+      "type": "narrative",
+      "title": "Eneide: quanto pesa il futuro di un popolo?",
+      "text": "Nell'Eneide, poema latino composto da Virgilio, Enea fugge da Troia distrutta e affronta un viaggio legato al futuro di Roma. Il dovere verso gli dèi, la famiglia e la missione collettiva entra spesso in tensione con i desideri personali. Il racconto riflette anche sul prezzo umano di un destino presentato come fondativo.",
+      "art": "ponte"
+    },
+    {
+      "id": "epica_india",
+      "type": "narrative",
+      "title": "India: quando i doveri entrano in conflitto",
+      "text": "Il Mahabharata racconta una lotta fra famiglie imparentate e pone domande difficili sul dharma, cioè sul comportamento giusto e sul dovere. Il Ramayana segue l'esilio e le prove di Rama, affrontando temi come lealtà, responsabilità e potere. Sono opere molto diverse fra loro, con lunghe tradizioni e interpretazioni: non esiste una sola risposta indiana a queste domande.",
+      "art": "patto"
+    },
+    {
+      "id": "epica_nord",
+      "type": "narrative",
+      "title": "Tradizioni norrene: come agire davanti al destino?",
+      "text": "Nelle tradizioni norrene, tramandate anche nelle saghe islandesi e nei poemi dell'Edda, ricorrono onore, parentela, vendetta, coraggio e destino. Le saghe e i poemi non sono tutti lo stesso genere: raccontano vicende familiari, eroi e divinità in forme differenti. Spesso la domanda è come comportarsi quando il conflitto sembra impossibile da evitare.",
+      "art": "crisi"
+    },
+    {
+      "id": "epica_confronto_1",
+      "type": "narrative",
+      "title": "La stessa domanda, risposte diverse",
+      "text": "Che cosa vale più della vita di un individuo? Nell'Iliade la gloria del guerriero convive con il dolore di chi perde i propri cari. Nell'Eneide il destino collettivo di Roma pesa sulle scelte di Enea. Nel Mahabharata Arjuna esita davanti alla guerra contro i propri parenti: il dovere non è una risposta semplice. Tre tradizioni, tre modi di mostrare la tensione fra individuo e comunità.",
+      "art": "memoria"
+    },
+    {
+      "id": "epica_confronto_2",
+      "type": "narrative",
+      "title": "Vivere per sempre o essere ricordati?",
+      "text": "Gilgamesh cerca l'immortalità dopo la morte di Enkidu. Achille conosce il prezzo della gloria. Nei racconti norreni il coraggio può contare anche quando la sconfitta sembra inevitabile. Non sono tre versioni della stessa morale: ci chiedono se il valore di una vita dipenda dalla sua durata, dalla fama o dal modo in cui affrontiamo i nostri limiti.",
+      "art": "parole"
+    },
+    {
+      "id": "epica_confronto_3",
+      "type": "narrative",
+      "title": "Partire, tornare, fondare",
+      "text": "Odisseo vuole ritrovare Itaca e i suoi legami. Enea lascia una città distrutta e cerca una nuova patria per i discendenti. Nel Ramayana l'esilio di Rama mette alla prova responsabilità e relazioni. Viaggiare non significa sempre la stessa cosa: può essere ritorno, fondazione o prova del dovere. Quale storia racconterebbe la vostra comunità?",
+      "art": "reti"
+    },
+    {
+      "id": "epica_confronto_scelta",
+      "type": "reflection",
+      "title": "Tre eroi, tre priorità",
+      "text": "Un gruppo deve scegliere quale storia tramandare. Quale confronto aiuta meglio a capire che le tradizioni epiche non propongono tutte lo stesso ideale?",
+      "art": "memoria",
+      "choices": [
+        {
+          "id": "ritorno_fondazione",
+          "label": "Odisseo cerca di tornare a casa; Enea deve fondare un futuro altrove.",
+          "feedback": "Il confronto mostra due direzioni differenti: ritrovare i propri legami oppure assumersi un compito per chi verrà dopo.",
+          "why": "La stessa esperienza del viaggio può esprimere valori e priorità diversi."
+        },
+        {
+          "id": "stessa_guerra",
+          "label": "Achille ed Enea sono eroi, quindi difendono esattamente gli stessi valori.",
+          "feedback": "Essere eroi non significa rappresentare la stessa idea di dovere: bisogna osservare le scelte e i loro costi.",
+          "why": "Le tradizioni vanno confrontate senza appiattire le differenze culturali."
+        },
+        {
+          "id": "solo_fantasia",
+          "label": "Gilgamesh e i racconti norreni sono fantastici, quindi non dicono nulla sulle società.",
+          "feedback": "Gli elementi fantastici possono dare forma a domande reali sulla morte, il coraggio e il destino.",
+          "why": "Un racconto non deve essere cronaca per esprimere i valori di una comunità."
+        }
+      ]
+    },
+    {
+      "id": "epica_confronto",
+      "type": "narrative",
+      "title": "Che cosa hanno in comune?",
+      "text": "Queste tradizioni non appartengono a un'unica cultura e non trasmettono un'unica morale. Hanno però qualcosa in comune: raccontano vicende memorabili per mettere alla prova valori collettivi. Un personaggio deve scegliere fra desideri, doveri, legami, onore o sopravvivenza. Attraverso le sue scelte, il pubblico può discutere che cosa conta per la comunità. Non sono cronache neutrali: selezionano protagonisti, conflitti e punti di vista.",
+      "art": "memoria"
+    },
+    {
+      "id": "epica_scelta",
+      "type": "reflection",
+      "title": "Quale storia racconteresti?",
+      "text": "La vostra città ha superato una crisi. Perché una comunità potrebbe scegliere di tramandare la vicenda di una sola persona invece di elencare tutti gli eventi?",
+      "art": "memoria",
+      "choices": [
+        {
+          "id": "modello",
+          "label": "Perché le sue scelte rendono visibili valori e conflitti del gruppo.",
+          "feedback": "Un personaggio può rendere concreta una domanda che riguarda tutti: che cosa vale la pena difendere?",
+          "why": "Le storie epiche fanno emergere problemi collettivi attraverso azioni individuali."
+        },
+        {
+          "id": "cronaca",
+          "label": "Perché così il racconto diventa automaticamente una cronaca esatta.",
+          "feedback": "Scegliere un protagonista non rende il racconto una registrazione imparziale dei fatti.",
+          "why": "L'epica interpreta e rielabora il passato; non coincide con una cronaca."
+        },
+        {
+          "id": "semplice",
+          "label": "Perché in passato le persone potevano ricordare soltanto un nome.",
+          "feedback": "Le culture orali avevano tecniche sofisticate per ricordare e trasmettere racconti complessi.",
+          "why": "La scelta di un protagonista è anche una scelta di significato, non solo di memoria."
+        }
+      ]
+    },
+    {
+      "id": "epica_conflitto",
+      "type": "reflection",
+      "title": "Non esiste una scelta senza costo",
+      "text": "Achille, Enea e gli eroi dei poemi indiani affrontano obblighi e desideri in tensione. Quale domanda ti sembra più utile per comprendere le loro decisioni?",
+      "art": "patto",
+      "choices": [
+        {
+          "id": "costi",
+          "label": "Chi viene protetto e chi paga il prezzo della scelta?",
+          "feedback": "È una domanda che permette di guardare oltre la gloria dell'eroe e di vedere le conseguenze per gli altri.",
+          "why": "L'epica mette in scena conflitti di valori, non soltanto vittorie."
+        },
+        {
+          "id": "vincitore",
+          "label": "Chi riesce a imporsi e a ottenere più potere?",
+          "feedback": "Il potere è importante in molti racconti, ma non esaurisce il problema del dovere, del dolore e delle perdite.",
+          "why": "Vincere non significa necessariamente risolvere il conflitto morale."
+        },
+        {
+          "id": "fama",
+          "label": "Chi diventa più famoso dopo la battaglia?",
+          "feedback": "La fama è un tema ricorrente, ma chiedersi soltanto chi sia ricordato non spiega il valore attribuito alle sue azioni.",
+          "why": "Bisogna osservare quali comportamenti e quali costi il racconto rende memorabili."
+        }
+      ]
+    },
+    {
+      "id": "epica_sintesi",
+      "type": "narrative",
+      "title": "Le idee fondamentali dell'epica",
+      "text": "Da ricordare: 1. Le epiche sono opere e tradizioni nate in contesti differenti: oralità e scrittura non si escludono. 2. Non sono cronache neutrali: raccontano origini, valori e conflitti, ma la ricerca storica deve verificare i fatti attraverso le fonti. 3. Non propongono una morale unica: Gilgamesh interroga la morte; Iliade e Odissea affrontano guerra e ritorno; l'Eneide il dovere verso una comunità futura; Mahabharata e Ramayana i doveri e i legami; le tradizioni norrene onore e destino. 4. Le scelte di un personaggio possono rappresentare una domanda collettiva.",
+      "art": "parole"
+    },
+    {
+      "id": "epica_araba",
+      "type": "narrative",
+      "title": "La grande epica araba: Banū Hilāl",
+      "text": "La Sīrat Banī Hilāl racconta, in molte versioni, le vicende e le migrazioni dei Banū Hilāl dall'Arabia al Nord Africa. In Egitto è stata tramandata anche da cantori accompagnati da strumenti musicali. Un viaggio può essere ricordato come impresa gloriosa da chi arriva, ma vissuto diversamente da chi abita già quei territori. Quali voci entrano nel racconto?",
+      "art": "reti"
+    },
+    {
+      "id": "epica_persiana",
+      "type": "narrative",
+      "title": "Rostam e Sohrab: quando l'eroe sbaglia",
+      "text": "Nello Shāhnāmeh, il Libro dei Re composto dal poeta persiano Ferdowsi, Rostam affronta il giovane Sohrab senza sapere che è suo figlio. Il riconoscimento arriva troppo tardi. La forza dell'eroe non gli impedisce di provocare una tragedia. Perché tramandare anche gli errori dei grandi?",
+      "art": "crisi"
+    },
+    {
+      "id": "epica_sundiata",
+      "type": "narrative",
+      "title": "Sundiata: raccontare la fondazione",
+      "text": "L'epopea di Sundiata, trasmessa da narratori mandé dell'Africa occidentale, collega le vicende di Sundiata Keita alle origini dell'impero del Mali. Il racconto di un sovrano può diventare una memoria condivisa di un popolo. Chi viene ricordato come fondatore? Chi resta sullo sfondo?",
+      "art": "villaggio"
+    },
+    {
+      "id": "epica_libri",
+      "type": "narrative",
+      "title": "La biblioteca delle grandi epiche",
+      "text": "Mesopotamia: Epopea di Gilgamesh. Grecia: Iliade e Odissea, tradizionalmente attribuite a Omero. Roma: Eneide di Virgilio. India: Mahabharata e Ramayana. Persia: Shāhnāmeh di Ferdowsi. Tradizione araba: Sīrat Banī Hilāl. Africa occidentale: epopea di Sundiata. Mondo norreno: poemi dell'Edda e saghe islandesi. Sono opere e tradizioni diverse: non formano un solo libro né un solo genere identico.",
+      "art": "parole"
+    },
+    {
+      "id": "epica_trasmissione",
+      "type": "narrative",
+      "title": "Chi custodiva queste storie?",
+      "text": "Gilgamesh ci è giunto su tavolette mesopotamiche. I poemi omerici sono legati a tradizioni orali poi trasmesse in forma scritta; Virgilio compose l'Eneide come opera letteraria. Le epiche indiane hanno attraversato secoli di rielaborazioni; la Sīrat Banī Hilāl ha avuto una forte tradizione performativa; i racconti di Sundiata sono tramandati da narratori mandé. Molti testi norreni furono messi per iscritto nell'Islanda medievale. Non esiste un'unica storia della nascita dei libri epici.",
+      "art": "parole"
+    },
+    {
+      "id": "miti_oggi",
+      "type": "narrative",
+      "title": "I miti non sono finiti",
+      "text": "Oggi una comunità può raccontare un campione sportivo come simbolo di una città, oppure riconoscersi in un eroe cinematografico. Le storie di Star Wars, per esempio, mettono in scena genealogie, prove, sacrifici e responsabilità. Non sono la stessa cosa dell'epica antica, ma possiamo confrontare le domande che pongono. Un mito non è necessariamente una bugia: è anche un racconto che attribuisce significato a persone ed eventi.",
+      "art": "reti"
+    },
+    {
+      "id": "miti_vincitori",
+      "type": "narrative",
+      "title": "Chi racconta la vittoria?",
+      "text": "Una città celebra una battaglia con un monumento. Per i vincitori può rappresentare coraggio e fondazione; per gli sconfitti perdita e sofferenza. La formula «la storia la scrivono i vincitori» è un avvertimento utile, non una legge universale: esistono anche testimonianze dei vinti e ricerche che ricostruiscono più prospettive. Una memoria pubblica seleziona; uno storico deve confrontare le fonti.",
+      "art": "crisi"
+    },
+    {
+      "id": "miti_algoritmi",
+      "type": "narrative",
+      "title": "Dai cantori agli algoritmi",
+      "text": "Un tempo i racconti circolavano attraverso cantori, rituali, manoscritti e libri. Oggi anche video, meme e piattaforme digitali contribuiscono a rendere alcuni episodi molto visibili e altri quasi invisibili. I mezzi sono diversi, ma rimane una domanda: chi decide quali persone e fatti meritano attenzione?",
+      "art": "parole"
+    },
+    {
+      "id": "miti_ponte",
+      "type": "reflection",
+      "title": "La battaglia del ponte: tre racconti",
+      "text": "Due città combattono per il controllo di un ponte. Entrambe subiscono perdite; una vince. Quale versione scegli di leggere per prima? Dopo la scelta, considera anche ciò che resta fuori.",
+      "art": "ponte",
+      "choices": [
+        {
+          "id": "vincitori",
+          "label": "Il racconto dei vincitori: «Abbiamo aperto la strada alla libertà».",
+          "feedback": "Il racconto celebra il coraggio e il nuovo futuro. Restano in ombra le perdite degli avversari, le divisioni interne e le conseguenze della conquista.",
+          "why": "È una prospettiva possibile, ma non una descrizione completa dell'evento."
+        },
+        {
+          "id": "sconfitti",
+          "label": "Il racconto degli sconfitti: «Abbiamo difeso le nostre case».",
+          "feedback": "Il racconto mette al centro chi ha perso il ponte. Restano in ombra le ragioni degli avversari e gli eventuali errori dei difensori.",
+          "why": "La memoria dei vinti può conservare fatti trascurati da quella dei vincitori, ma va anch'essa verificata."
+        },
+        {
+          "id": "storico",
+          "label": "La ricostruzione storica: «Confrontiamo le testimonianze».",
+          "feedback": "Lo storico cerca documenti e testimonianze delle due città; distingue i fatti verificabili dalle interpretazioni e ammette ciò che non sa.",
+          "why": "Le fonti non sono tutte equivalenti: una ricostruzione storica richiede prove, confronto e attenzione alle incertezze."
+        }
+      ]
+    },
+    {
+      "id": "miti_conclusione",
+      "type": "narrative",
+      "title": "Che cosa resta da ricordare?",
+      "text": "Che cosa abbiamo imparato di nuovo? Primo: ogni società seleziona vicende e personaggi per raccontare ciò che considera importante. Secondo: racconti diversi possono attribuire significati differenti allo stesso evento, ma i fatti non si decidono a maggioranza: vanno verificati attraverso fonti e prove. Terzo: i miti non appartengono soltanto al passato: sport, cinema, monumenti e piattaforme continuano a costruire memorie condivise. Domanda finale: chi ha il potere di trasformare un avvenimento in una storia che tutti ricordano?",
+      "art": "memoria"
+    },
+    {
       "id": "ponte",
       "type": "narrative",
       "title": "Una persona, il destino di molti",

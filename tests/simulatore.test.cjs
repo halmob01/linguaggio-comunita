@@ -29,7 +29,7 @@ const choicesByScene={
 function play(selections,checkRestore=true){
   let session=engine.newSession(story), count=0;
   while(session.phase!=='end'){
-    assert.ok(count++<90,'nessuna progressione infinita');
+    assert.ok(count++<150,'nessuna progressione infinita');
     const scene=engine.currentScene(story,session);
     if(session.phase==='outcome'||scene.type==='narrative')session=engine.advance(story,session);
     else session=engine.select(story,session,selections[scene.id] || (scene.activity==='quiz' ? scene.choices.find(c=>c.correct===true).id : scene.choices[0].id));
@@ -43,9 +43,15 @@ function play(selections,checkRestore=true){
   return session;
 }
 
-test('26 scene: prologo, 11 decisioni, consolidamento, 4 esercizi e ponte verso Ettore',()=>{
+test('52 scene: simulazione, epiche comparate e miti contemporanei prima di Ettore',()=>{
   assert.equal(engine.validateStory(story),story);
-  assert.equal(story.scenes.length,26);
+  assert.equal(story.scenes.length,52);
+  for(const id of ['epica_araba','epica_persiana','epica_sundiata','epica_libri','epica_trasmissione','miti_oggi','miti_vincitori','miti_algoritmi','miti_ponte','miti_conclusione'])assert.ok(story.scenes.some(x=>x.id===id),id);
+  assert.ok(story.scenes.find(x=>x.id==='epica_sapere').text.includes('oralità'));
+  assert.ok(story.scenes.find(x=>x.id==='epica_confronto_1').text.includes('Mahabharata'));
+  assert.ok(story.scenes.find(x=>x.id==='epica_confronto_2').text.includes('Gilgamesh'));
+  assert.ok(story.scenes.find(x=>x.id==='epica_confronto_3').text.includes('Odisseo'));
+  assert.equal(story.scenes.filter(x=>x.id.startsWith('epica_')&&x.type==='reflection').length,3);
   assert.equal(story.scenes.find(x=>x.id==='imparato').type,'narrative');
   assert.equal(story.scenes.find(x=>x.id==='trasferimento').type,'reflection');
   assert.ok(story.scenes.find(x=>x.id==='imparato').text.includes('sociopoietica'));
@@ -54,12 +60,30 @@ test('26 scene: prologo, 11 decisioni, consolidamento, 4 esercizi e ponte verso 
   assert.equal(story.scenes.filter(x=>x.type==='decision').length,11);
   assert.deepEqual(story.scenes.filter(x=>x.type==='decision').map(x=>x.id),['patto','mercato','acqua','assemblea','nuovi_arrivi','promessa','scuola','voce','statua','confine','pericolo']);
   assert.equal(story.scenes.filter(x=>x.activity==='quiz').length,4);
-  assert.equal(story.scenes.at(-2).id,'trasferimento');
-  assert.equal(story.scenes.at(-4).id,'ex_punti_vista');
+  assert.equal(story.scenes.at(-2).id,'miti_conclusione');
+  assert.ok(story.scenes.findIndex(x=>x.id==='epica_sintesi')<story.scenes.findIndex(x=>x.id==='miti_oggi'));
+  assert.equal(story.scenes.find(x=>x.id==='trasferimento').type,'reflection');
+  assert.ok(story.scenes.findIndex(x=>x.id==='ex_punti_vista')<story.scenes.findIndex(x=>x.id==='epica_domanda'));
   assert.deepEqual(story.scenes.slice(0,5).map(x=>x.type),Array(5).fill('narrative'));
   assert.deepEqual(story.stats.map(x=>x.id),['fiducia','risorse','coesione']);
   assert.ok(story.scenes.at(-1).text.includes('Ettore'));
   assert.ok(story.scenes.find(x=>x.id==='sociopoietica').text.includes('sociopoietica'));
+});
+
+test('catalogo arabo: tutti i titoli presenti, senza modificare gli ID',()=>{
+  const context={};vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../ar.js'),'utf8'),context);
+  const translated=context.ComunitaArabic;
+  assert.ok(translated);
+  for(const scene of story.scenes)assert.ok(translated.scenes[scene.id]?.title,scene.id);
+  assert.equal(Object.keys(translated.scenes).length,story.scenes.length);
+  for(const scene of story.scenes){
+    const translation=translated.scenes[scene.id];
+    assert.ok(translation.text?.trim(),`Testo arabo mancante: ${scene.id}`);
+    for(const choice of scene.choices||[]){
+      const ch=translation.choices?.[choice.id];
+      for(const field of ['label','feedback','why'])assert.ok(ch?.[field]?.trim(),`${scene.id}/${choice.id}/${field}`);
+    }
+  }
 });
 
 test('ogni scelta ha feedback, e solo i quattro esercizi hanno una chiave di correzione',()=>{
@@ -83,7 +107,7 @@ test('tutte le 81 ramificazioni arrivano al finale, e restore regge ogni passagg
     for(const c of choicesByScene.pericolo)
      for(const r of choicesByScene.racconto){
        const x=play({patto:p,mercato:m,pericolo:c,racconto:r});
-       assert.equal(x.decisions.length,17);
+       assert.equal(x.decisions.length,21);
        for(const stat of story.stats)assert.ok(x.values[stat.id]>=0&&x.values[stat.id]<=100);
        n++;
      }
@@ -129,7 +153,7 @@ test('tutte le 81 combinazioni di risposte agli esercizi avanzano e si ripristin
       const choices={...base,ex_gettoni:a,ex_conseguenze:b,ex_fatti:c,ex_punti_vista:d};
       const end=play(choices);
       assert.equal(end.phase,'end');
-      assert.equal(end.decisions.length,17);
+      assert.equal(end.decisions.length,21);
       assert.equal(end.decisions.filter(x=>x.sceneId.startsWith('ex_')).length,4);
       n++;
     }
@@ -184,7 +208,7 @@ test('illustrazioni SVG valide per ogni scena, anche ai limiti',()=>{
 test('pagina e script caricati nell’ordine e senza riferimenti a dati di altre applicazioni',()=>{
  const html=fs.readFileSync('index.html','utf8');
  const scripts=Array.from(html.matchAll(/<script src="([^"]+)"><\/script>/g),m=>m[1]);
- assert.deepEqual(scripts,['engine.js','storia.js','comunita-map.js','comunita-app.js']);
+ assert.deepEqual(scripts,['engine.js','storia.js','comunita-map.js','ar.js','comunita-app.js']);
  for(const f of scripts)assert.ok(fs.existsSync(f));
  for(const f of scripts)new vm.Script(fs.readFileSync(f,'utf8'),{filename:f});
  const app=fs.readFileSync('comunita-app.js','utf8');
