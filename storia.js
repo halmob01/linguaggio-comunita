@@ -743,37 +743,82 @@
     {
       "id": "epica_gilgamesh",
       "type": "narrative",
-      "title": "Gilgamesh: che cosa resta di noi?",
-      "text": "Nell'antica Mesopotamia, l'Epopea di Gilgamesh racconta un re che, dopo la morte dell'amico Enkidu, cerca di sfuggire alla propria mortalità. Non trova una vita senza fine: il viaggio costringe a interrogarsi sui limiti umani. La domanda che il racconto lascia alla comunità è potente: se tutti moriamo, che cosa rende significativa una vita?",
-      "art": "memoria"
+      "title": "La morte di Enkidu",
+      "text": "Gilgamesh, re di Uruk, perde l'amico Enkidu. Sconvolto, comprende che anche lui morirà. Abbandona la città e parte alla ricerca dell'immortalità.",
+      "art": "memoria",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_gilgamesh_atto_2",
+      "type": "narrative",
+      "title": "La pianta perduta",
+      "text": "Dopo un lungo viaggio, Gilgamesh trova una pianta che potrebbe restituire la giovinezza. Un serpente gliela ruba. Torna a Uruk senza aver sconfitto la morte.",
+      "art": "memoria",
+      "epicBeat": true
     },
     {
       "id": "epica_iliade",
       "type": "narrative",
-      "title": "Iliade: quanto costa la gloria?",
-      "text": "Nell'Iliade, ambientata durante la guerra di Troia, la collera di Achille mette in crisi i rapporti fra guerrieri e comunità. Il poema mostra gloria e onore, ma anche dolore, perdita e conseguenze della violenza. Non dice semplicemente che combattere è sempre giusto: mette in scena valori in conflitto.",
-      "art": "crisi"
+      "title": "L'ira e il lutto",
+      "text": "Achille litiga con Agamennone e smette di combattere. Quando Ettore uccide il suo amico Patroclo, torna sul campo e uccide Ettore per vendetta.",
+      "art": "crisi",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_iliade_atto_2",
+      "type": "narrative",
+      "title": "Il padre del nemico",
+      "text": "Priamo, padre di Ettore, entra nella tenda di Achille per chiedere il corpo del figlio. I due nemici piangono insieme. La gloria non cancella il dolore.",
+      "art": "crisi",
+      "epicBeat": true
     },
     {
       "id": "epica_odissea",
       "type": "narrative",
-      "title": "Odissea: che cosa significa tornare?",
-      "text": "L'Odissea racconta il difficile ritorno di Odisseo a Itaca. Astuzia, ospitalità, riconoscimento e desiderio di ritrovare casa attraversano il viaggio. La comunità non si definisce soltanto in guerra: contano anche i legami, il rispetto dell'ospite e la possibilità di ritrovare il proprio posto.",
-      "art": "reti"
+      "title": "Il ciclope e Nessuno",
+      "text": "Odisseo inganna il ciclope Polifemo dicendo di chiamarsi «Nessuno». Fugge, ma rivela il suo vero nome e attira la vendetta di Poseidone.",
+      "art": "reti",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_odissea_atto_2",
+      "type": "narrative",
+      "title": "Il segreto di Itaca",
+      "text": "Dopo anni di pericoli, Odisseo torna a Itaca travestito. Penelope lo riconosce grazie al segreto del loro letto costruito intorno a un ulivo.",
+      "art": "reti",
+      "epicBeat": true
     },
     {
       "id": "epica_eneide",
       "type": "narrative",
-      "title": "Eneide: quanto pesa il futuro di un popolo?",
-      "text": "Nell'Eneide, poema latino composto da Virgilio, Enea fugge da Troia distrutta e affronta un viaggio legato al futuro di Roma. Il dovere verso gli dèi, la famiglia e la missione collettiva entra spesso in tensione con i desideri personali. Il racconto riflette anche sul prezzo umano di un destino presentato come fondativo.",
-      "art": "ponte"
+      "title": "Troia brucia",
+      "text": "Enea fugge da Troia portando il padre Anchise sulle spalle e guidando il figlio Ascanio. Durante la fuga perde la moglie Creusa.",
+      "art": "ponte",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_eneide_atto_2",
+      "type": "narrative",
+      "title": "Didone e il destino",
+      "text": "A Cartagine Enea ama la regina Didone. Ma riparte per raggiungere l'Italia, dove crede di dover fondare una nuova patria. Didone, disperata, si uccide.",
+      "art": "ponte",
+      "epicBeat": true
     },
     {
       "id": "epica_india",
       "type": "narrative",
-      "title": "India: quando i doveri entrano in conflitto",
-      "text": "Il Mahabharata racconta una lotta fra famiglie imparentate e pone domande difficili sul dharma, cioè sul comportamento giusto e sul dovere. Il Ramayana segue l'esilio e le prove di Rama, affrontando temi come lealtà, responsabilità e potere. Sono opere molto diverse fra loro, con lunghe tradizioni e interpretazioni: non esiste una sola risposta indiana a queste domande.",
-      "art": "patto"
+      "title": "Arjuna esita",
+      "text": "Nel Mahabharata, Arjuna guarda il campo di battaglia: tra i nemici ci sono parenti e maestri. Non vuole ucciderli. Krishna gli parla del dovere e dell'azione.",
+      "art": "patto",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_india_atto_2",
+      "type": "narrative",
+      "title": "Il viaggio di Rama",
+      "text": "Nel Ramayana, Rama deve lasciare il regno e vivere in esilio. Sita viene rapita da Ravana e Rama affronta una lunga lotta per ritrovarla. Le due opere interrogano doveri differenti.",
+      "art": "patto",
+      "epicBeat": true
     },
     {
       "id": "epica_nord",
@@ -901,23 +946,50 @@
     {
       "id": "epica_araba",
       "type": "narrative",
-      "title": "La grande epica araba: Banū Hilāl",
-      "text": "La Sīrat Banī Hilāl racconta, in molte versioni, le vicende e le migrazioni dei Banū Hilāl dall'Arabia al Nord Africa. In Egitto è stata tramandata anche da cantori accompagnati da strumenti musicali. Un viaggio può essere ricordato come impresa gloriosa da chi arriva, ma vissuto diversamente da chi abita già quei territori. Quali voci entrano nel racconto?",
-      "art": "reti"
+      "title": "La migrazione dei Banū Hilāl",
+      "text": "La Sīrat Banī Hilāl racconta il viaggio dei Banū Hilāl verso il Nord Africa. In Egitto i cantori tramandano anche le imprese dell'eroe Abū Zayd.",
+      "art": "reti",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_araba_atto_2",
+      "type": "narrative",
+      "title": "La voce degli altri",
+      "text": "Per chi arriva, il viaggio può essere un'impresa gloriosa. Per chi vive già in quei territori può significare guerra e perdita. Quale memoria diventa quella ufficiale?",
+      "art": "reti",
+      "epicBeat": true
     },
     {
       "id": "epica_persiana",
       "type": "narrative",
-      "title": "Rostam e Sohrab: quando l'eroe sbaglia",
-      "text": "Nello Shāhnāmeh, il Libro dei Re composto dal poeta persiano Ferdowsi, Rostam affronta il giovane Sohrab senza sapere che è suo figlio. Il riconoscimento arriva troppo tardi. La forza dell'eroe non gli impedisce di provocare una tragedia. Perché tramandare anche gli errori dei grandi?",
-      "art": "crisi"
+      "title": "Un duello senza nomi",
+      "text": "Nello Shāhnāmeh, Sohrab cerca il padre Rostam. Sul campo di battaglia i due si affrontano senza riconoscersi.",
+      "art": "crisi",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_persiana_atto_2",
+      "type": "narrative",
+      "title": "La scoperta terribile",
+      "text": "Rostam ferisce mortalmente Sohrab. Solo allora scopre che è suo figlio. La forza dell'eroe non lo ha salvato da un errore tragico.",
+      "art": "crisi",
+      "epicBeat": true
     },
     {
       "id": "epica_sundiata",
       "type": "narrative",
-      "title": "Sundiata: raccontare la fondazione",
-      "text": "L'epopea di Sundiata, trasmessa da narratori mandé dell'Africa occidentale, collega le vicende di Sundiata Keita alle origini dell'impero del Mali. Il racconto di un sovrano può diventare una memoria condivisa di un popolo. Chi viene ricordato come fondatore? Chi resta sullo sfondo?",
-      "art": "villaggio"
+      "title": "L'infanzia e l'esilio",
+      "text": "I narratori mandé raccontano che Sundiata, futuro sovrano, cresce fra difficoltà e rivalità. La sua famiglia è costretta all'esilio.",
+      "art": "villaggio",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_sundiata_atto_2",
+      "type": "narrative",
+      "title": "Il ritorno del fondatore",
+      "text": "Sundiata raccoglie alleati, sconfigge il rivale Sumanguru e viene ricordato come fondatore dell'impero del Mali.",
+      "art": "villaggio",
+      "epicBeat": true
     },
     {
       "id": "epica_libri",
