@@ -29,7 +29,7 @@ const choicesByScene={
 function play(selections,checkRestore=true){
   let session=engine.newSession(story), count=0;
   while(session.phase!=='end'){
-    assert.ok(count++<120,'nessuna progressione infinita');
+    assert.ok(count++<150,'nessuna progressione infinita');
     const scene=engine.currentScene(story,session);
     if(session.phase==='outcome'||scene.type==='narrative')session=engine.advance(story,session);
     else session=engine.select(story,session,selections[scene.id] || (scene.activity==='quiz' ? scene.choices.find(c=>c.correct===true).id : scene.choices[0].id));
@@ -43,9 +43,10 @@ function play(selections,checkRestore=true){
   return session;
 }
 
-test('42 scene: simulazione, consolidamento ed epiche comparate prima di Ettore',()=>{
+test('52 scene: simulazione, epiche comparate e miti contemporanei prima di Ettore',()=>{
   assert.equal(engine.validateStory(story),story);
-  assert.equal(story.scenes.length,42);
+  assert.equal(story.scenes.length,52);
+  for(const id of ['epica_araba','epica_persiana','epica_sundiata','epica_libri','epica_trasmissione','miti_oggi','miti_vincitori','miti_algoritmi','miti_ponte','miti_conclusione'])assert.ok(story.scenes.some(x=>x.id===id),id);
   assert.ok(story.scenes.find(x=>x.id==='epica_sapere').text.includes('oralità'));
   assert.ok(story.scenes.find(x=>x.id==='epica_confronto_1').text.includes('Mahabharata'));
   assert.ok(story.scenes.find(x=>x.id==='epica_confronto_2').text.includes('Gilgamesh'));
@@ -89,7 +90,7 @@ test('tutte le 81 ramificazioni arrivano al finale, e restore regge ogni passagg
     for(const c of choicesByScene.pericolo)
      for(const r of choicesByScene.racconto){
        const x=play({patto:p,mercato:m,pericolo:c,racconto:r});
-       assert.equal(x.decisions.length,20);
+       assert.equal(x.decisions.length,21);
        for(const stat of story.stats)assert.ok(x.values[stat.id]>=0&&x.values[stat.id]<=100);
        n++;
      }
@@ -135,7 +136,7 @@ test('tutte le 81 combinazioni di risposte agli esercizi avanzano e si ripristin
       const choices={...base,ex_gettoni:a,ex_conseguenze:b,ex_fatti:c,ex_punti_vista:d};
       const end=play(choices);
       assert.equal(end.phase,'end');
-      assert.equal(end.decisions.length,20);
+      assert.equal(end.decisions.length,21);
       assert.equal(end.decisions.filter(x=>x.sceneId.startsWith('ex_')).length,4);
       n++;
     }
