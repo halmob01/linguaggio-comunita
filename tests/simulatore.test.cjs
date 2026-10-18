@@ -49,6 +49,8 @@ test('26 scene: prologo, 11 decisioni, consolidamento, 4 esercizi e ponte verso 
   assert.equal(story.scenes.find(x=>x.id==='imparato').type,'narrative');
   assert.equal(story.scenes.find(x=>x.id==='trasferimento').type,'reflection');
   assert.ok(story.scenes.find(x=>x.id==='imparato').text.includes('sociopoietica'));
+  assert.ok(story.scenes.find(x=>x.id==='imparato').text.includes('punto di partenza'));
+  assert.ok(story.scenes.find(x=>x.id==='imparato').text.includes('memoria collettiva'));
   assert.equal(story.scenes.filter(x=>x.type==='decision').length,11);
   assert.deepEqual(story.scenes.filter(x=>x.type==='decision').map(x=>x.id),['patto','mercato','acqua','assemblea','nuovi_arrivi','promessa','scuola','voce','statua','confine','pericolo']);
   assert.equal(story.scenes.filter(x=>x.activity==='quiz').length,4);
