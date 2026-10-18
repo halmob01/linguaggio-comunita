@@ -70,6 +70,14 @@ test('52 scene: simulazione, epiche comparate e miti contemporanei prima di Etto
   assert.ok(story.scenes.find(x=>x.id==='sociopoietica').text.includes('sociopoietica'));
 });
 
+test('catalogo arabo: tutti i titoli presenti, senza modificare gli ID',()=>{
+  const context={};vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../ar.js'),'utf8'),context);
+  const translated=context.ComunitaArabic;
+  assert.ok(translated);
+  for(const scene of story.scenes)assert.ok(translated.scenes[scene.id]?.title,scene.id);
+  assert.equal(Object.keys(translated.scenes).length,story.scenes.length);
+});
+
 test('ogni scelta ha feedback, e solo i quattro esercizi hanno una chiave di correzione',()=>{
   for(const scene of story.scenes.filter(x=>x.choices)){
     assert.equal(scene.choices.length,3);
