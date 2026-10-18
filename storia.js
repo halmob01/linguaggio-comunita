@@ -142,6 +142,342 @@
       ]
     },
     {
+      "id": "acqua",
+      "type": "decision",
+      "title": "Il pozzo non basta più",
+      "text": "Dopo mesi di siccità, il pozzo comune fornisce meno acqua. I campi, le case e gli animali ne hanno bisogno. Come decidete chi può usarla?",
+      "art": "villaggio",
+      "choices": [
+        {
+          "id": "turni",
+          "label": "Stabilite turni uguali per ogni famiglia.",
+          "effects": {
+            "fiducia": 7,
+            "coesione": 5,
+            "risorse": -7
+          },
+          "feedback": "Tutti conoscono i propri turni, ma alcune famiglie hanno esigenze maggiori e contestano la divisione.",
+          "why": "Una regola uguale per tutti può apparire giusta senza rispondere a bisogni diversi."
+        },
+        {
+          "id": "bisogni",
+          "label": "Distribuite l'acqua in base alle necessità dichiarate.",
+          "effects": {
+            "fiducia": 5,
+            "coesione": -6,
+            "risorse": -4
+          },
+          "feedback": "Le famiglie più esposte ricevono acqua, ma qualcuno sospetta che altri esagerino le proprie necessità.",
+          "why": "Le regole richiedono fiducia e un modo condiviso per stabilire che cosa sia necessario."
+        },
+        {
+          "id": "canale",
+          "label": "Usate le scorte per scavare un nuovo canale.",
+          "effects": {
+            "risorse": -13,
+            "coesione": 8,
+            "fiducia": 2
+          },
+          "feedback": "Il lavoro coinvolge molti abitanti e apre una nuova possibilità. Nel frattempo, però, le riserve diminuiscono.",
+          "why": "Un progetto comune unisce le persone, ma richiede di rinunciare a risorse nel presente."
+        }
+      ]
+    },
+    {
+      "id": "assemblea",
+      "type": "decision",
+      "title": "Chi può parlare per tutti?",
+      "text": "La città cresce. Non è più possibile riunire ogni abitante per ogni decisione. Serve un modo per scegliere chi parlerà a nome degli altri.",
+      "art": "patto",
+      "choices": [
+        {
+          "id": "sorteggio",
+          "label": "Sorteggiate i rappresentanti a intervalli regolari.",
+          "effects": {
+            "fiducia": 3,
+            "coesione": 7,
+            "risorse": -4
+          },
+          "feedback": "Molti si sentono coinvolti, ma alcuni rappresentanti devono imparare in fretta a gestire i problemi.",
+          "why": "Un incarico pubblico funziona se il gruppo riconosce il procedimento che lo assegna."
+        },
+        {
+          "id": "elezione",
+          "label": "Eleggete persone che presentano un programma.",
+          "effects": {
+            "fiducia": 8,
+            "coesione": -4,
+            "risorse": -5
+          },
+          "feedback": "I candidati discutono proposte diverse. La scelta è chiara, ma dopo il voto rimangono gruppi insoddisfatti.",
+          "why": "La rappresentanza nasce da procedure e parole condivise, non dall'accordo su ogni singola decisione."
+        },
+        {
+          "id": "esperti",
+          "label": "Affidate le decisioni a chi ha più esperienza.",
+          "effects": {
+            "risorse": 7,
+            "coesione": -8,
+            "fiducia": -4
+          },
+          "feedback": "Le scelte diventano più rapide, ma i giovani e i nuovi arrivati faticano a sentirsi ascoltati.",
+          "why": "L'efficienza di un'autorità non basta, da sola, a renderla riconosciuta da tutti."
+        }
+      ]
+    },
+    {
+      "id": "nuovi_arrivi",
+      "type": "decision",
+      "title": "Nuove famiglie alla porta",
+      "text": "Dopo un inverno difficile, venti persone chiedono di abitare con voi. Portano competenze, ma hanno bisogno di cibo e spazio. Che cosa proponete?",
+      "art": "reti",
+      "choices": [
+        {
+          "id": "accoglienza",
+          "label": "Le accogliete subito con gli stessi diritti.",
+          "effects": {
+            "fiducia": 8,
+            "coesione": -5,
+            "risorse": -12
+          },
+          "feedback": "I nuovi arrivati possono partecipare alla città. Alcuni residenti temono però di perdere una parte delle scorte.",
+          "why": "Dire chi appartiene a una comunità significa anche stabilire chi condivide diritti e doveri."
+        },
+        {
+          "id": "prova",
+          "label": "Proponete un periodo di lavoro e conoscenza reciproca.",
+          "effects": {
+            "risorse": 6,
+            "fiducia": -5,
+            "coesione": 2
+          },
+          "feedback": "Le persone collaborano, ma gli ospiti non sanno ancora se potranno restare davvero.",
+          "why": "Le condizioni di ingresso possono creare fiducia oppure trasformarsi in una barriera."
+        },
+        {
+          "id": "confine",
+          "label": "Offrite aiuto temporaneo senza farle entrare.",
+          "effects": {
+            "risorse": -5,
+            "coesione": 6,
+            "fiducia": -8
+          },
+          "feedback": "Le scorte interne sono più protette, ma cresce la distanza fra la città e chi vive fuori.",
+          "why": "Un confine può rafforzare l'identità del gruppo e, nello stesso tempo, escludere qualcuno."
+        }
+      ]
+    },
+    {
+      "id": "promessa",
+      "type": "decision",
+      "title": "Una promessa non mantenuta",
+      "text": "Due gruppi avevano concordato di riparare il ponte insieme. Uno non si è presentato. L'altro chiede una punizione; il primo sostiene di aver avuto un'emergenza.",
+      "art": "patto",
+      "choices": [
+        {
+          "id": "ascolto",
+          "label": "Convocate entrambi e ascoltate le ragioni.",
+          "effects": {
+            "fiducia": 9,
+            "risorse": -7,
+            "coesione": 3
+          },
+          "feedback": "Il confronto richiede tempo, ma emerge un problema che non era stato comunicato.",
+          "why": "Le parole permettono di chiarire i fatti prima che un conflitto diventi una rottura."
+        },
+        {
+          "id": "sanzione",
+          "label": "Applicate la stessa sanzione prevista per tutti.",
+          "effects": {
+            "coesione": 7,
+            "fiducia": -8,
+            "risorse": 4
+          },
+          "feedback": "La regola appare prevedibile. Alcuni però ritengono ingiusto ignorare la situazione concreta.",
+          "why": "Una norma comune può garantire stabilità, ma la sua applicazione apre problemi di interpretazione."
+        },
+        {
+          "id": "riparazione",
+          "label": "Chiedete di completare il lavoro e compensare il ritardo.",
+          "effects": {
+            "risorse": 5,
+            "fiducia": 2,
+            "coesione": -5
+          },
+          "feedback": "Il ponte viene sistemato. Rimane il dubbio che chi ha mancato alla promessa non abbia davvero risposto delle proprie azioni.",
+          "why": "Riparare un danno e attribuire una responsabilità non sono sempre la stessa cosa."
+        }
+      ]
+    },
+    {
+      "id": "scuola",
+      "type": "decision",
+      "title": "Che cosa insegnare ai bambini?",
+      "text": "La comunità decide di aprire una scuola. Il tempo è poco: i bambini devono imparare a vivere e lavorare insieme. Quale attività mettete al centro?",
+      "art": "parole",
+      "choices": [
+        {
+          "id": "scrittura",
+          "label": "Insegnate a leggere gli accordi e scrivere le regole.",
+          "effects": {
+            "fiducia": 8,
+            "risorse": -6,
+            "coesione": 4
+          },
+          "feedback": "Più persone possono controllare le promesse scritte, ma occorrono tempo e materiali.",
+          "why": "La scrittura conserva gli accordi oltre la memoria di chi li ha pronunciati."
+        },
+        {
+          "id": "mestieri",
+          "label": "Insegnate soprattutto i mestieri necessari alla città.",
+          "effects": {
+            "risorse": 11,
+            "coesione": -4,
+            "fiducia": -3
+          },
+          "feedback": "I giovani imparano a produrre e riparare, ma alcuni non sanno leggere i documenti che regolano il loro lavoro.",
+          "why": "Le competenze pratiche sostengono la vita comune, ma non sostituiscono ogni forma di partecipazione."
+        },
+        {
+          "id": "racconti",
+          "label": "Tramandate racconti, feste e vicende dei fondatori.",
+          "effects": {
+            "coesione": 10,
+            "fiducia": 2,
+            "risorse": -8
+          },
+          "feedback": "I bambini riconoscono simboli e storie comuni. Qualcuno chiede però spazio anche per le proprie tradizioni.",
+          "why": "Raccontare il passato costruisce appartenenza, ma comporta sempre una selezione."
+        }
+      ]
+    },
+    {
+      "id": "voce",
+      "type": "decision",
+      "title": "Una voce corre per la città",
+      "text": "Si diffonde la notizia che il magazzino sia quasi vuoto. Nessuno sa chi l'abbia detto. Le famiglie iniziano ad accumulare cibo.",
+      "art": "scambi",
+      "choices": [
+        {
+          "id": "verifica",
+          "label": "Contate le scorte e rendete pubblico il risultato.",
+          "effects": {
+            "fiducia": 10,
+            "risorse": -5,
+            "coesione": 3
+          },
+          "feedback": "I dati calmano una parte della città, ma controllare e comunicare richiede tempo.",
+          "why": "Un'informazione verificabile aiuta a distinguere un fatto da una voce."
+        },
+        {
+          "id": "silenzio",
+          "label": "Chiedete di non ripetere la notizia.",
+          "effects": {
+            "coesione": 4,
+            "fiducia": -10,
+            "risorse": 2
+          },
+          "feedback": "Le voci si fermano per poco, poi ricominciano in modo meno controllabile.",
+          "why": "Impedire di parlare non equivale a costruire fiducia in ciò che viene detto."
+        },
+        {
+          "id": "assemblea_aperta",
+          "label": "Organizzate un'assemblea per raccogliere domande.",
+          "effects": {
+            "fiducia": 7,
+            "coesione": 6,
+            "risorse": -9
+          },
+          "feedback": "Molti si sentono ascoltati, ma non tutte le domande trovano una risposta immediata.",
+          "why": "Il dialogo può ridurre i sospetti, anche quando non risolve subito l'incertezza."
+        }
+      ]
+    },
+    {
+      "id": "statua",
+      "type": "decision",
+      "title": "Un monumento divide la piazza",
+      "text": "Si propone una statua per celebrare chi fondò la città. Alcuni la considerano un simbolo comune, altri ricordano decisioni che causarono sofferenza.",
+      "art": "memoria",
+      "choices": [
+        {
+          "id": "eroi",
+          "label": "Celebrate i fondatori e le loro imprese.",
+          "effects": {
+            "coesione": 8,
+            "fiducia": -6,
+            "risorse": -7
+          },
+          "feedback": "La piazza acquista un simbolo riconoscibile, ma chi ricorda le ingiustizie si sente escluso.",
+          "why": "Un monumento propone una versione del passato e attribuisce valore a determinate azioni."
+        },
+        {
+          "id": "targhe",
+          "label": "Raccontate sia i successi sia gli errori dei fondatori.",
+          "effects": {
+            "fiducia": 9,
+            "coesione": -4,
+            "risorse": -6
+          },
+          "feedback": "La piazza invita a discutere. Qualcuno vorrebbe un racconto più semplice e rassicurante.",
+          "why": "La memoria condivisa può contenere conflitti e interpretazioni diverse."
+        },
+        {
+          "id": "spazio",
+          "label": "Lasciate la piazza libera per incontri e feste.",
+          "effects": {
+            "risorse": 4,
+            "coesione": 3,
+            "fiducia": -3
+          },
+          "feedback": "La piazza resta disponibile per tutti, ma il disaccordo su cosa ricordare non scompare.",
+          "why": "Anche non costruire un monumento è una scelta su come usare lo spazio comune."
+        }
+      ]
+    },
+    {
+      "id": "confine",
+      "type": "decision",
+      "title": "Il ponte verso un'altra città",
+      "text": "Un'altra città propone di costruire un ponte commerciale. Chiede che le vostre regole sugli scambi siano riconosciute da entrambe le comunità.",
+      "art": "mercato",
+      "choices": [
+        {
+          "id": "accordo",
+          "label": "Scrivete regole comuni e create un consiglio misto.",
+          "effects": {
+            "fiducia": 9,
+            "risorse": 5,
+            "coesione": -6
+          },
+          "feedback": "Gli scambi aumentano, ma alcuni abitanti temono di perdere il controllo sulle proprie decisioni.",
+          "why": "Le istituzioni permettono di cooperare fra comunità diverse, se entrambe riconoscono gli accordi."
+        },
+        {
+          "id": "autonomia",
+          "label": "Accettate gli scambi, ma mantenete regole separate.",
+          "effects": {
+            "risorse": 8,
+            "fiducia": -5,
+            "coesione": 4
+          },
+          "feedback": "Il commercio comincia, ma ogni controversia richiede nuove trattative.",
+          "why": "Collaborare senza un linguaggio normativo comune può rendere più fragili le promesse."
+        },
+        {
+          "id": "rifiuto",
+          "label": "Rinunciate al ponte per proteggere le vostre regole.",
+          "effects": {
+            "coesione": 7,
+            "risorse": -9,
+            "fiducia": -4
+          },
+          "feedback": "La città resta indipendente, ma perde alcune opportunità e si allontana dai vicini.",
+          "why": "Le storie che raccontiamo su chi siamo possono favorire l'incontro oppure la separazione."
+        }
+      ]
+    },
+    {
       "id": "pericolo",
       "type": "decision",
       "title": "La città è in pericolo",
