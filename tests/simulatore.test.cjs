@@ -192,7 +192,7 @@ test('illustrazioni SVG valide per ogni scena, anche ai limiti',()=>{
 test('pagina e script caricati nell’ordine e senza riferimenti a dati di altre applicazioni',()=>{
  const html=fs.readFileSync('index.html','utf8');
  const scripts=Array.from(html.matchAll(/<script src="([^"]+)"><\/script>/g),m=>m[1]);
- assert.deepEqual(scripts,['engine.js','storia.js','comunita-map.js','comunita-app.js']);
+ assert.deepEqual(scripts,['engine.js','storia.js','comunita-map.js','ar.js','comunita-app.js']);
  for(const f of scripts)assert.ok(fs.existsSync(f));
  for(const f of scripts)new vm.Script(fs.readFileSync(f,'utf8'),{filename:f});
  const app=fs.readFileSync('comunita-app.js','utf8');
