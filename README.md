@@ -1,4 +1,19 @@
-# Linguaggio e comunità
+# Linguaggio e comunità — primo prototipo giocabile
+
+**Stato:** applicazione implementata nel ramo [feat/primo-simulatore](https://github.com/halmob01/linguaggio-comunita/tree/feat/primo-simulatore), non ancora collaudata su un telefono reale e non ancora pubblicata per la classe.
+
+Questo progetto recupera il motore narrativo di `epica-romanzo/base-feudo` (commit sorgente `90b798bd54920cdea5d20d272ffc36349520c537`) e gli stili di Feudo. Sono stati creati un prologo di cinque card, tre decisioni con indicatori, una riflessione sulla memoria collettiva e la domanda-ponte su Ettore.
+
+**Prova in locale:** `python3 -m http.server 8000` nella radice, poi aprire `http://localhost:8000`. Per il controllo automatico: `node --test tests/*.test.cjs` (Node 20+).
+
+**Architettura:** `engine.js` (motore riutilizzato), `storia.js` (testi ed effetti), `comunita-map.js` (SVG), `comunita-app.js` (UI e localStorage), `index.html` + fogli di stile.
+
+Il percorso ha scelte senza risposta morale unica e non utilizza voti, classifiche o dati personali. Tutti gli indicatori numerici sono simulati. Il finale richiama le scelte concrete compiute.
+
+Dettagli e limiti: [docs/STATO-PROTOTIPO.md](docs/STATO-PROTOTIPO.md); progetto didattico: [docs/PROGETTO-DIDATTICO.md](docs/PROGETTO-DIDATTICO.md).
+
+---
+
 
 Attività didattica interattiva: **dal linguaggio alle convenzioni condivise, dall'immaginario collettivo al ponte con l'epica**.
 
