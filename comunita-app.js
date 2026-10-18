@@ -75,7 +75,7 @@
     const change=Object.fromEntries((session.phase==='outcome'?session.last?.changes:[]||[]).map(x=>[x.id,x.delta]));
     return story.stats.map(x=>{
       const value=session.values[x.id],delta=change[x.id]||0;
-      return `<div class="ep-stat" aria-label="${esc(x.label)}: ${value} su 100">
+      return `<div class="ep-stat" aria-label="${esc(x.label)}: ${value} ${t('su 100')}">
        <div class="ep-stat-head"><span>${esc(x.label)}</span><span><b>${value}</b>${delta?` <em class="${delta<0?'ep-down':'ep-up'}">${delta>0?'+':''}${delta}</em>`:''}</span></div>
        <div class="ep-meter"><div style="width:${value}%"></div></div></div>`;
     }).join('');
@@ -121,7 +121,7 @@
       <h1>${quiz?(gotIt?'Hai individuato il punto':'Vediamo il ragionamento'):scene.type==='reflection'?'Una storia, più punti di vista':'Che cosa è cambiato?'}</h1>
       <p class="ep-lead">${esc(feedback)}</p>
       ${quiz&&!gotIt&&correct?`<div class="lc-context"><strong>La spiegazione da ricordare</strong><span>${esc(correct.label)}</span></div>`:''}
-      ${x.changes.length?`<div class="ep-change-list">${x.changes.map(d=>`<div class="ep-change"><span>${esc(d.label)}</span><b class="${d.delta>0?'ep-up':'ep-down'}">${d.delta>0?'+':''}${d.delta}</b></div>`).join('')}</div>`:''}
+      ${x.changes.length?`<div class="ep-change-list">${x.changes.map(d=>`<div class="ep-change"><span>${esc(t(d.label))}</span><b class="${d.delta>0?'ep-up':'ep-down'}">${d.delta>0?'+':''}${d.delta}</b></div>`).join('')}</div>`:''}
       <div class="note"><b>Perché conta</b><p>${esc(why)}</p></div>
       <button class="btn" type="button" data-action="next">Continua →</button>`;
   }
@@ -139,7 +139,7 @@
       <h3>Le conseguenze della vostra simulazione</h3>
       <div class="ep-change-list">${recap.values.map(v=>`<div class="ep-change"><span>${esc(v.label)}</span><b>${v.before} → ${v.after}</b></div>`).join('')}</div>
       <p class="ep-notice">Hai affrontato ${decisionCount} decisioni collettive e collegato il gioco alla tua scuola. I quattro esercizi, i confronti epici e la battaglia del ponte ti hanno aiutato a ragionare: non danno un voto e non cambiano gli indicatori.</p>
-      <div class="note"><b>Che cosa ho imparato?</b><p>Prima sapevamo già che il linguaggio costruisce accordi e realtà condivise. Oggi abbiamo imparato tre cose nuove: 1. Le decisioni collettive richiedono compromessi fra bisogni diversi. 2. La memoria di una comunità seleziona alcuni eventi e ne dimentica altri. 3. Ogni racconto sceglie protagonisti, valori e punti di vista.</p></div>
+      <div class="note"><b>Che cosa ho imparato?</b><p>Il gioco ci ha insegnato che le decisioni collettive comportano compromessi e che la memoria sceglie eventi, protagonisti e valori. Con le epiche abbiamo scoperto che popoli diversi hanno trasmesso il sapere con racconti, oralità e scrittura, rispondendo in modi differenti a domande su morte, dovere, gloria e appartenenza. Infine, anche i miti di oggi costruiscono memorie: per ricostruire i fatti, però, bisogna confrontare le fonti e distinguere testimonianze e interpretazioni.</p></div>
       <div class="note"><b>La domanda per la prossima lezione</b><p>Quando una persona agisce, perché la sua storia può raccontare il destino di un’intera comunità?</p><p>Dopo aver confrontato epiche antiche, miti contemporanei e punti di vista diversi, conosceremo Ettore, il difensore di Troia.</p></div>
       <div class="row"><button class="btn" data-action="restart">Ricomincia</button>
       <button class="btn ghost" data-action="menu">Torna all'inizio</button></div>`;
