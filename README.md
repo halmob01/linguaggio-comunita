@@ -45,3 +45,8 @@ La CI verifica la sintassi e i test. Sono state percorse **81 combinazioni di sc
 - [Piano di riuso della base](docs/RIUSO-MOTORE.md)
 
 Non unire e pubblicare per la classe prima di aver revisionato il testo e collaudato l'interfaccia su desktop e telefono.
+
+
+## Italiano e arabo
+
+L'interfaccia è in italiano per impostazione predefinita. Il pulsante `عربي / Italiano` permette di cambiare lingua senza perdere i progressi. `ar.js` contiene le traduzioni arabe delle 52 scene, delle 63 opzioni, dei feedback e delle spiegazioni; il motore `engine.js` resta indipendente dai testi. In arabo si usa il layout RTL e il font Cairo. La traduzione è in arabo standard moderno semplificato e richiede una verifica linguistica con parlanti competenti prima dell'impiego definitivo in classe.
