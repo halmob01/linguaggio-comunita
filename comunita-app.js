@@ -5,6 +5,37 @@
   const STORAGE='linguaggio-comunita-session-v1', $=id=>document.getElementById(id);
   const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let session=null, previewIndex=null;
+  const originalStory=JSON.parse(JSON.stringify(story));
+  const originalLanding=document.getElementById('landing').innerHTML;
+  const languageKey='linguaggio-comunita-language';
+  let language='it';
+  try{language=localStorage.getItem(languageKey)==='ar'?'ar':'it';}catch(_){}
+  const ar=window.ComunitaArabic||{ui:{},scenes:{}};
+  const t=value=>language==='ar'?(ar.ui?.[value]||value):value;
+  function translateUI(html){return language==='ar'?html.replace(/>([^<>]+)</g,(all,content)=>{
+    const m=content.match(/^(\\s*)(.*?)(\\s*)$/s);
+    return '>'+m[1]+t(m[2])+m[3]+'<';
+  }):html;}
+  function localizeStory(){
+    story.title=originalStory.title;story.subtitle=originalStory.subtitle;story.insight=originalStory.insight;
+    story.stats.forEach((stat,i)=>{stat.label=language==='ar'?(ar.ui?.[originalStory.stats[i].label]||originalStory.stats[i].label):originalStory.stats[i].label;});
+    story.scenes.forEach((scene,i)=>{
+      const src=originalStory.scenes[i],tr=language==='ar'?ar.scenes?.[src.id]:null;
+      scene.title=tr?.title||src.title;scene.text=tr?.text||src.text;
+      scene.choices?.forEach((choice,j)=>{const orig=src.choices[j],translated=tr?.choices?.[orig.id];
+        choice.label=translated?.label||orig.label;choice.feedback=translated?.feedback||orig.feedback;choice.why=translated?.why||orig.why;
+      });
+    });
+    document.documentElement.lang=language;document.documentElement.dir=language==='ar'?'rtl':'ltr';
+    document.body.classList.toggle('lc-ar',language==='ar');
+    const toggle=document.getElementById('langToggle');toggle.textContent=language==='ar'?'Italiano':'عربي';toggle.setAttribute('aria-pressed',String(language==='ar'));
+    document.getElementById('landing').innerHTML=translateUI(originalLanding);
+  }
+  document.getElementById('langToggle').addEventListener('click',()=>{
+    language=language==='it'?'ar':'it';try{localStorage.setItem(languageKey,language);}catch(_){}
+    localizeStory();if(session)render();else showLanding();
+  });
+  localizeStory();
   engine.validateStory(story);
   const chapters=story.scenes.length, intro=5;
   const decisionCount=story.scenes.filter(x=>x.type==='decision').length;
@@ -115,7 +146,7 @@
     const initially=ix<intro;
     const total=isReview||initially?intro:chapters;
     $('prologue').hidden=false;
-    $('prologue').innerHTML=`<div class="pro-card" role="document">
+    $('prologue').innerHTML=translateUI(`<div class="pro-card" role="document">
       <div class="pro-art pro-in">${art.markup(scene.art,session.values)}</div>
       <div class="pro-body">
         <div class="pro-top"><div class="eyebrow">${isReview?'Ripasso':initially?'Dalle lezioni precedenti':scene.id.startsWith('epica_')?'Le grandi tradizioni epiche':scene.id.startsWith('miti_')?'I miti di oggi':'Racconto'} · ${initially||isReview?ix+1:ix+1}/${total}</div>
@@ -125,7 +156,7 @@
         <div class="pro-dots" aria-hidden="true">${Array.from({length:total},(_,i)=>`<i class="${i<ix?'done':i===ix?'now':''}"></i>`).join('')}</div>
         <div class="row"><button class="btn" data-action="${isReview?(ix===intro-1?'close-review':'review-next'):'next'}">${isReview&&ix===intro-1?'Torna al gioco':'Avanti →'}</button>
         ${!isReview&&initially?'<button class="btn ghost" data-action="skip">Salta il richiamo</button>':''}</div>
-      </div></div>`;
+      </div></div>`);
     $('prologue').querySelector('.btn')?.focus({preventScroll:true});
   }
   function render(){
@@ -143,7 +174,7 @@
       $('panel').innerHTML='<p class="ep-lead">Segui le card illustrate.</p>';prologue();
     }else{
       $('prologue').hidden=true;
-      $('panel').innerHTML=session.phase==='outcome'?outcome():decision(scene);
+      $('panel').innerHTML=translateUI(session.phase==='outcome'?outcome():decision(scene));
       $('panel').setAttribute('aria-live','polite');
       $('panel').querySelector('button')?.focus({preventScroll:true});
     }
