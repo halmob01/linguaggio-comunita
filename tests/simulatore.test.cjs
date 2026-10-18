@@ -10,6 +10,14 @@ const art=require('../comunita-map.js');
 const choicesByScene={
   patto:['aiuto','liberta','sicurezza'],
   mercato:['baratto','gettoni','registro'],
+  acqua:['turni','bisogni','canale'],
+  assemblea:['sorteggio','elezione','esperti'],
+  nuovi_arrivi:['accoglienza','prova','confine'],
+  promessa:['ascolto','sanzione','riparazione'],
+  scuola:['scrittura','mestieri','racconti'],
+  voce:['verifica','silenzio','assemblea_aperta'],
+  statua:['eroi','targhe','spazio'],
+  confine:['accordo','autonomia','rifiuto'],
   pericolo:['difesa','famiglie','aiuto_esterno'],
   racconto:['coraggio','cura','accordo'],
   ex_gettoni:['materiale','regola','conoscenti'],
@@ -21,10 +29,10 @@ const choicesByScene={
 function play(selections,checkRestore=true){
   let session=engine.newSession(story), count=0;
   while(session.phase!=='end'){
-    assert.ok(count++<50,'nessuna progressione infinita');
+    assert.ok(count++<85,'nessuna progressione infinita');
     const scene=engine.currentScene(story,session);
     if(session.phase==='outcome'||scene.type==='narrative')session=engine.advance(story,session);
-    else session=engine.select(story,session,selections[scene.id] || (scene.activity==='quiz' ? scene.choices.find(c=>c.correct===true).id : undefined));
+    else session=engine.select(story,session,selections[scene.id] || (scene.activity==='quiz' ? scene.choices.find(c=>c.correct===true).id : scene.choices[0].id));
     if(checkRestore){
       const restored=engine.restore(story,JSON.stringify(session));
       assert.ok(restored,'salvataggio ripristinabile');
@@ -35,9 +43,11 @@ function play(selections,checkRestore=true){
   return session;
 }
 
-test('16 scene: prologo, 3 decisioni, memoria, 4 esercizi e ponte verso Ettore',()=>{
+test('24 scene: prologo, 11 decisioni, memoria, 4 esercizi e ponte verso Ettore',()=>{
   assert.equal(engine.validateStory(story),story);
-  assert.equal(story.scenes.length,16);
+  assert.equal(story.scenes.length,24);
+  assert.equal(story.scenes.filter(x=>x.type==='decision').length,11);
+  assert.deepEqual(story.scenes.filter(x=>x.type==='decision').map(x=>x.id),['patto','mercato','acqua','assemblea','nuovi_arrivi','promessa','scuola','voce','statua','confine','pericolo']);
   assert.equal(story.scenes.filter(x=>x.activity==='quiz').length,4);
   assert.equal(story.scenes.at(-2).id,'ex_punti_vista');
   assert.deepEqual(story.scenes.slice(0,5).map(x=>x.type),Array(5).fill('narrative'));
@@ -67,7 +77,7 @@ test('tutte le 81 ramificazioni arrivano al finale, e restore regge ogni passagg
     for(const c of choicesByScene.pericolo)
      for(const r of choicesByScene.racconto){
        const x=play({patto:p,mercato:m,pericolo:c,racconto:r});
-       assert.equal(x.decisions.length,8);
+       assert.equal(x.decisions.length,16);
        for(const stat of story.stats)assert.ok(x.values[stat.id]>=0&&x.values[stat.id]<=100);
        n++;
      }
@@ -113,7 +123,7 @@ test('tutte le 81 combinazioni di risposte agli esercizi avanzano e si ripristin
       const choices={...base,ex_gettoni:a,ex_conseguenze:b,ex_fatti:c,ex_punti_vista:d};
       const end=play(choices);
       assert.equal(end.phase,'end');
-      assert.equal(end.decisions.length,8);
+      assert.equal(end.decisions.length,16);
       assert.equal(end.decisions.filter(x=>x.sceneId.startsWith('ex_')).length,4);
       n++;
     }
