@@ -10,9 +10,9 @@ Applicazione didattica statica per una lezione sul linguaggio, le convenzioni co
 2. **11 decisioni:** patto per la comunità, scambi fra sconosciuti, crisi; indicatori `Fiducia`, `Risorse`, `Coesione` e conseguenze commentate.
 3. **Memoria collettiva:** cento anni dopo, la città sceglie che cosa tramandare dell'accaduto.
 4. **4 micro-esercizi formativi:** convenzioni, compromessi, fatto/interpretazione, punti di vista. Feedback e risposta spiegata, **senza voto**.
-5. **Epica comparata:** oralità, memoria, scrittura e tradizioni di Gilgamesh, Iliade, Odissea, Eneide, Mahabharata, Ramayana, Edda e saghe norrene; confronti fra gloria, dovere, morte, ritorno e fondazione, con tre riflessioni guidate. Ettore resta il ponte verso la lezione successiva.
+5. **Epica comparata:** oralità, memoria, scrittura e tradizioni di Gilgamesh, Iliade, Odissea, Eneide, Mahabharata, Ramayana, Edda e saghe norrene; confronti fra gloria, dovere, morte, ritorno e fondazione, con tre riflessioni guidate. Include anche Sīrat Banī Hilāl, Shāhnāmeh, Sundiata, due schede sulle opere e sulla trasmissione, miti contemporanei e la simulazione dei punti di vista sulla battaglia del ponte. Ettore resta il ponte verso la lezione successiva.
 
-**Durata obiettivo aggiornata:** circa 60–80 minuti con discussione, oppure due lezioni; da verificare con gli studenti; stima da verificare con gli studenti.
+**Durata obiettivo aggiornata:** circa 75–100 minuti con discussione, preferibilmente due lezioni; da verificare con gli studenti; stima da verificare con gli studenti.
 
 ## Architettura e origine
 
