@@ -218,6 +218,145 @@
       ]
     },
     {
+      "id": "esercizi",
+      "type": "narrative",
+      "title": "Ragioniamo sulle scelte",
+      "text": "Hai fondato una città e scelto quale storia tramandare. Ora quattro brevi esercizi ti aiutano a capire che cosa è successo: regole condivise, conseguenze e racconti. Non c'è voto: conta il ragionamento.",
+      "art": "memoria"
+    },
+    {
+      "id": "ex_gettoni",
+      "type": "reflection",
+      "activity": "quiz",
+      "title": "Il gettone della scuola",
+      "text": "In una scuola si inventano dei gettoni per prenotare gli attrezzi del laboratorio. Perché possono funzionare anche fra studenti che non si conoscono?",
+      "art": "scambi",
+      "objective": "Applicare il concetto di convenzione condivisa a un contesto nuovo.",
+      "difficulty": "facile",
+      "choices": [
+        {
+          "id": "materiale",
+          "label": "Perché sono fatti con un materiale difficile da trovare.",
+          "correct": false,
+          "feedback": "Il materiale può renderli riconoscibili, ma da solo non stabilisce che cosa permettono di fare.",
+          "why": "Perché un oggetto funzioni come simbolo di scambio serve un accordo su come usarlo, non soltanto una caratteristica fisica."
+        },
+        {
+          "id": "regola",
+          "label": "Perché tutti conoscono e accettano la regola per utilizzarli.",
+          "correct": true,
+          "feedback": "Esatto: il gettone vale per quella funzione perché gli studenti riconoscono un accordo condiviso.",
+          "why": "Una convenzione permette a persone che non si conoscono di coordinare le proprie azioni."
+        },
+        {
+          "id": "conoscenti",
+          "label": "Perché chi li distribuisce conosce ogni studente di persona.",
+          "correct": false,
+          "feedback": "Conoscersi può aiutare, ma non basta a spiegare perché un gettone debba essere accettato da tutti.",
+          "why": "Il valore condiviso dipende da una regola comune, non dai rapporti personali con chi distribuisce i gettoni."
+        }
+      ]
+    },
+    {
+      "id": "ex_conseguenze",
+      "type": "reflection",
+      "activity": "quiz",
+      "title": "Che cosa dicono le barre?",
+      "text": "Riguarda gli indicatori cambiati durante la crisi. Che cosa permettono di capire le barre del gioco?",
+      "art": "crisi",
+      "objective": "Distinguere le conseguenze simulate dal giudizio morale sulle scelte.",
+      "difficulty": "media",
+      "choices": [
+        {
+          "id": "migliore",
+          "label": "Quale scelta rende più forte la comunità in ogni situazione.",
+          "correct": false,
+          "feedback": "Un indicatore da solo non può dire quale sia la scelta migliore per tutti e in ogni situazione.",
+          "why": "I valori descrivono aspetti diversi e ipotetici; possono aumentare e diminuire nello stesso turno."
+        },
+        {
+          "id": "errore",
+          "label": "Quale decisione ha commesso il gruppo quando un valore è sceso.",
+          "correct": false,
+          "feedback": "Un valore che diminuisce non segnala automaticamente un errore o un comportamento egoista.",
+          "why": "Una decisione può avere un costo anche quando è motivata da un obiettivo comprensibile."
+        },
+        {
+          "id": "compromessi",
+          "label": "Quali vantaggi e quali costi può comportare una decisione.",
+          "correct": true,
+          "feedback": "Esatto: le barre rappresentano conseguenze possibili, non voti morali sulle persone.",
+          "why": "Una situazione complessa obbliga spesso a scegliere fra obiettivi diversi, senza proteggere tutto."
+        }
+      ]
+    },
+    {
+      "id": "ex_fatti",
+      "type": "reflection",
+      "activity": "quiz",
+      "title": "Un fatto o un giudizio?",
+      "text": "Dopo l'incendio qualcuno scrive: «Tre case sono state distrutte». Quale altra frase contiene un'interpretazione, invece di una semplice descrizione?",
+      "art": "memoria",
+      "objective": "Distinguere un'osservazione da una valutazione o interpretazione.",
+      "difficulty": "media",
+      "choices": [
+        {
+          "id": "fallimento",
+          "label": "Il danno alle case dimostra che gli abitanti hanno fallito.",
+          "correct": true,
+          "feedback": "Esatto. Qui al fatto si aggiunge un giudizio sulle persone, che richiederebbe altri elementi per essere sostenuto.",
+          "why": "Descrivere un danno e attribuirgli un significato sono operazioni diverse."
+        },
+        {
+          "id": "case",
+          "label": "Tre abitazioni vicino al bosco non sono più utilizzabili.",
+          "correct": false,
+          "feedback": "Questa frase descrive una condizione delle abitazioni, che si può verificare osservando i danni.",
+          "why": "Non attribuisce ancora responsabilità, intenzioni o valori alla comunità."
+        },
+        {
+          "id": "edifici",
+          "label": "Le fiamme hanno danneggiato alcuni edifici vicino al bosco.",
+          "correct": false,
+          "feedback": "Questa frase descrive ciò che l'incendio ha provocato, senza interpretare le scelte degli abitanti.",
+          "why": "Un'informazione può essere incompleta senza essere per forza un giudizio."
+        }
+      ]
+    },
+    {
+      "id": "ex_punti_vista",
+      "type": "reflection",
+      "activity": "quiz",
+      "title": "Due modi di ricordare",
+      "text": "Un testimone racconta chi ha spento il fuoco; un altro chi ha aiutato i bambini. Che cosa mostra il confronto fra i due racconti?",
+      "art": "memoria",
+      "objective": "Riconoscere che racconti dello stesso evento possono selezionare protagonisti e valori diversi.",
+      "difficulty": "media",
+      "choices": [
+        {
+          "id": "anziano",
+          "label": "Il racconto più antico rappresenta meglio ciò che conta per tutti.",
+          "correct": false,
+          "feedback": "L'età di un racconto non basta a renderlo completo o condiviso da tutti.",
+          "why": "Ogni testimonianza può mettere in evidenza aspetti differenti dello stesso evento."
+        },
+        {
+          "id": "selezione",
+          "label": "Il punto di vista scelto fa emergere protagonisti e valori diversi.",
+          "correct": true,
+          "feedback": "Esatto. Le due versioni possono riferirsi allo stesso incendio, ma ricordare gesti e valori differenti.",
+          "why": "Le storie non si limitano a elencare avvenimenti: selezionano ciò che viene ricordato."
+        },
+        {
+          "id": "dettagli",
+          "label": "Il racconto con più dettagli è sempre quello più importante per tutti.",
+          "correct": false,
+          "feedback": "Avere più dettagli non significa rappresentare automaticamente il punto di vista di tutta la comunità.",
+          "why": "L'importanza che diamo a una storia dipende anche da quali persone e valori scegliamo di ricordare."
+        }
+      ]
+    },
+    {
       "id": "ponte",
       "type": "narrative",
       "title": "Una persona, il destino di molti",
