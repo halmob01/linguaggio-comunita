@@ -610,7 +610,8 @@
     "text": "الآن نقترب من هكتور، المدافع عن طروادة. سنسأل لماذا نتذكر هذا الشخص، وكيف يمكن أن تمثل اختياراته مصير مدينة بأكملها."
   }
 }
-};Object.assign(root.ComunitaArabic.ui,{
+};Object.assign(root.ComunitaArabic.ui,{"Il gioco ci ha insegnato che le decisioni collettive comportano compromessi e che la memoria sceglie eventi, protagonisti e valori. Con le epiche abbiamo scoperto che popoli diversi hanno trasmesso il sapere con racconti, oralità e scrittura, rispondendo in modi differenti a domande su morte, dovere, gloria e appartenenza. Infine, anche i miti di oggi costruiscono memorie: per ricostruire i fatti, però, bisogna confrontare le fonti e distinguere testimonianze e interpretazioni.":"تعلمنا في اللعبة أن القرارات الجماعية تتطلب حلولًا وسطًا، وأن الذاكرة تختار الأحداث والأبطال والقيم. ومع الملاحم اكتشفنا أن شعوبًا مختلفة نقلت المعرفة بالقصص والرواية الشفوية والكتابة، وقدمت إجابات مختلفة عن الموت والواجب والمجد والانتماء. وما زالت الأساطير الحديثة تصنع ذاكرة مشتركة؛ لكن فهم الوقائع يتطلب مقارنة المصادر والتمييز بين الشهادة والتفسير."});
+Object.assign(root.ComunitaArabic.ui,{
   "Avevamo studiato che le parole ci permettono di collaborare e di costruire una realtà condivisa. Ora prova a fondare una comunità. Quali decisioni resteranno nella sua memoria?": "درسنا كيف تساعدنا الكلمات على التعاون وبناء واقع مشترك. الآن جرّب تأسيس مجتمع. أي قرارات ستبقى في ذاكرته؟",
   "Percorso esteso · consigliate due lezioni": "مسار موسّع · يُفضّل درسان",
   "Cinque card di ripasso, undici decisioni, esercizi e un confronto fra le grandi tradizioni epiche, prima di incontrare Ettore.": "خمس بطاقات مراجعة، وأحد عشر قرارًا، وتمارين ومقارنات بين الملاحم الكبرى قبل لقاء هكتور.",
