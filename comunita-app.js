@@ -55,22 +55,32 @@
       return `<div class="lc-context"><strong>La vostra comunità finora:</strong> ${esc(labelFor('patto',selected('patto')?.choiceId))} ${deal?'<span>Ora dovete affrontare qualcosa che non avevate previsto.</span>':''}</div>`;
     }
     if(scene.id==='racconto'&&selected('pericolo'))return `<div class="lc-context"><strong>La scelta che avete preso:</strong> ${esc(labelFor('pericolo',selected('pericolo').choiceId))}</div>`;
+    if(scene.id==='ex_conseguenze'){
+      const crisis=selected('pericolo');
+      const changes=crisis?.changes || [];
+      return `<div class="lc-context"><strong>La tua decisione durante la crisi:</strong> ${esc(labelFor('pericolo',crisis?.choiceId))}
+        <span>${changes.map(x=>esc(x.label)+' '+(x.delta>0?'+':'')+x.delta).join(' · ') || 'Nessuna variazione'}</span></div>`;
+    }
     return '';
   }
   function decision(scene){
-    return `<div class="eyebrow">${scene.type==='reflection'?'La memoria collettiva':'Esperimento · scegli e osserva'}</div>
+    return `<div class="eyebrow">${scene.activity==='quiz'?'Esercizio di riflessione · senza voto':scene.type==='reflection'?'La memoria collettiva':'Esperimento · scegli e osserva'}</div>
       <h1>${esc(scene.title)}</h1><p class="ep-lead">${esc(scene.text)}</p>
       ${context(scene)}
       <div class="ep-choices">${scene.choices.map((ch,i)=>`<button type="button" class="opt ep-choice" data-choice="${esc(ch.id)}">
       <span class="k">${String.fromCharCode(65+i)}</span><span>${esc(ch.label)}</span></button>`).join('')}</div>
-      <div class="ep-help">${scene.type==='reflection'?'Non c’è una risposta unica. Un racconto mette in primo piano qualcosa e ne lascia fuori qualcos’altro.':'Non devi indovinare la risposta giusta: osserva costi e conseguenze.'}</div>
+      <div class="ep-help">${scene.activity==='quiz'?'Scegli la spiegazione più convincente. Leggerai subito il perché, anche se sbagli.':scene.type==='reflection'?'Non c’è una risposta unica. Un racconto mette in primo piano qualcosa e ne lascia fuori qualcos’altro.':'Non devi indovinare la risposta giusta: osserva costi e conseguenze.'}</div>
       <button type="button" class="btn ghost ep-small" data-action="review">Rivedi il prologo</button>`;
   }
   function outcome(){
-    const x=session.last,scene=story.scenes[session.index];
-    return `<div class="eyebrow">${scene.type==='reflection'?'Interpretazione':'Conseguenza della scelta'}</div>
-      <h1>${scene.type==='reflection'?'Una storia, più punti di vista':'Che cosa è cambiato?'}</h1>
+    const x=session.last,scene=story.scenes[session.index],quiz=scene.activity==='quiz';
+    const chosen=quiz?scene.choices.find(c=>c.id===x.choiceId):null;
+    const correct=quiz?scene.choices.find(c=>c.correct===true):null;
+    const gotIt=!!(chosen&&chosen.correct===true);
+    return `<div class="eyebrow">${quiz?'Feedback formativo':scene.type==='reflection'?'Interpretazione':'Conseguenza della scelta'}</div>
+      <h1>${quiz?(gotIt?'Hai individuato il punto':'Vediamo il ragionamento'):scene.type==='reflection'?'Una storia, più punti di vista':'Che cosa è cambiato?'}</h1>
       <p class="ep-lead">${esc(x.feedback)}</p>
+      ${quiz&&!gotIt&&correct?`<div class="lc-context"><strong>La spiegazione da ricordare</strong><span>${esc(correct.label)}</span></div>`:''}
       ${x.changes.length?`<div class="ep-change-list">${x.changes.map(d=>`<div class="ep-change"><span>${esc(d.label)}</span><b class="${d.delta>0?'ep-up':'ep-down'}">${d.delta>0?'+':''}${d.delta}</b></div>`).join('')}</div>`:''}
       <div class="note"><b>Perché conta</b><p>${esc(x.why)}</p></div>
       <button class="btn" type="button" data-action="next">Continua →</button>`;
@@ -88,6 +98,7 @@
       </div>
       <h3>Le conseguenze della vostra simulazione</h3>
       <div class="ep-change-list">${recap.values.map(v=>`<div class="ep-change"><span>${esc(v.label)}</span><b>${v.before} → ${v.after}</b></div>`).join('')}</div>
+      <p class="ep-notice">I quattro esercizi ti hanno restituito spiegazioni per ragionare: non danno un voto e non cambiano gli indicatori.</p>
       <div class="note"><b>La domanda per la prossima lezione</b><p>Quando una persona agisce, perché la sua storia può raccontare il destino di un’intera comunità?</p><p>Conosceremo Ettore, il difensore di Troia.</p></div>
       <div class="row"><button class="btn" data-action="restart">Ricomincia</button>
       <button class="btn ghost" data-action="menu">Torna all'inizio</button></div>`;
