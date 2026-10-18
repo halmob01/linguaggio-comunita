@@ -1,7 +1,7 @@
 /* Illustrazioni SVG: società e relazioni, senza asset medievali. */
 (function mountCommunityMap(root) {
   'use strict';
-  const RED='#c8102e', INK='#1c1416', PAPER='#fbf7f2', SAND='#e8d7be', GOLD='#dfb85e', TEAL='#547f78';
+  const RED='#146b78', INK='#172d3b', PAPER='#f4f8f7', SAND='#d6e6df', GOLD='#d5ad67', TEAL='#4a8b74';
   const safe=n=>Number.isFinite(Number(n))?Math.max(0,Math.min(100,Number(n))):60;
   const person=(x,y,s=1,color=RED)=>`<g transform="translate(${x} ${y}) scale(${s})" stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="0" cy="-17" r="8" fill="${SAND}"/><path d="M-11-5H11L15 21H-15Z" fill="${color}"/><path d="M-7 22L-11 37M7 22L11 37M-12 3L-21 18M12 3L21 18" fill="none"/></g>`;
   const house=(x,y,w=74,color=RED)=>`<g transform="translate(${x} ${y})" stroke="${INK}" stroke-width="3" stroke-linejoin="round"><rect width="${w}" height="56" fill="#fff"/><path d="M-8 1L${w/2} -32L${w+8} 1Z" fill="${color}"/><path d="M${w/2-9} 56V28h18v28" fill="${SAND}"/><rect x="10" y="13" width="14" height="14" fill="${GOLD}"/></g>`;
@@ -12,7 +12,7 @@
     const resources=safe(v.risorse),trust=safe(v.fiducia),cohesion=safe(v.coesione);
     const n=Math.max(2,Math.ceil(cohesion/20));
     const crates=Math.max(1,Math.ceil(resources/20));
-    const t=trust>65?'#d3efe4':trust<35?'#f0d1ce':'#efe1d7';
+    const t=trust>65?'#cde8dc':trust<35?'#e8d7c7':'#e2efec';
     return `<g><path d="M0 206H480V270H0Z" fill="${t}"/><path d="M0 210H480" stroke="${INK}" stroke-width="3"/>
       ${house(39,130,94,TEAL)}${house(191,139,88,RED)}${house(342,126,95,GOLD)}
       ${Array.from({length:crates},(_,i)=>`<rect x="${24+i*22}" y="247" width="18" height="18" fill="${GOLD}" stroke="${INK}" stroke-width="2"/>`).join('')}
