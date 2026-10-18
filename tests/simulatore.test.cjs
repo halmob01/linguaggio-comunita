@@ -60,7 +60,8 @@ test('52 scene: simulazione, epiche comparate e miti contemporanei prima di Etto
   assert.equal(story.scenes.filter(x=>x.type==='decision').length,11);
   assert.deepEqual(story.scenes.filter(x=>x.type==='decision').map(x=>x.id),['patto','mercato','acqua','assemblea','nuovi_arrivi','promessa','scuola','voce','statua','confine','pericolo']);
   assert.equal(story.scenes.filter(x=>x.activity==='quiz').length,4);
-  assert.equal(story.scenes.at(-2).id,'epica_sintesi');
+  assert.equal(story.scenes.at(-2).id,'miti_conclusione');
+  assert.ok(story.scenes.findIndex(x=>x.id==='epica_sintesi')<story.scenes.findIndex(x=>x.id==='miti_oggi'));
   assert.equal(story.scenes.find(x=>x.id==='trasferimento').type,'reflection');
   assert.ok(story.scenes.findIndex(x=>x.id==='ex_punti_vista')<story.scenes.findIndex(x=>x.id==='epica_domanda'));
   assert.deepEqual(story.scenes.slice(0,5).map(x=>x.type),Array(5).fill('narrative'));
