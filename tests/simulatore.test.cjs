@@ -29,7 +29,7 @@ const choicesByScene={
 function play(selections,checkRestore=true){
   let session=engine.newSession(story), count=0;
   while(session.phase!=='end'){
-    assert.ok(count++<90,'nessuna progressione infinita');
+    assert.ok(count++<120,'nessuna progressione infinita');
     const scene=engine.currentScene(story,session);
     if(session.phase==='outcome'||scene.type==='narrative')session=engine.advance(story,session);
     else session=engine.select(story,session,selections[scene.id] || (scene.activity==='quiz' ? scene.choices.find(c=>c.correct===true).id : scene.choices[0].id));
@@ -59,8 +59,9 @@ test('42 scene: simulazione, consolidamento ed epiche comparate prima di Ettore'
   assert.equal(story.scenes.filter(x=>x.type==='decision').length,11);
   assert.deepEqual(story.scenes.filter(x=>x.type==='decision').map(x=>x.id),['patto','mercato','acqua','assemblea','nuovi_arrivi','promessa','scuola','voce','statua','confine','pericolo']);
   assert.equal(story.scenes.filter(x=>x.activity==='quiz').length,4);
-  assert.equal(story.scenes.at(-2).id,'trasferimento');
-  assert.equal(story.scenes.at(-4).id,'ex_punti_vista');
+  assert.equal(story.scenes.at(-2).id,'epica_sintesi');
+  assert.equal(story.scenes.find(x=>x.id==='trasferimento').type,'reflection');
+  assert.ok(story.scenes.findIndex(x=>x.id==='ex_punti_vista')<story.scenes.findIndex(x=>x.id==='epica_domanda'));
   assert.deepEqual(story.scenes.slice(0,5).map(x=>x.type),Array(5).fill('narrative'));
   assert.deepEqual(story.stats.map(x=>x.id),['fiducia','risorse','coesione']);
   assert.ok(story.scenes.at(-1).text.includes('Ettore'));
@@ -88,7 +89,7 @@ test('tutte le 81 ramificazioni arrivano al finale, e restore regge ogni passagg
     for(const c of choicesByScene.pericolo)
      for(const r of choicesByScene.racconto){
        const x=play({patto:p,mercato:m,pericolo:c,racconto:r});
-       assert.equal(x.decisions.length,17);
+       assert.equal(x.decisions.length,20);
        for(const stat of story.stats)assert.ok(x.values[stat.id]>=0&&x.values[stat.id]<=100);
        n++;
      }
@@ -134,7 +135,7 @@ test('tutte le 81 combinazioni di risposte agli esercizi avanzano e si ripristin
       const choices={...base,ex_gettoni:a,ex_conseguenze:b,ex_fatti:c,ex_punti_vista:d};
       const end=play(choices);
       assert.equal(end.phase,'end');
-      assert.equal(end.decisions.length,17);
+      assert.equal(end.decisions.length,20);
       assert.equal(end.decisions.filter(x=>x.sceneId.startsWith('ex_')).length,4);
       n++;
     }
