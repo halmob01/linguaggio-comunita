@@ -43,9 +43,14 @@ function play(selections,checkRestore=true){
   return session;
 }
 
-test('26 scene: prologo, 11 decisioni, consolidamento, 4 esercizi e ponte verso Ettore',()=>{
+test('42 scene: simulazione, consolidamento ed epiche comparate prima di Ettore',()=>{
   assert.equal(engine.validateStory(story),story);
-  assert.equal(story.scenes.length,26);
+  assert.equal(story.scenes.length,42);
+  assert.ok(story.scenes.find(x=>x.id==='epica_sapere').text.includes('oralità'));
+  assert.ok(story.scenes.find(x=>x.id==='epica_confronto_1').text.includes('Mahabharata'));
+  assert.ok(story.scenes.find(x=>x.id==='epica_confronto_2').text.includes('Gilgamesh'));
+  assert.ok(story.scenes.find(x=>x.id==='epica_confronto_3').text.includes('Odisseo'));
+  assert.equal(story.scenes.filter(x=>x.id.startsWith('epica_')&&x.type==='reflection').length,3);
   assert.equal(story.scenes.find(x=>x.id==='imparato').type,'narrative');
   assert.equal(story.scenes.find(x=>x.id==='trasferimento').type,'reflection');
   assert.ok(story.scenes.find(x=>x.id==='imparato').text.includes('sociopoietica'));
