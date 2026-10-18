@@ -7,12 +7,12 @@ Applicazione didattica statica per una lezione sul linguaggio, le convenzioni co
 ## Percorso
 
 1. **5 card di prologo:** ritorno alle lezioni su cooperazione, linguaggio, finzioni condivise e funzione sociopoietica.
-2. **3 decisioni:** patto per la comunità, scambi fra sconosciuti, crisi; indicatori `Fiducia`, `Risorse`, `Coesione` e conseguenze commentate.
+2. **11 decisioni:** patto per la comunità, scambi fra sconosciuti, crisi; indicatori `Fiducia`, `Risorse`, `Coesione` e conseguenze commentate.
 3. **Memoria collettiva:** cento anni dopo, la città sceglie che cosa tramandare dell'accaduto.
 4. **4 micro-esercizi formativi:** convenzioni, compromessi, fatto/interpretazione, punti di vista. Feedback e risposta spiegata, **senza voto**.
 5. **Apertura verso l'epica:** come un'azione individuale arriva a rappresentare il destino di un popolo? La lezione successiva affronta Ettore.
 
-**Durata obiettivo:** 35–45 minuti con discussione, da verificare con gli studenti.
+**Durata obiettivo aggiornata:** circa 45–60 minuti con discussione; stima da verificare con gli studenti.
 
 ## Architettura e origine
 
