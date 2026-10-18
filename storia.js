@@ -743,37 +743,82 @@
     {
       "id": "epica_gilgamesh",
       "type": "narrative",
-      "title": "Gilgamesh: che cosa resta di noi?",
-      "text": "Nell'antica Mesopotamia, l'Epopea di Gilgamesh racconta un re che, dopo la morte dell'amico Enkidu, cerca di sfuggire alla propria mortalità. Non trova una vita senza fine: il viaggio costringe a interrogarsi sui limiti umani. La domanda che il racconto lascia alla comunità è potente: se tutti moriamo, che cosa rende significativa una vita?",
-      "art": "memoria"
+      "title": "La morte di Enkidu",
+      "text": "Gilgamesh, re di Uruk, perde l'amico Enkidu. Sconvolto, comprende che anche lui morirà. Abbandona la città e parte alla ricerca dell'immortalità.",
+      "art": "memoria",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_gilgamesh_atto_2",
+      "type": "narrative",
+      "title": "La pianta perduta",
+      "text": "Dopo un lungo viaggio, Gilgamesh trova una pianta che potrebbe restituire la giovinezza. Un serpente gliela ruba. Torna a Uruk senza aver sconfitto la morte.",
+      "art": "memoria",
+      "epicBeat": true
     },
     {
       "id": "epica_iliade",
       "type": "narrative",
-      "title": "Iliade: quanto costa la gloria?",
-      "text": "Nell'Iliade, ambientata durante la guerra di Troia, la collera di Achille mette in crisi i rapporti fra guerrieri e comunità. Il poema mostra gloria e onore, ma anche dolore, perdita e conseguenze della violenza. Non dice semplicemente che combattere è sempre giusto: mette in scena valori in conflitto.",
-      "art": "crisi"
+      "title": "L'ira e il lutto",
+      "text": "Achille litiga con Agamennone e smette di combattere. Quando Ettore uccide il suo amico Patroclo, torna sul campo e uccide Ettore per vendetta.",
+      "art": "crisi",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_iliade_atto_2",
+      "type": "narrative",
+      "title": "Il padre del nemico",
+      "text": "Priamo, padre di Ettore, entra nella tenda di Achille per chiedere il corpo del figlio. I due nemici piangono insieme. La gloria non cancella il dolore.",
+      "art": "crisi",
+      "epicBeat": true
     },
     {
       "id": "epica_odissea",
       "type": "narrative",
-      "title": "Odissea: che cosa significa tornare?",
-      "text": "L'Odissea racconta il difficile ritorno di Odisseo a Itaca. Astuzia, ospitalità, riconoscimento e desiderio di ritrovare casa attraversano il viaggio. La comunità non si definisce soltanto in guerra: contano anche i legami, il rispetto dell'ospite e la possibilità di ritrovare il proprio posto.",
-      "art": "reti"
+      "title": "Il ciclope e Nessuno",
+      "text": "Odisseo inganna il ciclope Polifemo dicendo di chiamarsi «Nessuno». Fugge, ma rivela il suo vero nome e attira la vendetta di Poseidone.",
+      "art": "reti",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_odissea_atto_2",
+      "type": "narrative",
+      "title": "Il segreto di Itaca",
+      "text": "Dopo anni di pericoli, Odisseo torna a Itaca travestito. Penelope lo riconosce grazie al segreto del loro letto costruito intorno a un ulivo.",
+      "art": "reti",
+      "epicBeat": true
     },
     {
       "id": "epica_eneide",
       "type": "narrative",
-      "title": "Eneide: quanto pesa il futuro di un popolo?",
-      "text": "Nell'Eneide, poema latino composto da Virgilio, Enea fugge da Troia distrutta e affronta un viaggio legato al futuro di Roma. Il dovere verso gli dèi, la famiglia e la missione collettiva entra spesso in tensione con i desideri personali. Il racconto riflette anche sul prezzo umano di un destino presentato come fondativo.",
-      "art": "ponte"
+      "title": "Troia brucia",
+      "text": "Enea fugge da Troia portando il padre Anchise sulle spalle e guidando il figlio Ascanio. Durante la fuga perde la moglie Creusa.",
+      "art": "ponte",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_eneide_atto_2",
+      "type": "narrative",
+      "title": "Didone e il destino",
+      "text": "A Cartagine Enea ama la regina Didone. Ma riparte per raggiungere l'Italia, dove crede di dover fondare una nuova patria. Didone, disperata, si uccide.",
+      "art": "ponte",
+      "epicBeat": true
     },
     {
       "id": "epica_india",
       "type": "narrative",
-      "title": "India: quando i doveri entrano in conflitto",
-      "text": "Il Mahabharata racconta una lotta fra famiglie imparentate e pone domande difficili sul dharma, cioè sul comportamento giusto e sul dovere. Il Ramayana segue l'esilio e le prove di Rama, affrontando temi come lealtà, responsabilità e potere. Sono opere molto diverse fra loro, con lunghe tradizioni e interpretazioni: non esiste una sola risposta indiana a queste domande.",
-      "art": "patto"
+      "title": "Arjuna esita",
+      "text": "Nel Mahabharata, Arjuna guarda il campo di battaglia: tra i nemici ci sono parenti e maestri. Non vuole ucciderli. Krishna gli parla del dovere e dell'azione.",
+      "art": "patto",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_india_atto_2",
+      "type": "narrative",
+      "title": "Il viaggio di Rama",
+      "text": "Nel Ramayana, Rama deve lasciare il regno e vivere in esilio. Sita viene rapita da Ravana e Rama affronta una lunga lotta per ritrovarla. Le due opere interrogano doveri differenti.",
+      "art": "patto",
+      "epicBeat": true
     },
     {
       "id": "epica_nord",
@@ -785,50 +830,98 @@
     {
       "id": "epica_confronto_1",
       "type": "narrative",
-      "title": "La stessa domanda, risposte diverse",
-      "text": "Che cosa vale più della vita di un individuo? Nell'Iliade la gloria del guerriero convive con il dolore di chi perde i propri cari. Nell'Eneide il destino collettivo di Roma pesa sulle scelte di Enea. Nel Mahabharata Arjuna esita davanti alla guerra contro i propri parenti: il dovere non è una risposta semplice. Tre tradizioni, tre modi di mostrare la tensione fra individuo e comunità.",
-      "art": "memoria"
+      "title": "Chi paga il prezzo?",
+      "text": "Associa ogni protagonista al conflitto che affronta.",
+      "art": "memoria",
+      "game": {
+        "mode": "match",
+        "left": [
+          "Achille",
+          "Enea",
+          "Arjuna"
+        ],
+        "right": [
+          "Gloria e lutto",
+          "Futuro della comunità e perdite personali",
+          "Dovere e legami familiari"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "epica_confronto_2",
       "type": "narrative",
-      "title": "Vivere per sempre o essere ricordati?",
-      "text": "Gilgamesh cerca l'immortalità dopo la morte di Enkidu. Achille conosce il prezzo della gloria. Nei racconti norreni il coraggio può contare anche quando la sconfitta sembra inevitabile. Non sono tre versioni della stessa morale: ci chiedono se il valore di una vita dipenda dalla sua durata, dalla fama o dal modo in cui affrontiamo i nostri limiti.",
-      "art": "parole"
+      "title": "Tre modi di affrontare la morte",
+      "text": "Associa ciascuna tradizione alla domanda che mette in scena.",
+      "art": "parole",
+      "game": {
+        "mode": "match",
+        "left": [
+          "Gilgamesh",
+          "Achille",
+          "Eroi norreni"
+        ],
+        "right": [
+          "Posso sfuggire alla morte?",
+          "Che prezzo ha la gloria?",
+          "Come agire davanti al destino?"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "epica_confronto_3",
       "type": "narrative",
-      "title": "Partire, tornare, fondare",
-      "text": "Odisseo vuole ritrovare Itaca e i suoi legami. Enea lascia una città distrutta e cerca una nuova patria per i discendenti. Nel Ramayana l'esilio di Rama mette alla prova responsabilità e relazioni. Viaggiare non significa sempre la stessa cosa: può essere ritorno, fondazione o prova del dovere. Quale storia racconterebbe la vostra comunità?",
-      "art": "reti"
+      "title": "Partire non significa sempre la stessa cosa",
+      "text": "Abbina ogni viaggio al suo significato principale.",
+      "art": "reti",
+      "game": {
+        "mode": "match",
+        "left": [
+          "Odisseo",
+          "Enea",
+          "Rama"
+        ],
+        "right": [
+          "Ritrovare casa",
+          "Cercare una nuova patria",
+          "Affrontare l'esilio e il dovere"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "epica_confronto_scelta",
-      "type": "reflection",
-      "title": "Tre eroi, tre priorità",
-      "text": "Un gruppo deve scegliere quale storia tramandare. Quale confronto aiuta meglio a capire che le tradizioni epiche non propongono tutte lo stesso ideale?",
+      "type": "narrative",
+      "title": "Due eroi, due destini",
+      "text": "Quale affermazione distingue correttamente le due vicende?",
       "art": "memoria",
-      "choices": [
-        {
-          "id": "ritorno_fondazione",
-          "label": "Odisseo cerca di tornare a casa; Enea deve fondare un futuro altrove.",
-          "feedback": "Il confronto mostra due direzioni differenti: ritrovare i propri legami oppure assumersi un compito per chi verrà dopo.",
-          "why": "La stessa esperienza del viaggio può esprimere valori e priorità diversi."
-        },
-        {
-          "id": "stessa_guerra",
-          "label": "Achille ed Enea sono eroi, quindi difendono esattamente gli stessi valori.",
-          "feedback": "Essere eroi non significa rappresentare la stessa idea di dovere: bisogna osservare le scelte e i loro costi.",
-          "why": "Le tradizioni vanno confrontate senza appiattire le differenze culturali."
-        },
-        {
-          "id": "solo_fantasia",
-          "label": "Gilgamesh e i racconti norreni sono fantastici, quindi non dicono nulla sulle società.",
-          "feedback": "Gli elementi fantastici possono dare forma a domande reali sulla morte, il coraggio e il destino.",
-          "why": "Un racconto non deve essere cronaca per esprimere i valori di una comunità."
-        }
-      ]
+      "game": {
+        "mode": "contrast",
+        "left": [
+          "Scegli l'affermazione corretta"
+        ],
+        "right": [
+          "Odisseo cerca Itaca, Enea una nuova patria",
+          "Entrambi vogliono soltanto tornare a Troia",
+          "Entrambi rinunciano per sempre ai propri legami"
+        ],
+        "answer": [
+          0
+        ]
+      }
     },
     {
       "id": "epica_confronto",
@@ -839,57 +932,45 @@
     },
     {
       "id": "epica_scelta",
-      "type": "reflection",
-      "title": "Quale storia racconteresti?",
-      "text": "La vostra città ha superato una crisi. Perché una comunità potrebbe scegliere di tramandare la vicenda di una sola persona invece di elencare tutti gli eventi?",
+      "type": "narrative",
+      "title": "Una storia per una comunità",
+      "text": "Perché ricordiamo spesso la vicenda di un singolo eroe?",
       "art": "memoria",
-      "choices": [
-        {
-          "id": "modello",
-          "label": "Perché le sue scelte rendono visibili valori e conflitti del gruppo.",
-          "feedback": "Un personaggio può rendere concreta una domanda che riguarda tutti: che cosa vale la pena difendere?",
-          "why": "Le storie epiche fanno emergere problemi collettivi attraverso azioni individuali."
-        },
-        {
-          "id": "cronaca",
-          "label": "Perché così il racconto diventa automaticamente una cronaca esatta.",
-          "feedback": "Scegliere un protagonista non rende il racconto una registrazione imparziale dei fatti.",
-          "why": "L'epica interpreta e rielabora il passato; non coincide con una cronaca."
-        },
-        {
-          "id": "semplice",
-          "label": "Perché in passato le persone potevano ricordare soltanto un nome.",
-          "feedback": "Le culture orali avevano tecniche sofisticate per ricordare e trasmettere racconti complessi.",
-          "why": "La scelta di un protagonista è anche una scelta di significato, non solo di memoria."
-        }
-      ]
+      "game": {
+        "mode": "contrast",
+        "left": [
+          "Scegli l'affermazione corretta"
+        ],
+        "right": [
+          "Perché rappresenta valori e conflitti collettivi",
+          "Perché ogni racconto epico è una cronaca esatta",
+          "Perché un popolo non ricorda più persone"
+        ],
+        "answer": [
+          0
+        ]
+      }
     },
     {
       "id": "epica_conflitto",
-      "type": "reflection",
-      "title": "Non esiste una scelta senza costo",
-      "text": "Achille, Enea e gli eroi dei poemi indiani affrontano obblighi e desideri in tensione. Quale domanda ti sembra più utile per comprendere le loro decisioni?",
+      "type": "narrative",
+      "title": "Una scelta, molte conseguenze",
+      "text": "Quale domanda aiuta a confrontare Achille, Enea e Arjuna?",
       "art": "patto",
-      "choices": [
-        {
-          "id": "costi",
-          "label": "Chi viene protetto e chi paga il prezzo della scelta?",
-          "feedback": "È una domanda che permette di guardare oltre la gloria dell'eroe e di vedere le conseguenze per gli altri.",
-          "why": "L'epica mette in scena conflitti di valori, non soltanto vittorie."
-        },
-        {
-          "id": "vincitore",
-          "label": "Chi riesce a imporsi e a ottenere più potere?",
-          "feedback": "Il potere è importante in molti racconti, ma non esaurisce il problema del dovere, del dolore e delle perdite.",
-          "why": "Vincere non significa necessariamente risolvere il conflitto morale."
-        },
-        {
-          "id": "fama",
-          "label": "Chi diventa più famoso dopo la battaglia?",
-          "feedback": "La fama è un tema ricorrente, ma chiedersi soltanto chi sia ricordato non spiega il valore attribuito alle sue azioni.",
-          "why": "Bisogna osservare quali comportamenti e quali costi il racconto rende memorabili."
-        }
-      ]
+      "game": {
+        "mode": "contrast",
+        "left": [
+          "Scegli l'affermazione corretta"
+        ],
+        "right": [
+          "Chi viene protetto e chi paga il prezzo?",
+          "Chi ottiene il bottino più grande?",
+          "Chi viene citato più spesso nei libri?"
+        ],
+        "answer": [
+          0
+        ]
+      }
     },
     {
       "id": "epica_sintesi",
@@ -901,23 +982,50 @@
     {
       "id": "epica_araba",
       "type": "narrative",
-      "title": "La grande epica araba: Banū Hilāl",
-      "text": "La Sīrat Banī Hilāl racconta, in molte versioni, le vicende e le migrazioni dei Banū Hilāl dall'Arabia al Nord Africa. In Egitto è stata tramandata anche da cantori accompagnati da strumenti musicali. Un viaggio può essere ricordato come impresa gloriosa da chi arriva, ma vissuto diversamente da chi abita già quei territori. Quali voci entrano nel racconto?",
-      "art": "reti"
+      "title": "La migrazione dei Banū Hilāl",
+      "text": "La Sīrat Banī Hilāl racconta il viaggio dei Banū Hilāl verso il Nord Africa. In Egitto i cantori tramandano anche le imprese dell'eroe Abū Zayd.",
+      "art": "reti",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_araba_atto_2",
+      "type": "narrative",
+      "title": "La voce degli altri",
+      "text": "Per chi arriva, il viaggio può essere un'impresa gloriosa. Per chi vive già in quei territori può significare guerra e perdita. Quale memoria diventa quella ufficiale?",
+      "art": "reti",
+      "epicBeat": true
     },
     {
       "id": "epica_persiana",
       "type": "narrative",
-      "title": "Rostam e Sohrab: quando l'eroe sbaglia",
-      "text": "Nello Shāhnāmeh, il Libro dei Re composto dal poeta persiano Ferdowsi, Rostam affronta il giovane Sohrab senza sapere che è suo figlio. Il riconoscimento arriva troppo tardi. La forza dell'eroe non gli impedisce di provocare una tragedia. Perché tramandare anche gli errori dei grandi?",
-      "art": "crisi"
+      "title": "Un duello senza nomi",
+      "text": "Nello Shāhnāmeh, Sohrab cerca il padre Rostam. Sul campo di battaglia i due si affrontano senza riconoscersi.",
+      "art": "crisi",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_persiana_atto_2",
+      "type": "narrative",
+      "title": "La scoperta terribile",
+      "text": "Rostam ferisce mortalmente Sohrab. Solo allora scopre che è suo figlio. La forza dell'eroe non lo ha salvato da un errore tragico.",
+      "art": "crisi",
+      "epicBeat": true
     },
     {
       "id": "epica_sundiata",
       "type": "narrative",
-      "title": "Sundiata: raccontare la fondazione",
-      "text": "L'epopea di Sundiata, trasmessa da narratori mandé dell'Africa occidentale, collega le vicende di Sundiata Keita alle origini dell'impero del Mali. Il racconto di un sovrano può diventare una memoria condivisa di un popolo. Chi viene ricordato come fondatore? Chi resta sullo sfondo?",
-      "art": "villaggio"
+      "title": "L'infanzia e l'esilio",
+      "text": "I narratori mandé raccontano che Sundiata, futuro sovrano, cresce fra difficoltà e rivalità. La sua famiglia è costretta all'esilio.",
+      "art": "villaggio",
+      "epicBeat": true
+    },
+    {
+      "id": "epica_sundiata_atto_2",
+      "type": "narrative",
+      "title": "Il ritorno del fondatore",
+      "text": "Sundiata raccoglie alleati, sconfigge il rivale Sumanguru e viene ricordato come fondatore dell'impero del Mali.",
+      "art": "villaggio",
+      "epicBeat": true
     },
     {
       "id": "epica_libri",
@@ -956,30 +1064,28 @@
     },
     {
       "id": "miti_ponte",
-      "type": "reflection",
-      "title": "La battaglia del ponte: tre racconti",
-      "text": "Due città combattono per il controllo di un ponte. Entrambe subiscono perdite; una vince. Quale versione scegli di leggere per prima? Dopo la scelta, considera anche ciò che resta fuori.",
+      "type": "narrative",
+      "title": "La battaglia del ponte",
+      "text": "Confronta tre testimonianze: quali elementi sono fatti verificabili e quali sono interpretazioni?",
       "art": "ponte",
-      "choices": [
-        {
-          "id": "vincitori",
-          "label": "Il racconto dei vincitori: «Abbiamo aperto la strada alla libertà».",
-          "feedback": "Il racconto celebra il coraggio e il nuovo futuro. Restano in ombra le perdite degli avversari, le divisioni interne e le conseguenze della conquista.",
-          "why": "È una prospettiva possibile, ma non una descrizione completa dell'evento."
-        },
-        {
-          "id": "sconfitti",
-          "label": "Il racconto degli sconfitti: «Abbiamo difeso le nostre case».",
-          "feedback": "Il racconto mette al centro chi ha perso il ponte. Restano in ombra le ragioni degli avversari e gli eventuali errori dei difensori.",
-          "why": "La memoria dei vinti può conservare fatti trascurati da quella dei vincitori, ma va anch'essa verificata."
-        },
-        {
-          "id": "storico",
-          "label": "La ricostruzione storica: «Confrontiamo le testimonianze».",
-          "feedback": "Lo storico cerca documenti e testimonianze delle due città; distingue i fatti verificabili dalle interpretazioni e ammette ciò che non sa.",
-          "why": "Le fonti non sono tutte equivalenti: una ricostruzione storica richiede prove, confronto e attenzione alle incertezze."
-        }
-      ]
+      "game": {
+        "mode": "sources",
+        "left": [
+          "«La città A ha conquistato il ponte.»",
+          "«Abbiamo liberato il ponte dagli oppressori.»",
+          "«Abbiamo difeso le nostre famiglie.»"
+        ],
+        "right": [
+          "Fatto da verificare",
+          "Interpretazione dei vincitori",
+          "Interpretazione degli sconfitti"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "miti_conclusione",

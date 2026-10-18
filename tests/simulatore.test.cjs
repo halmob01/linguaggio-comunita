@@ -43,15 +43,15 @@ function play(selections,checkRestore=true){
   return session;
 }
 
-test('52 scene: simulazione, epiche comparate e miti contemporanei prima di Ettore',()=>{
+test('60 scene: simulazione, epiche comparate e miti contemporanei prima di Ettore',()=>{
   assert.equal(engine.validateStory(story),story);
-  assert.equal(story.scenes.length,52);
+  assert.equal(story.scenes.length,60);
   for(const id of ['epica_araba','epica_persiana','epica_sundiata','epica_libri','epica_trasmissione','miti_oggi','miti_vincitori','miti_algoritmi','miti_ponte','miti_conclusione'])assert.ok(story.scenes.some(x=>x.id===id),id);
   assert.ok(story.scenes.find(x=>x.id==='epica_sapere').text.includes('oralità'));
-  assert.ok(story.scenes.find(x=>x.id==='epica_confronto_1').text.includes('Mahabharata'));
-  assert.ok(story.scenes.find(x=>x.id==='epica_confronto_2').text.includes('Gilgamesh'));
-  assert.ok(story.scenes.find(x=>x.id==='epica_confronto_3').text.includes('Odisseo'));
-  assert.equal(story.scenes.filter(x=>x.id.startsWith('epica_')&&x.type==='reflection').length,3);
+  assert.equal(story.scenes.find(x=>x.id==='epica_confronto_1').game.mode,'match');
+  assert.equal(story.scenes.find(x=>x.id==='epica_confronto_2').game.mode,'match');
+  assert.equal(story.scenes.find(x=>x.id==='epica_confronto_3').game.mode,'match');
+  assert.equal(story.scenes.filter(x=>x.game).length,7);
   assert.equal(story.scenes.find(x=>x.id==='imparato').type,'narrative');
   assert.equal(story.scenes.find(x=>x.id==='trasferimento').type,'reflection');
   assert.ok(story.scenes.find(x=>x.id==='imparato').text.includes('sociopoietica'));
@@ -107,7 +107,7 @@ test('tutte le 81 ramificazioni arrivano al finale, e restore regge ogni passagg
     for(const c of choicesByScene.pericolo)
      for(const r of choicesByScene.racconto){
        const x=play({patto:p,mercato:m,pericolo:c,racconto:r});
-       assert.equal(x.decisions.length,21);
+       assert.equal(x.decisions.length,17);
        for(const stat of story.stats)assert.ok(x.values[stat.id]>=0&&x.values[stat.id]<=100);
        n++;
      }
@@ -153,7 +153,7 @@ test('tutte le 81 combinazioni di risposte agli esercizi avanzano e si ripristin
       const choices={...base,ex_gettoni:a,ex_conseguenze:b,ex_fatti:c,ex_punti_vista:d};
       const end=play(choices);
       assert.equal(end.phase,'end');
-      assert.equal(end.decisions.length,21);
+      assert.equal(end.decisions.length,17);
       assert.equal(end.decisions.filter(x=>x.sceneId.startsWith('ex_')).length,4);
       n++;
     }
@@ -215,4 +215,17 @@ test('pagina e script caricati nell’ordine e senza riferimenti a dati di altre
  assert.ok(app.includes('linguaggio-comunita-session-v1'));
  assert.ok(app.includes("selected('pericolo')"));
  assert.ok(!app.includes('epica-romanzo-session-v1'));
+});
+
+test('giochi di confronto: corrispondenze e traduzioni complete',()=>{
+ const context={};vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../ar.js'),'utf8'),context);
+ for(const scene of story.scenes.filter(s=>s.game)){
+  assert.equal(scene.type,'narrative');
+  assert.equal(scene.game.left.length,scene.game.answer.length);
+  assert.ok(scene.game.right.length>0);
+  for(const answer of scene.game.answer)assert.ok(Number.isInteger(answer)&&answer>=0&&answer<scene.game.right.length);
+  const tr=context.ComunitaArabic.scenes[scene.id].game;
+  assert.equal(tr.left.length,scene.game.left.length);
+  assert.equal(tr.right.length,scene.game.right.length);
+ }
 });

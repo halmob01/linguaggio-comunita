@@ -144,12 +144,24 @@
       <div class="row"><button class="btn" data-action="restart">Ricomincia</button>
       <button class="btn ghost" data-action="menu">Torna all'inizio</button></div>`;
   }
+  function comparison(scene){
+    const g=scene.game,translation=language==='ar'?ar.scenes?.[scene.id]?.game:null;
+    const left=translation?.left||g.left,right=translation?.right||g.right;
+    const answers=window.__lcGameAnswers||{};
+    const state=answers[scene.id]||{};
+    const row=(label,i)=>'<div class="lc-game-row"><strong>'+esc(label)+'</strong><select data-game-index="'+i+'" aria-label="'+esc(label)+'"><option value="">'+esc(t('Scegli un confronto'))+'</option>'+right.map((r,j)=>'<option value="'+j+'" '+(state[i]===String(j)?'selected':'')+'>'+esc(r)+'</option>').join('')+'</select></div>';
+    const complete=left.every((_,i)=>state[i]!==undefined&&state[i]!=='');
+    const correct=complete&&left.every((_,i)=>Number(state[i])===g.answer[i]);
+    return '<section class="lc-game" aria-label="'+esc(t('Gioco di confronto'))+'"><div class="eyebrow">'+esc(t('Confronta le storie'))+'</div><h2>'+esc(scene.title)+'</h2><p>'+esc(scene.text)+'</p><div class="lc-game-grid">'+left.map(row).join('')+'</div>'+
+    '<div class="row"><button class="btn" type="button" data-action="game-check" '+(!complete?'disabled':'')+'>'+esc(t('Verifica il confronto'))+'</button><button class="btn ghost" type="button" data-action="next">'+esc(t('Prosegui'))+'</button></div>'+
+    (state.checked?'<div class="lc-game-feedback" role="status">'+esc(correct?t('Confronto corretto. Le storie condividono temi, ma non gli stessi valori.'):t('Riprova: osserva le differenze tra i protagonisti e le fonti.'))+'</div>':'')+'</section>';
+  }
   function prologue(){
     const isReview=previewIndex!==null,ix=isReview?previewIndex:session.index,scene=story.scenes[ix];
     const initially=ix<intro;
     const total=isReview||initially?intro:chapters;
     $('prologue').hidden=false;
-    $('prologue').innerHTML=translateUI(`<div class="pro-card" role="document">
+    $('prologue').innerHTML=scene.game?comparison(scene):translateUI(`<div class="pro-card" role="document">
       <div class="pro-art pro-in">${art.markup(scene.art,session.values)}</div>
       <div class="pro-body">
         <div class="pro-top"><div class="eyebrow">${isReview?'Ripasso':initially?'Dalle lezioni precedenti':scene.id.startsWith('epica_')?'Le grandi tradizioni epiche':scene.id.startsWith('miti_')?'I miti di oggi':'Racconto'} · ${initially||isReview?ix+1:ix+1}/${total}</div>
@@ -162,6 +174,19 @@
       </div></div>`);
     $('prologue').querySelector('.btn')?.focus({preventScroll:true});
   }
+  document.addEventListener('change',event=>{
+    const input=event.target.closest('[data-game-index]');if(!input||!session)return;
+    const scene=story.scenes[session.index];if(!scene?.game)return;
+    window.__lcGameAnswers=window.__lcGameAnswers||{};
+    const state=window.__lcGameAnswers[scene.id]||{};state[input.dataset.gameIndex]=input.value;state.checked=false;
+    window.__lcGameAnswers[scene.id]=state;prologue();
+  });
+  document.addEventListener('click',event=>{
+    if(!event.target.closest('[data-action="game-check"]')||!session)return;
+    const scene=story.scenes[session.index];if(!scene?.game)return;
+    window.__lcGameAnswers=window.__lcGameAnswers||{};
+    window.__lcGameAnswers[scene.id]={...(window.__lcGameAnswers[scene.id]||{}),checked:true};prologue();
+  });
   function render(){
     if(!session){showLanding();return;}
     $('landing').hidden=true;$('app').hidden=false;

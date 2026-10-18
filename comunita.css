@@ -31,3 +31,14 @@
 .lc-ar .ep-choice{direction:rtl;text-align:right}
 .lc-ar .ep-stat-head,.lc-ar .ep-change{direction:rtl}
 .lc-ar .ep-choices,.lc-ar .pro-body{direction:rtl}
+
+/* Mini-giochi di confronto, indipendenti dagli indicatori della simulazione. */
+.lc-game{padding:clamp(1rem,3vw,2rem);background:var(--paper);display:grid;gap:1rem;max-width:800px;margin:auto}
+.lc-game h2{font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.1}
+.lc-game p{max-width:58ch;line-height:1.5}
+.lc-game-grid{display:grid;gap:.6rem}
+.lc-game-row{display:grid;grid-template-columns:minmax(110px,1fr) minmax(0,1.6fr);gap:.7rem;align-items:center;padding:.7rem;background:var(--soft);border-left:4px solid var(--ink)}
+.lc-game-row select{font:inherit;max-width:100%;min-width:0;border:2px solid var(--ink);border-radius:4px;padding:.65rem;background:white;color:var(--ink)}
+.lc-game-feedback{padding:1rem;border-left:4px solid var(--ink);background:var(--soft);font-weight:700}
+.lc-ar .lc-game{font-family:Cairo,sans-serif;direction:rtl}.lc-ar .lc-game-row{border-left:0;border-right:4px solid var(--ink)}
+@media(max-width:35rem){.lc-game-row{grid-template-columns:1fr}}
