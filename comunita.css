@@ -21,3 +21,13 @@
 @media (max-width:52rem) {.lc-intro-grid {grid-template-columns:1fr}.lc-cover {aspect-ratio:16/9}.lc-start {box-shadow:4px 4px 0 var(--red)}}
 @media (max-width:36rem) {.ep-display {font-size:clamp(2.5rem,13vw,4.5rem)}.ep-mast {align-items:flex-start}.ep-brand {font-size:1.15rem}.ep-hud {gap:.3rem}.ep-stat-head {gap:.2rem}}
 @media (prefers-reduced-motion:reduce) {*,*::before,*::after {scroll-behavior:auto!important}}
+
+/* Lingua: italiano predefinito, arabo con direzione RTL. */
+.lc-language{position:fixed;z-index:1000;top:12px;right:12px}
+.lc-language button{border:1px solid var(--line,#dce8e8);background:var(--white,#fff);color:var(--ink,#172d3b);padding:8px 13px;border-radius:999px;font:700 14px 'Public Sans',sans-serif;cursor:pointer;box-shadow:0 2px 10px #0001}
+.lc-ar{font-family:'Cairo','Public Sans',sans-serif}
+.lc-ar .pro-text,.lc-ar .ep-lead,.lc-ar .ep-choice,.lc-ar .note,.lc-ar .ep-deck,.lc-ar .ep-story-note,.lc-ar .lc-context{font-family:'Cairo',sans-serif;line-height:1.9;text-align:start}
+.lc-ar .pro-title,.lc-ar .ep-display,.lc-ar h1,.lc-ar h2,.lc-ar h3{font-family:'Cairo',sans-serif;line-height:1.45}
+.lc-ar .ep-choice{direction:rtl;text-align:right}
+.lc-ar .ep-stat-head,.lc-ar .ep-change{direction:rtl}
+.lc-ar .ep-choices,.lc-ar .pro-body{direction:rtl}
