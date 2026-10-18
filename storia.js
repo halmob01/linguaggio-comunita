@@ -899,6 +899,96 @@
       "art": "parole"
     },
     {
+      "id": "epica_araba",
+      "type": "narrative",
+      "title": "La grande epica araba: Banū Hilāl",
+      "text": "La Sīrat Banī Hilāl racconta, in molte versioni, le vicende e le migrazioni dei Banū Hilāl dall'Arabia al Nord Africa. In Egitto è stata tramandata anche da cantori accompagnati da strumenti musicali. Un viaggio può essere ricordato come impresa gloriosa da chi arriva, ma vissuto diversamente da chi abita già quei territori. Quali voci entrano nel racconto?",
+      "art": "reti"
+    },
+    {
+      "id": "epica_persiana",
+      "type": "narrative",
+      "title": "Rostam e Sohrab: quando l'eroe sbaglia",
+      "text": "Nello Shāhnāmeh, il Libro dei Re composto dal poeta persiano Ferdowsi, Rostam affronta il giovane Sohrab senza sapere che è suo figlio. Il riconoscimento arriva troppo tardi. La forza dell'eroe non gli impedisce di provocare una tragedia. Perché tramandare anche gli errori dei grandi?",
+      "art": "crisi"
+    },
+    {
+      "id": "epica_sundiata",
+      "type": "narrative",
+      "title": "Sundiata: raccontare la fondazione",
+      "text": "L'epopea di Sundiata, trasmessa da narratori mandé dell'Africa occidentale, collega le vicende di Sundiata Keita alle origini dell'impero del Mali. Il racconto di un sovrano può diventare una memoria condivisa di un popolo. Chi viene ricordato come fondatore? Chi resta sullo sfondo?",
+      "art": "villaggio"
+    },
+    {
+      "id": "epica_libri",
+      "type": "narrative",
+      "title": "La biblioteca delle grandi epiche",
+      "text": "Mesopotamia: Epopea di Gilgamesh. Grecia: Iliade e Odissea, tradizionalmente attribuite a Omero. Roma: Eneide di Virgilio. India: Mahabharata e Ramayana. Persia: Shāhnāmeh di Ferdowsi. Tradizione araba: Sīrat Banī Hilāl. Africa occidentale: epopea di Sundiata. Mondo norreno: poemi dell'Edda e saghe islandesi. Sono opere e tradizioni diverse: non formano un solo libro né un solo genere identico.",
+      "art": "parole"
+    },
+    {
+      "id": "epica_trasmissione",
+      "type": "narrative",
+      "title": "Chi custodiva queste storie?",
+      "text": "Gilgamesh ci è giunto su tavolette mesopotamiche. I poemi omerici sono legati a tradizioni orali poi trasmesse in forma scritta; Virgilio compose l'Eneide come opera letteraria. Le epiche indiane hanno attraversato secoli di rielaborazioni; la Sīrat Banī Hilāl ha avuto una forte tradizione performativa; i racconti di Sundiata sono tramandati da narratori mandé. Molti testi norreni furono messi per iscritto nell'Islanda medievale. Non esiste un'unica storia della nascita dei libri epici.",
+      "art": "parole"
+    },
+    {
+      "id": "miti_oggi",
+      "type": "narrative",
+      "title": "I miti non sono finiti",
+      "text": "Oggi una comunità può raccontare un campione sportivo come simbolo di una città, oppure riconoscersi in un eroe cinematografico. Le storie di Star Wars, per esempio, mettono in scena genealogie, prove, sacrifici e responsabilità. Non sono la stessa cosa dell'epica antica, ma possiamo confrontare le domande che pongono. Un mito non è necessariamente una bugia: è anche un racconto che attribuisce significato a persone ed eventi.",
+      "art": "reti"
+    },
+    {
+      "id": "miti_vincitori",
+      "type": "narrative",
+      "title": "Chi racconta la vittoria?",
+      "text": "Una città celebra una battaglia con un monumento. Per i vincitori può rappresentare coraggio e fondazione; per gli sconfitti perdita e sofferenza. La formula «la storia la scrivono i vincitori» è un avvertimento utile, non una legge universale: esistono anche testimonianze dei vinti e ricerche che ricostruiscono più prospettive. Una memoria pubblica seleziona; uno storico deve confrontare le fonti.",
+      "art": "crisi"
+    },
+    {
+      "id": "miti_algoritmi",
+      "type": "narrative",
+      "title": "Dai cantori agli algoritmi",
+      "text": "Un tempo i racconti circolavano attraverso cantori, rituali, manoscritti e libri. Oggi anche video, meme e piattaforme digitali contribuiscono a rendere alcuni episodi molto visibili e altri quasi invisibili. I mezzi sono diversi, ma rimane una domanda: chi decide quali persone e fatti meritano attenzione?",
+      "art": "parole"
+    },
+    {
+      "id": "miti_ponte",
+      "type": "reflection",
+      "title": "La battaglia del ponte: tre racconti",
+      "text": "Due città combattono per il controllo di un ponte. Entrambe subiscono perdite; una vince. Quale versione scegli di leggere per prima? Dopo la scelta, considera anche ciò che resta fuori.",
+      "art": "ponte",
+      "choices": [
+        {
+          "id": "vincitori",
+          "label": "Il racconto dei vincitori: «Abbiamo aperto la strada alla libertà».",
+          "feedback": "Il racconto celebra il coraggio e il nuovo futuro. Restano in ombra le perdite degli avversari, le divisioni interne e le conseguenze della conquista.",
+          "why": "È una prospettiva possibile, ma non una descrizione completa dell'evento."
+        },
+        {
+          "id": "sconfitti",
+          "label": "Il racconto degli sconfitti: «Abbiamo difeso le nostre case».",
+          "feedback": "Il racconto mette al centro chi ha perso il ponte. Restano in ombra le ragioni degli avversari e gli eventuali errori dei difensori.",
+          "why": "La memoria dei vinti può conservare fatti trascurati da quella dei vincitori, ma va anch'essa verificata."
+        },
+        {
+          "id": "storico",
+          "label": "La ricostruzione storica: «Confrontiamo le testimonianze».",
+          "feedback": "Lo storico cerca documenti e testimonianze delle due città; distingue i fatti verificabili dalle interpretazioni e ammette ciò che non sa.",
+          "why": "Le fonti non sono tutte equivalenti: una ricostruzione storica richiede prove, confronto e attenzione alle incertezze."
+        }
+      ]
+    },
+    {
+      "id": "miti_conclusione",
+      "type": "narrative",
+      "title": "Che cosa resta da ricordare?",
+      "text": "Le storie antiche e moderne selezionano protagonisti, conflitti e valori. Non tutte le versioni sono ugualmente attendibili: per ricostruire un fatto bisogna confrontare prove e testimonianze. Per capire una comunità, invece, chiediamoci anche perché sceglie proprio quella storia, chi la racconta e chi non viene ascoltato. Ora possiamo incontrare Ettore: un difensore di Troia ricordato anche attraverso il poema della parte avversaria.",
+      "art": "memoria"
+    },
+    {
       "id": "ponte",
       "type": "narrative",
       "title": "Una persona, il destino di molti",
