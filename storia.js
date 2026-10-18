@@ -236,7 +236,7 @@
       "choices": [
         {
           "id": "materiale",
-          "label": "Perché sono fatti con un materiale difficile da trovare.",
+          "label": "Perché sono prodotti con un materiale raro e riconoscibile.",
           "correct": false,
           "feedback": "Il materiale può renderli riconoscibili, ma da solo non stabilisce che cosa permettono di fare.",
           "why": "Perché un oggetto funzioni come simbolo di scambio serve un accordo su come usarlo, non soltanto una caratteristica fisica."
@@ -250,7 +250,7 @@
         },
         {
           "id": "conoscenti",
-          "label": "Perché chi li distribuisce conosce ogni studente di persona.",
+          "label": "Perché chi li distribuisce conosce tutti gli studenti di persona.",
           "correct": false,
           "feedback": "Conoscersi può aiutare, ma non basta a spiegare perché un gettone debba essere accettato da tutti.",
           "why": "Il valore condiviso dipende da una regola comune, non dai rapporti personali con chi distribuisce i gettoni."
@@ -269,14 +269,14 @@
       "choices": [
         {
           "id": "migliore",
-          "label": "Quale decisione ha protetto meglio tutti gli abitanti.",
+          "label": "Quale decisione ha protetto meglio le persone e le risorse.",
           "correct": false,
           "feedback": "Le barre mostrano conseguenze parziali, non quale decisione avrebbe protetto tutti in ogni circostanza.",
           "why": "I valori descrivono aspetti diversi e ipotetici; possono aumentare e diminuire nello stesso turno."
         },
         {
           "id": "errore",
-          "label": "Quale errore personale ha commesso chi ha deciso.",
+          "label": "Quale errore ha commesso il gruppo decidendo durante la crisi.",
           "correct": false,
           "feedback": "Un valore che diminuisce non rivela automaticamente un errore personale: anche una scelta ragionevole può avere un costo.",
           "why": "Una decisione può avere un costo anche quando è motivata da un obiettivo comprensibile."
@@ -335,7 +335,7 @@
       "choices": [
         {
           "id": "anziano",
-          "label": "Il racconto più antico riesce a descrivere meglio le cause.",
+          "label": "Il racconto più antico riesce a spiegare meglio le cause dell'incendio.",
           "correct": false,
           "feedback": "Un racconto antico può conservare elementi importanti, ma l'età non garantisce una spiegazione migliore delle cause.",
           "why": "Ogni testimonianza può mettere in evidenza aspetti differenti dello stesso evento."
@@ -349,7 +349,7 @@
         },
         {
           "id": "dettagli",
-          "label": "Il racconto più dettagliato restituisce tutta la vicenda.",
+          "label": "Il racconto con più dettagli rappresenta meglio ciò che il gruppo ha vissuto.",
           "correct": false,
           "feedback": "I dettagli arricchiscono una testimonianza, ma anche un racconto accurato seleziona alcuni aspetti e ne lascia fuori altri.",
           "why": "L'importanza che diamo a una storia dipende anche da quali persone e valori scegliamo di ricordare."
