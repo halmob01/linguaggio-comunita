@@ -693,6 +693,40 @@
       ]
     },
     {
+      "id": "imparato",
+      "type": "narrative",
+      "title": "Che cosa ho imparato?",
+      "text": "Le parole non servono solo a comunicare: permettono di creare regole, promesse e istituzioni. Una comunità esiste perché le persone riconoscono accordi condivisi. Le decisioni hanno conseguenze e richiedono compromessi. Infine, i racconti scelgono quali persone e valori tramandare. Questa capacità di costruire la vita sociale attraverso il linguaggio si chiama funzione sociopoietica.",
+      "art": "parole"
+    },
+    {
+      "id": "trasferimento",
+      "type": "reflection",
+      "title": "Porta questa idea fuori dal gioco",
+      "text": "Pensa alla tua scuola: studenti che non si conoscono usano laboratori, rispettano turni e seguono regole comuni. Quale collegamento con la città che hai costruito ti sembra più importante?",
+      "art": "patto",
+      "choices": [
+        {
+          "id": "accordi_scuola",
+          "label": "Anche a scuola collaboriamo grazie a regole riconosciute.",
+          "feedback": "Hai collegato il gioco alla vita quotidiana: un turno in laboratorio funziona perché tutti sanno che cosa significa e come rispettarlo.",
+          "why": "Il linguaggio permette di stabilire e condividere convenzioni anche fra persone che non si conoscono."
+        },
+        {
+          "id": "conflitti_scuola",
+          "label": "Anche a scuola una decisione può aiutare alcuni e pesare su altri.",
+          "feedback": "Hai riconosciuto i compromessi: organizzare uno spazio comune significa tenere conto di bisogni diversi.",
+          "why": "Le regole non cancellano i conflitti, ma offrono strumenti per discuterli e affrontarli."
+        },
+        {
+          "id": "storie_scuola",
+          "label": "Anche a scuola raccontiamo episodi che diventano ricordi comuni.",
+          "feedback": "Hai riconosciuto il ruolo dei racconti: alcuni episodi vengono ripetuti e diventano parte della memoria di un gruppo.",
+          "why": "Quando scegliamo che cosa ricordare, mettiamo in evidenza persone, gesti e valori."
+        }
+      ]
+    },
+    {
       "id": "ponte",
       "type": "narrative",
       "title": "Una persona, il destino di molti",
