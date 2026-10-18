@@ -1,47 +1,47 @@
-# Linguaggio e comunità — primo prototipo giocabile
+# Linguaggio e comunità — dal linguaggio all'epica
 
-**Stato:** applicazione implementata nel ramo [feat/primo-simulatore](https://github.com/halmob01/linguaggio-comunita/tree/feat/primo-simulatore), non ancora collaudata su un telefono reale e non ancora pubblicata per la classe.
+Applicazione didattica statica per una lezione sul linguaggio, le convenzioni condivise e la memoria collettiva. Realizzata a partire da `sito-feudo` e dal motore generalizzato di `epica-romanzo/base-feudo`.
 
-Questo progetto recupera il motore narrativo di `epica-romanzo/base-feudo` (commit sorgente `90b798bd54920cdea5d20d272ffc36349520c537`) e gli stili di Feudo. Sono stati creati un prologo di cinque card, tre decisioni con indicatori, una riflessione sulla memoria collettiva e la domanda-ponte su Ettore.
-
-**Prova in locale:** `python3 -m http.server 8000` nella radice, poi aprire `http://localhost:8000`. Per il controllo automatico: `node --test tests/*.test.cjs` (Node 20+).
-
-**Architettura:** `engine.js` (motore riutilizzato), `storia.js` (testi ed effetti), `comunita-map.js` (SVG), `comunita-app.js` (UI e localStorage), `index.html` + fogli di stile.
-
-Il percorso ha scelte senza risposta morale unica e non utilizza voti, classifiche o dati personali. Tutti gli indicatori numerici sono simulati. Il finale richiama le scelte concrete compiute.
-
-Dettagli e limiti: [docs/STATO-PROTOTIPO.md](docs/STATO-PROTOTIPO.md); progetto didattico: [docs/PROGETTO-DIDATTICO.md](docs/PROGETTO-DIDATTICO.md).
-
----
-
-
-Attività didattica interattiva: **dal linguaggio alle convenzioni condivise, dall'immaginario collettivo al ponte con l'epica**.
-
-## Stato
-
-**Fase progettuale.** La repository contiene le specifiche didattiche, non ancora un'applicazione funzionante. Non pubblicare o proporre il sito agli studenti prima dei test.
+**Versione giocabile in:** [`feat/primo-simulatore`](https://github.com/halmob01/linguaggio-comunita/tree/feat/primo-simulatore), proposta dalla [PR #1](https://github.com/halmob01/linguaggio-comunita/pull/1) ancora in bozza. **Non ancora collaudata su smartphone reale o pubblicata per la classe.**
 
 ## Percorso
 
-1. **Prologo (5 card)**: richiamo alle lezioni sul linguaggio, sulla cooperazione e sulla funzione sociopoietica.
-2. **Simulazione**: fondare una comunità, stabilire convenzioni, prendere decisioni con costi e benefici.
-3. **Crisi**: un pericolo mette in tensione gli interessi del singolo e i doveri verso il gruppo.
-4. **Memoria collettiva**: una vicenda viene raccontata e tramandata.
-5. **Domanda finale**: perché una comunità ricorda alcune persone e alcune imprese? Ponte verso l'epica, da affrontare nella lezione successiva.
+1. **5 card di prologo:** ritorno alle lezioni su cooperazione, linguaggio, finzioni condivise e funzione sociopoietica.
+2. **3 decisioni:** patto per la comunità, scambi fra sconosciuti, crisi; indicatori `Fiducia`, `Risorse`, `Coesione` e conseguenze commentate.
+3. **Memoria collettiva:** cento anni dopo, la città sceglie che cosa tramandare dell'accaduto.
+4. **4 micro-esercizi formativi:** convenzioni, compromessi, fatto/interpretazione, punti di vista. Feedback e risposta spiegata, **senza voto**.
+5. **Apertura verso l'epica:** come un'azione individuale arriva a rappresentare il destino di un popolo? La lezione successiva affronta Ettore.
 
-Durata indicativa **35–40 minuti**, da validare in classe. Non ripetere come quiz l'intera lezione sul linguaggio: usare i concetti già studiati per scoprire qualcosa di nuovo.
+**Durata obiettivo:** 35–45 minuti con discussione, da verificare con gli studenti.
 
-## Design e base tecnica
+## Architettura e origine
 
-Identità grafica, card narrative, navigazione, feedback, indicatori e animazioni da **sito-feudo**. Base tecnica candidata: ramo `base-feudo` di **epica-romanzo**, a sua volta derivato da `sito-game-template1`. La base oggi **non è ancora un motore generalizzato**: include logiche e testi del Feudo. Evitare di copiare l'intera simulazione medievale senza adattarla.
+- `engine.js`: motore narrativo **invariato**, importato da `halmob01/epica-romanzo` / `base-feudo`, commit `90b798bd54920cdea5d20d272ffc36349520c537`.
+- `storia.js`: contenuti, scene, scelte e quiz.
+- `comunita-map.js`: illustrazioni SVG responsive.
+- `comunita-app.js`: prologo, scelte, feedback, salvataggio/ripresa e riepilogo personalizzato.
+- `stile.css`, `simulazione.css`, `comunita.css`: identità visiva derivata da Feudo, adattata al percorso.
+- `tests/simulatore.test.cjs`: test delle scelte, del ripristino e degli esercizi.
 
-- Repository base: https://github.com/halmob01/epica-romanzo/tree/base-feudo
-- Sito di riferimento: https://github.com/halmob01/sito-feudo
-- Specifiche didattiche: [docs/PROGETTO-DIDATTICO.md](docs/PROGETTO-DIDATTICO.md)
-- Piano di riuso: [docs/RIUSO-MOTORE.md](docs/RIUSO-MOTORE.md)
+Non ci sono servizi remoti, login, classifiche o dati personali degli studenti.
 
-## Vincoli
+## Prova e verifica
 
-Sito statico HTML/CSS/JS, destinato a GitHub Pages; mobile-first; niente login, backend o dati personali degli studenti nella prima versione. Le scelte devono mostrare conseguenze comprensibili e **non essere un test morale**. Gli indicatori sono convenzioni ludiche, non misure scientifiche di una società.
+Da un server statico locale:
 
-**Da approvare prima dell'implementazione:** numero esatto dei turni, scelte e variazioni numeriche; sequenza e visual della comunità. Le cinque card di prologo sono già state concordate.
+```sh
+python3 -m http.server 8000
+# Aprire http://localhost:8000
+node --test tests/*.test.cjs
+```
+
+La CI verifica la sintassi e i test. Sono state percorse **81 combinazioni di scelte della comunità** e **81 combinazioni degli esercizi**. Non equivale a una prova su dispositivo reale.
+
+## Documentazione
+
+- [Progetto didattico](docs/PROGETTO-DIDATTICO.md)
+- [Stato del prototipo](docs/STATO-PROTOTIPO.md)
+- [Audit esercizi con la skill `verifiche-didattiche`](docs/REVIEW-ESERCIZI.md)
+- [Piano di riuso della base](docs/RIUSO-MOTORE.md)
+
+Non unire e pubblicare per la classe prima di aver revisionato il testo e collaudato l'interfaccia su desktop e telefono.
