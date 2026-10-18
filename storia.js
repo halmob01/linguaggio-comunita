@@ -696,33 +696,33 @@
       "id": "imparato",
       "type": "narrative",
       "title": "Che cosa ho imparato?",
-      "text": "Le parole non servono solo a comunicare: permettono di creare regole, promesse e istituzioni. Una comunità esiste perché le persone riconoscono accordi condivisi. Le decisioni hanno conseguenze e richiedono compromessi. Infine, i racconti scelgono quali persone e valori tramandare. Questa capacità di costruire la vita sociale attraverso il linguaggio si chiama funzione sociopoietica.",
+      "text": "Nelle lezioni precedenti avevamo già studiato il linguaggio e la funzione sociopoietica: era il nostro punto di partenza. Oggi abbiamo scoperto qualcosa di nuovo. Primo: governare una comunità significa scegliere fra bisogni diversi e accettare compromessi. Secondo: gli avvenimenti non diventano automaticamente memoria collettiva; qualcuno decide quali ricordare. Terzo: ogni racconto sceglie protagonisti, punti di vista e valori. Per questo la storia di una persona può diventare importante per un intero popolo.",
       "art": "parole"
     },
     {
       "id": "trasferimento",
       "type": "reflection",
       "title": "Porta questa idea fuori dal gioco",
-      "text": "Pensa alla tua scuola: studenti che non si conoscono usano laboratori, rispettano turni e seguono regole comuni. Quale collegamento con la città che hai costruito ti sembra più importante?",
+      "text": "Pensa a una decisione presa nella tua scuola o nella tua classe. Quale nuova idea del gioco ti aiuta a comprenderla meglio?",
       "art": "patto",
       "choices": [
         {
           "id": "accordi_scuola",
-          "label": "Anche a scuola collaboriamo grazie a regole riconosciute.",
-          "feedback": "Hai collegato il gioco alla vita quotidiana: un turno in laboratorio funziona perché tutti sanno che cosa significa e come rispettarlo.",
-          "why": "Il linguaggio permette di stabilire e condividere convenzioni anche fra persone che non si conoscono."
+          "label": "Ogni decisione può risolvere un problema ma creare altri costi.",
+          "feedback": "Hai riconosciuto che una decisione può essere ragionevole senza soddisfare tutti: conta valutare chi ne trae beneficio e chi sostiene i costi.",
+          "why": "Le decisioni collettive richiedono compromessi fra esigenze diverse."
         },
         {
           "id": "conflitti_scuola",
-          "label": "Anche a scuola una decisione può aiutare alcuni e pesare su altri.",
-          "feedback": "Hai riconosciuto i compromessi: organizzare uno spazio comune significa tenere conto di bisogni diversi.",
-          "why": "Le regole non cancellano i conflitti, ma offrono strumenti per discuterli e affrontarli."
+          "label": "Lo stesso episodio può essere raccontato da punti di vista diversi.",
+          "feedback": "Hai riconosciuto che due persone possono ricordare lo stesso evento mettendo al centro protagonisti e valori differenti.",
+          "why": "Il punto di vista scelto modifica il significato che attribuiamo a un avvenimento."
         },
         {
           "id": "storie_scuola",
-          "label": "Anche a scuola raccontiamo episodi che diventano ricordi comuni.",
-          "feedback": "Hai riconosciuto il ruolo dei racconti: alcuni episodi vengono ripetuti e diventano parte della memoria di un gruppo.",
-          "why": "Quando scegliamo che cosa ricordare, mettiamo in evidenza persone, gesti e valori."
+          "label": "Un episodio diventa memoria del gruppo quando viene tramandato.",
+          "feedback": "Hai individuato il passaggio dall'evento al ricordo collettivo: alcuni fatti vengono raccontati ancora, altri finiscono nell'oblio.",
+          "why": "La memoria collettiva nasce da una selezione di eventi e personaggi, non da una registrazione completa del passato."
         }
       ]
     },
