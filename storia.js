@@ -911,15 +911,16 @@
       "game": {
         "mode": "contrast",
         "left": [
+          "Scegli l'affermazione corretta"
+        ],
+        "right": [
           "Odisseo cerca Itaca, Enea una nuova patria",
           "Entrambi vogliono soltanto tornare a Troia",
           "Entrambi rinunciano per sempre ai propri legami"
         ],
-        "right": [
-          "La prima descrive correttamente le differenze",
-          "Le altre confondono vicende e valori"
-        ],
-        "answer": []
+        "answer": [
+          0
+        ]
       }
     },
     {
@@ -938,15 +939,16 @@
       "game": {
         "mode": "contrast",
         "left": [
+          "Scegli l'affermazione corretta"
+        ],
+        "right": [
           "Perché rappresenta valori e conflitti collettivi",
           "Perché ogni racconto epico è una cronaca esatta",
           "Perché un popolo non ricorda più persone"
         ],
-        "right": [
-          "La prima descrive correttamente le differenze",
-          "Le altre confondono vicende e valori"
-        ],
-        "answer": []
+        "answer": [
+          0
+        ]
       }
     },
     {
@@ -958,15 +960,16 @@
       "game": {
         "mode": "contrast",
         "left": [
+          "Scegli l'affermazione corretta"
+        ],
+        "right": [
           "Chi viene protetto e chi paga il prezzo?",
           "Chi ottiene il bottino più grande?",
           "Chi viene citato più spesso nei libri?"
         ],
-        "right": [
-          "La prima descrive correttamente le differenze",
-          "Le altre confondono vicende e valori"
-        ],
-        "answer": []
+        "answer": [
+          0
+        ]
       }
     },
     {
