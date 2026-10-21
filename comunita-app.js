@@ -144,6 +144,15 @@
       <div class="row"><button class="btn" data-action="restart">Ricomincia</button>
       <button class="btn ghost" data-action="menu">Torna all'inizio</button></div>`;
   }
+  function epicRecall(scene){
+    const g=scene.game;if(!g?.reminders?.length)return '';
+    const translated=language==='ar'?ar.scenes?.[scene.id]?.game:null;
+    const reminders=translated?.reminders||g.reminders;
+    const example=translated?.example||g.example;
+    return '<div class="lc-epic-recall"><div class="lc-epic-recall-head"><span class="eyebrow">'+esc(t('Prima di giocare · ricorda le vicende'))+'</span><p>'+esc(t('Leggi gli episodi: ti serviranno per motivare le risposte.'))+'</p></div>'+
+      '<div class="lc-recall-grid">'+reminders.map(x=>'<article class="lc-recall-card"><h3>'+esc(x.name)+'</h3><p>'+esc(x.text)+'</p></article>').join('')+'</div>'+
+      (example?'<div class="lc-recall-example"><strong>'+esc(t('Un esempio ragionato'))+'</strong><p>'+esc(example)+'</p></div>':'')+'</div>';
+  }
   function heroNetwork(scene){
     const g=scene.game,tr=language==='ar'?ar.scenes?.[scene.id]?.game:null;
     const state=window.__lcHeroNetwork||(window.__lcHeroNetwork={theme:0,heroes:[],evidence:-1,checked:false,solved:[]});
@@ -157,7 +166,7 @@
     const cards=names.map((name,i)=>'<button type="button" class="lc-hero-card '+(state.heroes.includes(i)?'is-selected':'')+'" data-hero="'+i+'" aria-pressed="'+state.heroes.includes(i)+'"><span class="lc-hero-symbol">'+['◆','✦','●','▲','■'][i]+'</span><strong>'+label(name)+'</strong></button>').join('');
     const clues=theme.links.map((link,i)=>'<button type="button" class="lc-evidence '+(state.evidence===i?'is-selected':'')+'" data-evidence="'+i+'" aria-pressed="'+(state.evidence===i)+'">'+label(localized?.links?.[i]?.evidence||link.evidence)+'</button>').join('');
     return '<section class="lc-game lc-network"><div class="eyebrow">'+label(t('Costruisci un collegamento'))+'</div><h2>'+label(scene.title)+'</h2><p>'+label(scene.text)+'</p>'+
-      '<div class="lc-network-step"><strong>1 · '+label(t('Scegli un tema'))+'</strong><div class="lc-theme-list">'+g.themes.map((v,i)=>'<button type="button" class="lc-theme '+(i===state.theme?'is-selected':'')+'" data-theme="'+i+'" aria-pressed="'+(i===state.theme)+'">'+label(tr?.themes?.[i]?.label||v.label)+'</button>').join('')+'</div></div>'+
+      epicRecall(scene)+'<div class="lc-network-step"><strong>1 · '+label(t('Scegli un tema'))+'</strong><div class="lc-theme-list">'+g.themes.map((v,i)=>'<button type="button" class="lc-theme '+(i===state.theme?'is-selected':'')+'" data-theme="'+i+'" aria-pressed="'+(i===state.theme)+'">'+label(tr?.themes?.[i]?.label||v.label)+'</button>').join('')+'</div></div>'+
       '<div class="lc-network-step"><strong>2 · '+label(t('Collega due eroi'))+'</strong><div class="lc-hero-grid">'+cards+'</div></div>'+
       '<div class="lc-network-step"><strong>3 · '+label(t('Scegli un episodio che dimostra il legame'))+'</strong><div class="lc-evidence-list">'+clues+'</div></div>'+
       (state.checked?'<div class="lc-game-feedback" role="status">'+label(solved?(localized?.links?.[theme.links.indexOf(chosen)]?.explain||chosen.explain):t('Il collegamento non è ancora convincente. Prova un’altra coppia o un altro episodio.'))+'</div>':'')+
@@ -182,7 +191,8 @@
     const correct=complete&&left.every((_,i)=>Number(state[i])===g.answer[i]);
     return '<section class="lc-game" aria-label="'+esc(t('Gioco di confronto'))+'"><div class="eyebrow">'+esc(t('Confronta le storie'))+'</div><h2>'+esc(scene.title)+'</h2><p>'+esc(scene.text)+'</p><div class="lc-game-grid">'+left.map(row).join('')+'</div>'+
     '<div class="row"><button class="btn" type="button" data-action="game-check" '+(!complete?'disabled':'')+'>'+esc(t('Verifica il confronto'))+'</button><button class="btn ghost" type="button" data-action="next">'+esc(t('Prosegui'))+'</button></div>'+
-    (state.checked?'<div class="lc-game-feedback" role="status">'+esc(correct?t('Confronto corretto. Le storie condividono temi, ma non gli stessi valori.'):t('Riprova: osserva le differenze tra i protagonisti e le fonti.'))+'</div>':'')+'</section>';
+    (state.checked?'<div class="lc-game-feedback" role="status"><strong>'+esc(correct?t('Collegamenti verificati'):t('Rivediamo gli episodi'))+'</strong>'+
+      ((translation?.feedback||g.feedback)?.length?'<div class="lc-feedback-examples">'+(translation?.feedback||g.feedback).map(x=>'<p>'+esc(x)+'</p>').join('')+'</div>':'<p>'+esc(correct?t('Confronto corretto. Le storie condividono temi, ma non gli stessi valori.'):t('Riprova: osserva le differenze tra i protagonisti e le fonti.'))+'</p>')+'</div>':'')+'</section>';
   }
   function prologue(){
     const isReview=previewIndex!==null,ix=isReview?previewIndex:session.index,scene=story.scenes[ix];
