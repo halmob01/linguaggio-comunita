@@ -48,7 +48,7 @@ test('60 scene: simulazione, epiche comparate e miti contemporanei prima di Etto
   assert.equal(story.scenes.length,60);
   for(const id of ['epica_araba','epica_persiana','epica_sundiata','epica_libri','epica_trasmissione','miti_oggi','miti_vincitori','miti_algoritmi','miti_ponte','miti_conclusione'])assert.ok(story.scenes.some(x=>x.id===id),id);
   assert.ok(story.scenes.find(x=>x.id==='epica_sapere').text.includes('oralità'));
-  assert.equal(story.scenes.find(x=>x.id==='epica_confronto_1').game.mode,'match');
+  assert.equal(story.scenes.find(x=>x.id==='epica_confronto_1').game.mode,'network');
   assert.equal(story.scenes.find(x=>x.id==='epica_confronto_2').game.mode,'match');
   assert.equal(story.scenes.find(x=>x.id==='epica_confronto_3').game.mode,'match');
   assert.equal(story.scenes.filter(x=>x.game).length,7);
@@ -221,6 +221,15 @@ test('giochi di confronto: corrispondenze e traduzioni complete',()=>{
  const context={};vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../ar.js'),'utf8'),context);
  for(const scene of story.scenes.filter(s=>s.game)){
   assert.equal(scene.type,'narrative');
+  if(scene.game.mode==='network'){
+   assert.equal(scene.game.heroes.length,5);
+   assert.ok(scene.game.themes.length>=4);
+   for(const theme of scene.game.themes)for(const link of theme.links){assert.equal(link.pair.length,2);assert.ok(link.pair.every(i=>Number.isInteger(i)&&i>=0&&i<scene.game.heroes.length));assert.ok(link.evidence&&link.explain);}
+   const tr=context.ComunitaArabic.scenes[scene.id].game;
+   assert.equal(tr.heroes.length,scene.game.heroes.length);
+   assert.equal(tr.themes.length,scene.game.themes.length);
+   return;
+  }
   assert.equal(scene.game.left.length,scene.game.answer.length);
   assert.ok(scene.game.right.length>0);
   for(const answer of scene.game.answer)assert.ok(Number.isInteger(answer)&&answer>=0&&answer<scene.game.right.length);
