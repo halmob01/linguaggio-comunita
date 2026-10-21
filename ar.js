@@ -466,18 +466,57 @@
     "text": "تتناول الأشعار الإسكندنافية وبعض الملاحم الآيسلندية الشرف والقرابة والثأر والشجاعة والمصير. ليست جميعها من النوع الأدبي نفسه. والسؤال المتكرر: كيف نتصرف حين يبدو الصراع حتميًا؟"
   },
   "epica_confronto_1": {
-    "title": "من يدفع الثمن؟",
-    "text": "اربط كل بطل بالصراع الذي يواجهه.",
+    "title": "شبكة الأبطال",
+    "text": "اختر موضوعًا، واربط بين بطلين، ثم اختر حدثًا من القصة يبرر العلاقة. يمكن مقارنة القصة نفسها بطرق مختلفة.",
     "game": {
-      "left": [
+      "heroes": [
+        "جلجامش",
         "أخيل",
+        "رستم",
         "إينياس",
         "أرجونا"
       ],
-      "right": [
-        "المجد والحزن",
-        "مستقبل المجتمع والخسائر الشخصية",
-        "الواجب والروابط العائلية"
+      "themes": [
+        {
+          "label": "الفقد",
+          "links": [
+            {
+              "evidence": "فقد جلجامش إنكيدو؛ وفقد أخيل باتروكلوس.",
+              "explain": "موت شخص عزيز يغير مسار البطلين."
+            },
+            {
+              "evidence": "فقد أخيل باتروكلوس؛ وقتل رستم ابنه سهراب دون أن يعرفه.",
+              "explain": "حزنان مختلفان في الظروف والمسؤولية."
+            }
+          ]
+        },
+        {
+          "label": "الواجب",
+          "links": [
+            {
+              "evidence": "ترك إينياس ديدو من أجل رحلته إلى إيطاليا؛ وتردد أرجونا أمام قتال أقاربه.",
+              "explain": "يتعارض الواجب مع العلاقات الشخصية، لكن الموقفين ليسا متطابقين."
+            }
+          ]
+        },
+        {
+          "label": "الخطأ",
+          "links": [
+            {
+              "evidence": "تأثر أخيل بغضبه؛ وقاتل رستم سهراب دون أن يعرف هويته.",
+              "explain": "أدت أفعال البطلين إلى نتائج مأساوية لأسباب مختلفة."
+            }
+          ]
+        },
+        {
+          "label": "الموت",
+          "links": [
+            {
+              "evidence": "بحث جلجامش عن الخلود؛ وعرف رستم متأخرًا أنه جرح ابنه.",
+              "explain": "يواجه الأول موته المحتوم، ويواجه الثاني موت شخص آخر."
+            }
+          ]
+        }
       ]
     }
   },
@@ -720,7 +759,8 @@
     "text": "يجمع سوندياتا الحلفاء ويهزم منافسه سومانغورو، ويُذكر مؤسسًا لإمبراطورية مالي."
   }
 }
-};Object.assign(root.ComunitaArabic.ui,{"Scegli un confronto":"اختر المقارنة","Gioco di confronto":"لعبة مقارنة","Confronta le storie":"قارن القصص","Verifica il confronto":"تحقق من المقارنة","Prosegui":"تابع","Confronto corretto. Le storie condividono temi, ma non gli stessi valori.":"مقارنة صحيحة. تتشابه القصص في الموضوعات لكنها لا تتبنى القيم نفسها.","Riprova: osserva le differenze tra i protagonisti e le fonti.":"حاول مجددًا: انتبه إلى اختلاف الأبطال والمصادر."});
+};Object.assign(root.ComunitaArabic.ui,{"Costruisci un collegamento":"ابنِ علاقة","Scegli un tema":"اختر موضوعًا","Collega due eroi":"اربط بين بطلين","Scegli un episodio che dimostra il legame":"اختر حدثًا يثبت العلاقة","Verifica il collegamento":"تحقق من العلاقة","Il collegamento non è ancora convincente. Prova un’altra coppia o un altro episodio.":"هذه العلاقة غير مقنعة بعد. جرّب بطلين آخرين أو حدثًا آخر."});
+Object.assign(root.ComunitaArabic.ui,{"Scegli un confronto":"اختر المقارنة","Gioco di confronto":"لعبة مقارنة","Confronta le storie":"قارن القصص","Verifica il confronto":"تحقق من المقارنة","Prosegui":"تابع","Confronto corretto. Le storie condividono temi, ma non gli stessi valori.":"مقارنة صحيحة. تتشابه القصص في الموضوعات لكنها لا تتبنى القيم نفسها.","Riprova: osserva le differenze tra i protagonisti e le fonti.":"حاول مجددًا: انتبه إلى اختلاف الأبطال والمصادر."});
 Object.assign(root.ComunitaArabic.ui,{"Il gioco ci ha insegnato che le decisioni collettive comportano compromessi e che la memoria sceglie eventi, protagonisti e valori. Con le epiche abbiamo scoperto che popoli diversi hanno trasmesso il sapere con racconti, oralità e scrittura, rispondendo in modi differenti a domande su morte, dovere, gloria e appartenenza. Infine, anche i miti di oggi costruiscono memorie: per ricostruire i fatti, però, bisogna confrontare le fonti e distinguere testimonianze e interpretazioni.":"تعلمنا في اللعبة أن القرارات الجماعية تتطلب حلولًا وسطًا، وأن الذاكرة تختار الأحداث والأبطال والقيم. ومع الملاحم اكتشفنا أن شعوبًا مختلفة نقلت المعرفة بالقصص والرواية الشفوية والكتابة، وقدمت إجابات مختلفة عن الموت والواجب والمجد والانتماء. وما زالت الأساطير الحديثة تصنع ذاكرة مشتركة؛ لكن فهم الوقائع يتطلب مقارنة المصادر والتمييز بين الشهادة والتفسير."});
 Object.assign(root.ComunitaArabic.ui,{
   "Avevamo studiato che le parole ci permettono di collaborare e di costruire una realtà condivisa. Ora prova a fondare una comunità. Quali decisioni resteranno nella sua memoria?": "درسنا كيف تساعدنا الكلمات على التعاون وبناء واقع مشترك. الآن جرّب تأسيس مجتمع. أي قرارات ستبقى في ذاكرته؟",

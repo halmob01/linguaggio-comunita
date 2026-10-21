@@ -830,25 +830,83 @@
     {
       "id": "epica_confronto_1",
       "type": "narrative",
-      "title": "Chi paga il prezzo?",
-      "text": "Associa ogni protagonista al conflitto che affronta.",
+      "title": "La rete degli eroi",
+      "text": "Scegli un tema, collega due protagonisti e trova un episodio che giustifichi il legame. Una stessa storia può entrare in più confronti.",
       "art": "memoria",
       "game": {
-        "mode": "match",
-        "left": [
+        "mode": "network",
+        "heroes": [
+          "Gilgamesh",
           "Achille",
+          "Rostam",
           "Enea",
           "Arjuna"
         ],
-        "right": [
-          "Gloria e lutto",
-          "Futuro della comunità e perdite personali",
-          "Dovere e legami familiari"
-        ],
-        "answer": [
-          0,
-          1,
-          2
+        "themes": [
+          {
+            "id": "perdita",
+            "label": "Perdita",
+            "links": [
+              {
+                "pair": [
+                  0,
+                  1
+                ],
+                "evidence": "Gilgamesh perde Enkidu; Achille perde Patroclo.",
+                "explain": "La morte di una persona amata cambia il percorso di entrambi."
+              },
+              {
+                "pair": [
+                  1,
+                  2
+                ],
+                "evidence": "Achille perde Patroclo; Rostam uccide senza saperlo il figlio Sohrab.",
+                "explain": "Due lutti, ma responsabilità e circostanze molto diverse."
+              }
+            ]
+          },
+          {
+            "id": "dovere",
+            "label": "Dovere",
+            "links": [
+              {
+                "pair": [
+                  3,
+                  4
+                ],
+                "evidence": "Enea lascia Didone per la missione in Italia; Arjuna esita davanti ai parenti prima di combattere.",
+                "explain": "Il dovere entra in conflitto con legami personali, ma le due situazioni non sono equivalenti."
+              }
+            ]
+          },
+          {
+            "id": "errore",
+            "label": "Errore",
+            "links": [
+              {
+                "pair": [
+                  1,
+                  2
+                ],
+                "evidence": "Achille lascia che l'ira guidi le sue azioni; Rostam combatte senza riconoscere Sohrab.",
+                "explain": "In entrambi i casi un'azione ha esiti tragici, per motivi differenti."
+              }
+            ]
+          },
+          {
+            "id": "morte",
+            "label": "Mortalità",
+            "links": [
+              {
+                "pair": [
+                  0,
+                  2
+                ],
+                "evidence": "Gilgamesh cerca di sfuggire alla morte; Rostam scopre troppo tardi che ha ferito suo figlio.",
+                "explain": "Uno affronta la propria mortalità; l'altro l'irreversibilità della morte altrui."
+              }
+            ]
+          }
         ]
       }
     },
