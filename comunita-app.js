@@ -144,6 +144,34 @@
       <div class="row"><button class="btn" data-action="restart">Ricomincia</button>
       <button class="btn ghost" data-action="menu">Torna all'inizio</button></div>`;
   }
+  function heroNetwork(scene){
+    const g=scene.game,tr=language==='ar'?ar.scenes?.[scene.id]?.game:null;
+    const state=window.__lcHeroNetwork||(window.__lcHeroNetwork={theme:0,heroes:[],evidence:-1,checked:false,solved:[]});
+    const theme=g.themes[state.theme],localized=tr?.themes?.[state.theme];
+    const label=(v)=>esc(v);
+    const names=tr?.heroes||g.heroes;
+    const selected=state.heroes.slice().sort((a,b)=>a-b);
+    const possible=theme.links.filter(l=>l.pair.every((v,i)=>v===selected[i]));
+    const chosen=possible.find(l=>state.evidence===theme.links.indexOf(l));
+    const solved=state.checked&&!!chosen;
+    const cards=names.map((name,i)=>'<button type="button" class="lc-hero-card '+(state.heroes.includes(i)?'is-selected':'')+'" data-hero="'+i+'" aria-pressed="'+state.heroes.includes(i)+'"><span class="lc-hero-symbol">'+['◆','✦','●','▲','■'][i]+'</span><strong>'+label(name)+'</strong></button>').join('');
+    const clues=theme.links.map((link,i)=>'<button type="button" class="lc-evidence '+(state.evidence===i?'is-selected':'')+'" data-evidence="'+i+'" aria-pressed="'+(state.evidence===i)+'">'+label(localized?.links?.[i]?.evidence||link.evidence)+'</button>').join('');
+    return '<section class="lc-game lc-network"><div class="eyebrow">'+label(t('Costruisci un collegamento'))+'</div><h2>'+label(scene.title)+'</h2><p>'+label(scene.text)+'</p>'+
+      '<div class="lc-network-step"><strong>1 · '+label(t('Scegli un tema'))+'</strong><div class="lc-theme-list">'+g.themes.map((v,i)=>'<button type="button" class="lc-theme '+(i===state.theme?'is-selected':'')+'" data-theme="'+i+'" aria-pressed="'+(i===state.theme)+'">'+label(tr?.themes?.[i]?.label||v.label)+'</button>').join('')+'</div></div>'+
+      '<div class="lc-network-step"><strong>2 · '+label(t('Collega due eroi'))+'</strong><div class="lc-hero-grid">'+cards+'</div></div>'+
+      '<div class="lc-network-step"><strong>3 · '+label(t('Scegli un episodio che dimostra il legame'))+'</strong><div class="lc-evidence-list">'+clues+'</div></div>'+
+      (state.checked?'<div class="lc-game-feedback" role="status">'+label(solved?(localized?.links?.[theme.links.indexOf(chosen)]?.explain||chosen.explain):t('Il collegamento non è ancora convincente. Prova un’altra coppia o un altro episodio.'))+'</div>':'')+
+      '<div class="row"><button class="btn" type="button" data-action="network-check" '+(state.heroes.length!==2||state.evidence<0?'disabled':'')+'>'+label(t('Verifica il collegamento'))+'</button><button class="btn ghost" type="button" data-action="next">'+label(t('Prosegui'))+'</button></div></section>';
+  }
+  document.addEventListener('click',event=>{
+    const el=event.target.closest('[data-theme],[data-hero],[data-evidence],[data-action="network-check"]');if(!el||!session||story.scenes[session.index]?.game?.mode!=='network')return;
+    const state=window.__lcHeroNetwork||(window.__lcHeroNetwork={theme:0,heroes:[],evidence:-1,checked:false,solved:[]});
+    if(el.hasAttribute('data-theme')){state.theme=Number(el.dataset.theme);state.heroes=[];state.evidence=-1;state.checked=false;}
+    else if(el.hasAttribute('data-hero')){const id=Number(el.dataset.hero);state.heroes=state.heroes.includes(id)?state.heroes.filter(x=>x!==id):[...state.heroes.slice(-1),id];state.checked=false;}
+    else if(el.hasAttribute('data-evidence')){state.evidence=Number(el.dataset.evidence);state.checked=false;}
+    else if(el.dataset.action==='network-check')state.checked=true;
+    prologue();
+  });
   function comparison(scene){
     const g=scene.game,translation=language==='ar'?ar.scenes?.[scene.id]?.game:null;
     const left=translation?.left||g.left,right=translation?.right||g.right;
@@ -161,7 +189,7 @@
     const initially=ix<intro;
     const total=isReview||initially?intro:chapters;
     $('prologue').hidden=false;
-    $('prologue').innerHTML=scene.game?comparison(scene):translateUI(`<div class="pro-card" role="document">
+    $('prologue').innerHTML=scene.game?(scene.game.mode==='network'?heroNetwork(scene):comparison(scene)):translateUI(`<div class="pro-card" role="document">
       <div class="pro-art pro-in">${art.markup(scene.art,session.values)}</div>
       <div class="pro-body">
         <div class="pro-top"><div class="eyebrow">${isReview?'Ripasso':initially?'Dalle lezioni precedenti':scene.id.startsWith('epica_')?'Le grandi tradizioni epiche':scene.id.startsWith('miti_')?'I miti di oggi':'Racconto'} · ${initially||isReview?ix+1:ix+1}/${total}</div>
