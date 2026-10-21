@@ -228,7 +228,7 @@ test('giochi di confronto: corrispondenze e traduzioni complete',()=>{
    const tr=context.ComunitaArabic.scenes[scene.id].game;
    assert.equal(tr.heroes.length,scene.game.heroes.length);
    assert.equal(tr.themes.length,scene.game.themes.length);
-   return;
+   continue;
   }
   assert.equal(scene.game.left.length,scene.game.answer.length);
   assert.ok(scene.game.right.length>0);
