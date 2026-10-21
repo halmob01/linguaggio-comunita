@@ -907,6 +907,29 @@
               }
             ]
           }
+        ],
+        "example": "Esempio: Gilgamesh perde l'amico Enkidu; Achille perde Patroclo. Il tema comune è la perdita, ma Gilgamesh cerca di sfuggire alla propria morte, mentre Achille torna in guerra per vendetta. Non basta dire «sono uguali»: bisogna citare i fatti e spiegare una differenza.",
+        "reminders": [
+          {
+            "name": "Gilgamesh",
+            "text": "È il re di Uruk. Quando l'amico Enkidu muore, si spaventa: capisce che un giorno morirà anche lui. Cerca l'immortalità, ma torna senza averla ottenuta."
+          },
+          {
+            "name": "Achille",
+            "text": "Nell'Iliade litiga con Agamennone e si ritira dalla guerra. L'amico Patroclo viene ucciso da Ettore; Achille torna a combattere e uccide Ettore. Poi restituisce il corpo al padre Priamo."
+          },
+          {
+            "name": "Rostam",
+            "text": "Nell'epopea persiana Shāhnāmeh affronta in duello un giovane guerriero, Sohrab. Lo ferisce mortalmente e soltanto dopo scopre che è suo figlio. La sua forza non evita la tragedia."
+          },
+          {
+            "name": "Enea",
+            "text": "Scappa dalla città di Troia in fiamme portando il padre e il figlio. Ama Didone, regina di Cartagine, ma la lascia per partire verso l'Italia: sceglie il compito che ritiene affidatogli dal destino."
+          },
+          {
+            "name": "Arjuna",
+            "text": "Nel Mahabharata deve combattere una guerra, ma tra i nemici vede parenti e maestri. Esita perché non vuole ucciderli. Krishna gli parla del dovere e delle responsabilità dell'azione."
+          }
         ]
       }
     },
@@ -932,6 +955,26 @@
           0,
           1,
           2
+        ],
+        "example": "Come ragionare: non cercare tre definizioni da memorizzare. Domandati che cosa fa ciascun personaggio davanti alla morte o alla possibilità di morire. Cerca un fatto del racconto che lo dimostri.",
+        "reminders": [
+          {
+            "name": "Gilgamesh",
+            "text": "Dopo la morte di Enkidu, lascia Uruk per cercare la vita eterna. Trova una pianta che potrebbe ridare giovinezza, ma un serpente gliela sottrae."
+          },
+          {
+            "name": "Achille",
+            "text": "La morte di Patroclo lo spinge a tornare in battaglia. Uccide Ettore, ma il suo dolore non scompare: quando Priamo gli chiede il corpo del figlio, i due piangono insieme."
+          },
+          {
+            "name": "Tradizioni norrene",
+            "text": "Nei racconti sul Ragnarök, persino le divinità affrontano una battaglia destinata a distruggere il vecchio ordine del mondo. Il coraggio non garantisce la vittoria né cancella il destino."
+          }
+        ],
+        "feedback": [
+          "Gilgamesh perde Enkidu e cerca di diventare immortale: si domanda se sia possibile evitare la propria morte.",
+          "Achille ottiene vendetta su Ettore, ma non riporta in vita Patroclo: la gloria del guerriero comporta dolore e perdite.",
+          "Nei racconti del Ragnarök gli dèi affrontano la catastrofe anche sapendo che il destino è terribile: conta il modo di agire."
         ]
       }
     },
@@ -957,6 +1000,26 @@
           0,
           1,
           2
+        ],
+        "example": "Un viaggio non ha sempre lo stesso scopo. Per esempio: se qualcuno attraversa il mare per ritrovare la propria casa, non sta facendo la stessa cosa di chi fugge da una città distrutta per fondarne un'altra.",
+        "reminders": [
+          {
+            "name": "Odisseo",
+            "text": "Dopo la guerra di Troia impiega anni a tornare a Itaca. Sfugge al ciclope Polifemo chiamandosi «Nessuno» e, una volta a casa, si fa riconoscere da Penelope."
+          },
+          {
+            "name": "Enea",
+            "text": "Fugge da Troia distrutta con la famiglia. Durante il viaggio incontra Didone e la lascia; la sua meta è l'Italia, dove dovrà nascere una nuova patria per i suoi discendenti."
+          },
+          {
+            "name": "Rama",
+            "text": "Nel Ramayana lascia il regno e vive in esilio. Quando Sita viene rapita da Ravana, affronta una lunga lotta per ritrovarla. Il viaggio è legato anche ai doveri familiari e regali."
+          }
+        ],
+        "feedback": [
+          "Odisseo vuole tornare a Itaca, cioè nella patria che già aveva, e ritrovare la sua famiglia.",
+          "Enea non può tornare alla Troia distrutta: deve cercare una nuova terra per il futuro del suo popolo.",
+          "Rama vive l'esilio e cerca di ritrovare Sita: il suo percorso mette alla prova i legami e il dovere."
         ]
       }
     },
@@ -978,6 +1041,20 @@
         ],
         "answer": [
           0
+        ],
+        "reminders": [
+          {
+            "name": "Odisseo",
+            "text": "Itaca esiste ancora: il suo obiettivo è tornare alla moglie Penelope e alla propria casa dopo la guerra."
+          },
+          {
+            "name": "Enea",
+            "text": "Troia è stata distrutta: attraversa il Mediterraneo cercando una terra in cui i suoi discendenti avranno un futuro."
+          }
+        ],
+        "example": "Esempio di confronto: due personaggi possono affrontare lo stesso mare, ma uno vuole recuperare ciò che ha perso, l'altro costruire qualcosa che ancora non esiste.",
+        "feedback": [
+          "Odisseo compie un ritorno a Itaca; Enea parte da Troia distrutta per costruire un futuro altrove. Questo distingue i due viaggi."
         ]
       }
     },
@@ -1006,6 +1083,20 @@
         ],
         "answer": [
           0
+        ],
+        "reminders": [
+          {
+            "name": "Achille",
+            "text": "La sua ira provoca una crisi tra i Greci; la morte di Patroclo e il dialogo con Priamo fanno riflettere su guerra, vendetta e dolore."
+          },
+          {
+            "name": "Enea",
+            "text": "Quando lascia Didone per continuare il viaggio, la sua scelta personale diventa anche un problema per il futuro di un popolo."
+          }
+        ],
+        "example": "Esempio: raccontando le scelte di Achille, l'Iliade fa discutere non solo di un guerriero, ma anche delle conseguenze dell'ira per tutta la guerra.",
+        "feedback": [
+          "La vicenda dell'eroe mette in scena un conflitto condiviso: Achille rappresenta la tensione fra orgoglio, guerra, perdita e compassione."
         ]
       }
     },
@@ -1027,6 +1118,24 @@
         ],
         "answer": [
           0
+        ],
+        "reminders": [
+          {
+            "name": "Achille",
+            "text": "L'ira lo allontana dai compagni; dopo la morte di Patroclo torna a combattere, uccide Ettore e aumenta il dolore di altre famiglie."
+          },
+          {
+            "name": "Enea",
+            "text": "Per seguire il destino che crede di avere, lascia Didone: il futuro dei suoi discendenti richiede una perdita personale molto concreta."
+          },
+          {
+            "name": "Arjuna",
+            "text": "Sul campo di battaglia vede parenti e maestri tra gli avversari. Vuole sottrarsi alla guerra, ma Krishna gli parla del suo dovere."
+          }
+        ],
+        "example": "Per confrontarli, chiediti: chi spera di salvare ciascuno? Chi soffre per la sua decisione? Ad esempio, l'impresa di Enea apre un futuro ma lascia Didone nella disperazione.",
+        "feedback": [
+          "Nei tre racconti una scelta coinvolge altre persone: compagni e nemici di Achille, Didone e i discendenti di Enea, parenti e avversari di Arjuna."
         ]
       }
     },
