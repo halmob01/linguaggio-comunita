@@ -238,3 +238,26 @@ test('giochi di confronto: corrispondenze e traduzioni complete',()=>{
   assert.equal(tr.right.length,scene.game.right.length);
  }
 });
+
+test('giochi epici: richiami concreti e spiegazioni disponibili anche in arabo',()=>{
+ const context={};vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../ar.js'),'utf8'),context);
+ const ids=['epica_confronto_1','epica_confronto_2','epica_confronto_3','epica_confronto_scelta','epica_scelta','epica_conflitto'];
+ for(const id of ids){
+  const scene=story.scenes.find(x=>x.id===id),tr=context.ComunitaArabic.scenes[id].game;
+  assert.ok(scene.game.reminders.length>=2,id+' senza richiami');
+  assert.equal(scene.game.reminders.length,tr.reminders.length,id+' richiami non tradotti');
+  assert.ok(scene.game.example.length>70&&tr.example.length>30,id+' esempio mancante');
+  for(const [i,item] of scene.game.reminders.entries()){
+   assert.ok(item.name.length>2&&item.text.length>95,id+' episodio italiano troppo breve');
+   assert.ok(tr.reminders[i].name&&tr.reminders[i].text.length>35,id+' episodio arabo mancante');
+  }
+  if(scene.game.mode!=='network'){
+   assert.equal(scene.game.feedback.length,scene.game.left.length,id+' feedback incompleto');
+   assert.equal(tr.feedback.length,scene.game.feedback.length,id+' feedback arabo incompleto');
+  }
+ }
+ const app=fs.readFileSync('comunita-app.js','utf8');
+ assert.ok(app.includes('function epicRecall(scene)'));
+ assert.ok(app.includes('epicRecall(scene)'));
+ assert.ok(app.includes('lc-recall-card'));
+});
