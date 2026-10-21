@@ -42,3 +42,15 @@
 .lc-game-feedback{padding:1rem;border-left:4px solid var(--ink);background:var(--soft);font-weight:700}
 .lc-ar .lc-game{font-family:Cairo,sans-serif;direction:rtl}.lc-ar .lc-game-row{border-left:0;border-right:4px solid var(--ink)}
 @media(max-width:35rem){.lc-game-row{grid-template-columns:1fr}}
+
+/* Rete degli eroi: selezione a tocco, nessun drag obbligatorio. */
+.lc-network-step{display:grid;gap:.65rem;padding:.9rem 0;border-top:1px solid currentColor}
+.lc-theme-list,.lc-hero-grid{display:flex;flex-wrap:wrap;gap:.55rem}
+.lc-theme,.lc-hero-card,.lc-evidence{font:inherit;color:inherit;border:2px solid currentColor;background:transparent;border-radius:7px;padding:.7rem .85rem;cursor:pointer;text-align:start}
+.lc-theme.is-selected,.lc-hero-card.is-selected,.lc-evidence.is-selected{background:#245e63;color:#fff;border-color:#245e63}
+.lc-hero-card{display:grid;gap:.4rem;min-width:125px;flex:1 1 125px;max-width:200px}
+.lc-hero-symbol{font-size:1.7rem;line-height:1}
+.lc-evidence-list{display:grid;gap:.55rem}
+.lc-evidence{width:100%;line-height:1.4}
+.lc-network button:focus-visible{outline:3px solid #cc7a2b;outline-offset:3px}
+.lc-ar .lc-evidence,.lc-ar .lc-hero-card{text-align:right}
