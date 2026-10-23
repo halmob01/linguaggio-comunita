@@ -268,3 +268,32 @@ test('il dilemma obbliga a scegliere, mostra le conseguenze e lascia i progressi
  const a=play({patto:'aiuto',mercato:'baratto',pericolo:'difesa',racconto:'cura'});
  assert.equal(a.phase,'end');
 });
+
+test('rewind torna alla schermata precedente senza rifare il percorso né alterare gli indicatori',()=>{
+ let s=engine.newSession(story),states=[JSON.parse(JSON.stringify(s))];
+ while(s.phase!=='end'){
+  const scene=engine.currentScene(story,s);
+  s=(s.phase==='outcome'||scene.type==='narrative')?engine.advance(story,s):engine.select(story,s,scene.choices[0].id);
+  states.push(JSON.parse(JSON.stringify(s)));
+ }
+ for(let i=1;i<states.length;i++){
+  const actual=engine.rewind(story,states[i]);
+  assert.ok(actual);
+  assert.ok(engine.restore(story,JSON.stringify(actual)));
+  if(states[i].phase==='outcome'){
+   assert.equal(actual.index,states[i].index);
+   assert.equal(actual.phase,'scene');
+  }else if(states[i].phase==='scene'){
+   assert.equal(actual.index,states[i].index-1);
+  }else{
+   assert.equal(actual.index,states[i].index);
+   assert.equal(actual.phase,'scene');
+  }
+  assert.ok(actual.decisions.length<=states[i].decisions.length);
+ }
+ assert.deepEqual(engine.rewind(story,states[0]),states[0]);
+ const app=fs.readFileSync('comunita-app.js','utf8');
+ assert.ok(app.includes('function back()'));
+ assert.ok(app.includes("case 'back':back()"));
+ assert.ok(app.includes("delete dilemmaChoices[scene.id]"));
+});
