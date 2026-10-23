@@ -62,6 +62,23 @@
     if(saved){$('resume').textContent=t(saved.phase==='end'?'Rivedi il tuo finale →':'Riprendi la tua comunità →');}
     window.scrollTo?.(0,0);
   }
+  function backButton(){return '<button type="button" class="btn ghost lc-back" data-action="back">← '+esc(t('Indietro'))+'</button>';}
+  function back(){
+    if(!session)return;
+    if(previewIndex!==null){previewIndex=previewIndex>0?previewIndex-1:null;render();return;}
+    const scene=story.scenes[session.index];
+    if(session.phase==='scene'&&scene?.game?.mode==='dilemma'&&dilemmaChoices[scene.id]){
+      delete dilemmaChoices[scene.id];saveDilemmas();render();return;
+    }
+    const previous=engine.rewind(story,session);
+    if(previous===session)return;
+    session=previous;
+    for(const [id] of Object.entries(dilemmaChoices)){
+      const at=story.scenes.findIndex(s=>s.id===id);
+      if(at>=session.index)delete dilemmaChoices[id];
+    }
+    saveDilemmas();save();render();
+  }
   function start(){
     clear();dilemmaChoices={};saveDilemmas();
     session=engine.newSession(story);previewIndex=null;
@@ -203,7 +220,10 @@
         <div class="row"><button class="btn" data-action="${isReview?(ix===intro-1?'close-review':'review-next'):'next'}">${isReview&&ix===intro-1?'Torna al gioco':'Avanti →'}</button>
         ${!isReview&&initially?'<button class="btn ghost" data-action="skip">Salta il richiamo</button>':''}</div>
       </div></div>`);
-    $('prologue').querySelector('.btn')?.focus({preventScroll:true});
+    if(isReview?(previewIndex>0):session.index>0||Boolean(scene.game?.mode==='dilemma'&&dilemmaChoices[scene.id])){
+      $('prologue').insertAdjacentHTML('beforeend','<div class="lc-prologue-back">'+backButton()+'</div>');
+    }
+    $('prologue').querySelector('.btn:not(.lc-back)')?.focus({preventScroll:true});
   }
   document.addEventListener('change',event=>{
     const input=event.target.closest('[data-game-index]');if(!input||!session)return;
@@ -233,7 +253,7 @@
       $('panel').innerHTML='<p class="ep-lead">Segui le card illustrate.</p>';prologue();
     }else{
       $('prologue').hidden=true;
-      $('panel').innerHTML=translateUI(session.phase==='outcome'?outcome():decision(scene));
+      $('panel').innerHTML=(session.index>0||session.phase==='outcome'?backButton():'')+translateUI(session.phase==='outcome'?outcome():decision(scene));
       $('panel').setAttribute('aria-live','polite');
       $('panel').querySelector('button')?.focus({preventScroll:true});
     }
@@ -259,6 +279,7 @@
     const b=event.target.closest('[data-action]');if(!b)return;
     switch(b.dataset.action){
       case 'start':start();break;
+      case 'back':back();break;
       case 'resume':resume();break;
       case 'next':next();break;
       case 'skip':skip();break;
