@@ -62,8 +62,25 @@
     if(saved){$('resume').textContent=t(saved.phase==='end'?'Rivedi il tuo finale →':'Riprendi la tua comunità →');}
     window.scrollTo?.(0,0);
   }
+  function backButton(){return '<button type="button" class="btn ghost lc-back" data-action="back">← '+esc(t('Indietro'))+'</button>';}
+  function back(){
+    if(!session)return;
+    if(previewIndex!==null){previewIndex=previewIndex>0?previewIndex-1:null;render();return;}
+    const scene=story.scenes[session.index];
+    if(session.phase==='scene'&&scene?.game?.mode==='dilemma'&&dilemmaChoices[scene.id]){
+      delete dilemmaChoices[scene.id];saveDilemmas();render();return;
+    }
+    const previous=engine.rewind(story,session);
+    if(previous===session)return;
+    session=previous;
+    for(const [id] of Object.entries(dilemmaChoices)){
+      const at=story.scenes.findIndex(s=>s.id===id);
+      if(at>=session.index)delete dilemmaChoices[id];
+    }
+    saveDilemmas();save();render();
+  }
   function start(){
-    clear();
+    clear();dilemmaChoices={};saveDilemmas();
     session=engine.newSession(story);previewIndex=null;
     save();render();
   }
@@ -153,33 +170,26 @@
       '<div class="lc-recall-grid">'+reminders.map(x=>'<article class="lc-recall-card"><h3>'+esc(x.name)+'</h3><p>'+esc(x.text)+'</p></article>').join('')+'</div>'+
       (example?'<div class="lc-recall-example"><strong>'+esc(t('Un esempio ragionato'))+'</strong><p>'+esc(example)+'</p></div>':'')+'</div>';
   }
-  function heroNetwork(scene){
+  const DILEMMA_STORE='linguaggio-comunita-dilemma-v1';
+  function readDilemmas(){try{return JSON.parse(localStorage.getItem(DILEMMA_STORE)||'{}')||{};}catch(_){return {};}}
+  let dilemmaChoices=readDilemmas();
+  function saveDilemmas(){try{localStorage.setItem(DILEMMA_STORE,JSON.stringify(dilemmaChoices));}catch(_){}}
+  function dilemma(scene){
     const g=scene.game,tr=language==='ar'?ar.scenes?.[scene.id]?.game:null;
-    const state=window.__lcHeroNetwork||(window.__lcHeroNetwork={theme:0,heroes:[],evidence:-1,checked:false,solved:[]});
-    const theme=g.themes[state.theme],localized=tr?.themes?.[state.theme];
-    const label=(v)=>esc(v);
-    const names=tr?.heroes||g.heroes;
-    const selected=state.heroes.slice().sort((a,b)=>a-b);
-    const possible=theme.links.filter(l=>l.pair.every((v,i)=>v===selected[i]));
-    const chosen=possible.find(l=>state.evidence===theme.links.indexOf(l));
-    const solved=state.checked&&!!chosen;
-    const cards=names.map((name,i)=>'<button type="button" class="lc-hero-card '+(state.heroes.includes(i)?'is-selected':'')+'" data-hero="'+i+'" aria-pressed="'+state.heroes.includes(i)+'"><span class="lc-hero-symbol">'+['◆','✦','●','▲','■'][i]+'</span><strong>'+label(name)+'</strong></button>').join('');
-    const clues=theme.links.map((link,i)=>'<button type="button" class="lc-evidence '+(state.evidence===i?'is-selected':'')+'" data-evidence="'+i+'" aria-pressed="'+(state.evidence===i)+'">'+label(localized?.links?.[i]?.evidence||link.evidence)+'</button>').join('');
-    return '<section class="lc-game lc-network"><div class="eyebrow">'+label(t('Costruisci un collegamento'))+'</div><h2>'+label(scene.title)+'</h2><p>'+label(scene.text)+'</p>'+
-      epicRecall(scene)+'<div class="lc-network-step"><strong>1 · '+label(t('Scegli un tema'))+'</strong><div class="lc-theme-list">'+g.themes.map((v,i)=>'<button type="button" class="lc-theme '+(i===state.theme?'is-selected':'')+'" data-theme="'+i+'" aria-pressed="'+(i===state.theme)+'">'+label(tr?.themes?.[i]?.label||v.label)+'</button>').join('')+'</div></div>'+
-      '<div class="lc-network-step"><strong>2 · '+label(t('Collega due eroi'))+'</strong><div class="lc-hero-grid">'+cards+'</div></div>'+
-      '<div class="lc-network-step"><strong>3 · '+label(t('Scegli un episodio che dimostra il legame'))+'</strong><div class="lc-evidence-list">'+clues+'</div></div>'+
-      (state.checked?'<div class="lc-game-feedback" role="status">'+label(solved?(localized?.links?.[theme.links.indexOf(chosen)]?.explain||chosen.explain):t('Il collegamento non è ancora convincente. Prova un’altra coppia o un altro episodio.'))+'</div>':'')+
-      '<div class="row"><button class="btn" type="button" data-action="network-check" '+(state.heroes.length!==2||state.evidence<0?'disabled':'')+'>'+label(t('Verifica il collegamento'))+'</button><button class="btn ghost" type="button" data-action="next">'+label(t('Prosegui'))+'</button></div></section>';
+    const saved=dilemmaChoices[scene.id],choice=g.choices.find(c=>c.id===saved),choiceIndex=g.choices.findIndex(c=>c.id===saved);
+    const lc=tr?.choices?.[choiceIndex],actualChoice=g.choices.find(c=>c.id===g.canonicalChoice);
+    const card=(c,n)=>'<button type="button" data-dilemma-choice="'+esc(c.id)+'" class="lc-dilemma-option '+(saved===c.id?'is-picked':'')+'" aria-pressed="'+(saved===c.id)+'" '+(saved?'disabled':'')+'><span class="lc-dilemma-option-index">'+String(n+1).padStart(2,'0')+'</span><span>'+esc(tr?.choices?.[n]?.label||c.label)+'</span><span aria-hidden="true" class="lc-dilemma-arrow">↗</span></button>';
+    const bridges=g.bridges.map((b,n)=>'<article class="lc-bridge"><span class="lc-bridge-line" aria-hidden="true"></span><div class="lc-bridge-title"><span class="lc-bridge-hero">'+esc(tr?.hero||g.hero)+'</span><span class="lc-bridge-link" aria-hidden="true">↔</span><span class="lc-bridge-hero">'+esc(tr?.bridges?.[n]?.hero||b.hero)+'</span></div><div><strong>'+esc(t('In comune'))+'</strong><p>'+esc(tr?.bridges?.[n]?.common||b.common)+'</p></div><div><strong>'+esc(t('La differenza'))+'</strong><p>'+esc(tr?.bridges?.[n]?.difference||b.difference)+'</p></div></article>').join('');
+    return '<section class="lc-game lc-dilemma" aria-label="'+esc(t('Il dilemma dell’eroe'))+'"><div class="lc-dilemma-mast"><span class="eyebrow">'+esc(t('IL DILEMMA DELL’EROE'))+'</span><span class="lc-dilemma-counter">'+String(g.number).padStart(2,'0')+' / 06</span></div><div class="lc-dilemma-hero"><div class="lc-dilemma-art" aria-hidden="true">'+art.markup(scene.art,session.values)+'</div><div class="lc-dilemma-intro"><span class="lc-dilemma-overline">'+esc(t('SEI TU A DECIDERE'))+'</span><h2>'+esc(scene.title)+'</h2><p>'+esc(tr?.setup||g.setup)+'</p></div></div><div class="lc-dilemma-task"><h3>'+esc(tr?.question||g.question)+'</h3><div class="lc-dilemma-choices">'+g.choices.map(card).join('')+'</div></div>'+
+      (choice?'<div class="lc-dilemma-reveal" role="status"><span class="lc-dilemma-overline">'+esc(t('LA TUA SCELTA · CONSEGUENZA POSSIBILE'))+'</span><p>'+esc(lc?.hypothesis||choice.hypothesis)+'</p><div class="lc-dilemma-canon"><span class="lc-dilemma-overline">'+esc(t('NEL POEMA ACCADE QUESTO'))+'</span><p>'+esc(tr?.actual||g.actual)+'</p><p class="lc-dilemma-meaning">'+esc(tr?.explanation||g.explanation)+'</p></div><div class="lc-dilemma-bridges"><div class="lc-dilemma-bridges-head"><span class="lc-dilemma-overline">'+esc(t('COLLEGAMENTI COSTRUITI'))+'</span><h3>'+esc(t('Stesso problema, risposte differenti'))+'</h3><p>'+esc(t('Il confronto viene costruito dagli episodi: guarda il punto in comune e la differenza.'))+'</p></div><div class="lc-bridge-grid">'+bridges+'</div></div></div>':'')+
+      '<div class="lc-dilemma-actions">'+(choice?'<button class="btn" type="button" data-action="next">'+esc(t('Prosegui →'))+'</button>':'<p class="lc-dilemma-hint">'+esc(t('Scegli una delle due possibilità per scoprire che cosa accade nel racconto.'))+'</p>')+'</div></section>';
   }
   document.addEventListener('click',event=>{
-    const el=event.target.closest('[data-theme],[data-hero],[data-evidence],[data-action="network-check"]');if(!el||!session||story.scenes[session.index]?.game?.mode!=='network')return;
-    const state=window.__lcHeroNetwork||(window.__lcHeroNetwork={theme:0,heroes:[],evidence:-1,checked:false,solved:[]});
-    if(el.hasAttribute('data-theme')){state.theme=Number(el.dataset.theme);state.heroes=[];state.evidence=-1;state.checked=false;}
-    else if(el.hasAttribute('data-hero')){const id=Number(el.dataset.hero);state.heroes=state.heroes.includes(id)?state.heroes.filter(x=>x!==id):[...state.heroes.slice(-1),id];state.checked=false;}
-    else if(el.hasAttribute('data-evidence')){state.evidence=Number(el.dataset.evidence);state.checked=false;}
-    else if(el.dataset.action==='network-check')state.checked=true;
-    prologue();
+    const option=event.target.closest('[data-dilemma-choice]');if(!option||!session||previewIndex!==null)return;
+    const scene=story.scenes[session.index];if(scene?.game?.mode!=='dilemma'||dilemmaChoices[scene.id])return;
+    if(!scene.game.choices.some(c=>c.id===option.dataset.dilemmaChoice))return;
+    dilemmaChoices[scene.id]=option.dataset.dilemmaChoice;saveDilemmas();prologue();
+    $('prologue').querySelector('.lc-dilemma-reveal')?.scrollIntoView?.({behavior:'smooth',block:'start'});
   });
   function comparison(scene){
     const g=scene.game,translation=language==='ar'?ar.scenes?.[scene.id]?.game:null;
@@ -199,7 +209,7 @@
     const initially=ix<intro;
     const total=isReview||initially?intro:chapters;
     $('prologue').hidden=false;
-    $('prologue').innerHTML=scene.game?(scene.game.mode==='network'?heroNetwork(scene):comparison(scene)):translateUI(`<div class="pro-card" role="document">
+    $('prologue').innerHTML=scene.game?(scene.game.mode==='dilemma'?dilemma(scene):comparison(scene)):translateUI(`<div class="pro-card" role="document">
       <div class="pro-art pro-in">${art.markup(scene.art,session.values)}</div>
       <div class="pro-body">
         <div class="pro-top"><div class="eyebrow">${isReview?'Ripasso':initially?'Dalle lezioni precedenti':scene.id.startsWith('epica_')?'Le grandi tradizioni epiche':scene.id.startsWith('miti_')?'I miti di oggi':'Racconto'} · ${initially||isReview?ix+1:ix+1}/${total}</div>
@@ -210,7 +220,10 @@
         <div class="row"><button class="btn" data-action="${isReview?(ix===intro-1?'close-review':'review-next'):'next'}">${isReview&&ix===intro-1?'Torna al gioco':'Avanti →'}</button>
         ${!isReview&&initially?'<button class="btn ghost" data-action="skip">Salta il richiamo</button>':''}</div>
       </div></div>`);
-    $('prologue').querySelector('.btn')?.focus({preventScroll:true});
+    if(isReview?(previewIndex>0):session.index>0||Boolean(scene.game?.mode==='dilemma'&&dilemmaChoices[scene.id])){
+      $('prologue').insertAdjacentHTML('beforeend','<div class="lc-prologue-back">'+backButton()+'</div>');
+    }
+    $('prologue').querySelector('.btn:not(.lc-back)')?.focus({preventScroll:true});
   }
   document.addEventListener('change',event=>{
     const input=event.target.closest('[data-game-index]');if(!input||!session)return;
@@ -240,7 +253,7 @@
       $('panel').innerHTML='<p class="ep-lead">Segui le card illustrate.</p>';prologue();
     }else{
       $('prologue').hidden=true;
-      $('panel').innerHTML=translateUI(session.phase==='outcome'?outcome():decision(scene));
+      $('panel').innerHTML=(session.index>0||session.phase==='outcome'?backButton():'')+translateUI(session.phase==='outcome'?outcome():decision(scene));
       $('panel').setAttribute('aria-live','polite');
       $('panel').querySelector('button')?.focus({preventScroll:true});
     }
@@ -248,6 +261,8 @@
   }
   function next(){
     if(!session||previewIndex!==null)return;
+    const now=story.scenes[session.index];
+    if(session.phase==='scene'&&now?.game?.mode==='dilemma'&&!dilemmaChoices[now.id])return;
     try{session=engine.advance(story,session);save();render();}catch(e){console.error('Avanzamento bloccato',e);}
   }
   function skip(){
@@ -264,6 +279,7 @@
     const b=event.target.closest('[data-action]');if(!b)return;
     switch(b.dataset.action){
       case 'start':start();break;
+      case 'back':back();break;
       case 'resume':resume();break;
       case 'next':next();break;
       case 'skip':skip();break;

@@ -133,6 +133,28 @@
     };
   }
 
+  // Torna alla schermata precedente ricostruendo indicatori e decisioni dal principio.
+  // Una scelta viene annullata anziché invertire i delta (importante per i limiti 0–100).
+  function rewind(story, session) {
+    validateStory(story);
+    checkSession(story, session);
+    if (session.index === 0 && session.phase === 'scene') return session;
+    const target = session.phase === 'outcome' ? session.index
+      : session.phase === 'end' ? session.index : session.index - 1;
+    let previous = newSession(story), cursor = 0;
+    while (previous.index < target) {
+      const scene = story.scenes[previous.index];
+      if (scene.type === 'narrative') previous = advance(story, previous);
+      else {
+        const recorded = session.decisions[cursor++];
+        if (!recorded || recorded.sceneId !== scene.id) fail('Cronologia delle scelte incoerente');
+        previous = select(story, previous, recorded.choiceId);
+        previous = advance(story, previous);
+      }
+    }
+    return previous;
+  }
+
   function recap(story, session) {
     checkSession(story, session);
     const initial = Object.create(null);
@@ -166,5 +188,5 @@
     } catch (_) { return null; }
   }
 
-  return { VERSION, validateStory, newSession, currentScene, select, advance, recap, restore, clamp };
+  return { VERSION, validateStory, newSession, currentScene, select, advance, rewind, recap, restore, clamp };
 });

@@ -830,105 +830,40 @@
     {
       "id": "epica_confronto_1",
       "type": "narrative",
-      "title": "La rete degli eroi",
-      "text": "Scegli un tema, collega due protagonisti e trova un episodio che giustifichi il legame. Una stessa storia può entrare in più confronti.",
+      "title": "Il dilemma di Achille",
+      "text": "Scegli che cosa faresti. Il racconto mostrerà poi la decisione dell'eroe e i collegamenti con altre tradizioni epiche.",
       "art": "memoria",
       "game": {
-        "mode": "network",
-        "heroes": [
-          "Gilgamesh",
-          "Achille",
-          "Rostam",
-          "Enea",
-          "Arjuna"
-        ],
-        "themes": [
+        "mode": "dilemma",
+        "hero": "Achille",
+        "number": 1,
+        "setup": "Agamennone ha offeso Achille sottraendogli Briseide. I Greci hanno ancora bisogno di lui contro Troia, ma Achille sente che il suo onore è stato calpestato.",
+        "question": "Resti a combattere con i tuoi compagni oppure ti ritiri dalla guerra?",
+        "choices": [
           {
-            "id": "perdita",
-            "label": "Perdita",
-            "links": [
-              {
-                "pair": [
-                  0,
-                  1
-                ],
-                "evidence": "Gilgamesh perde Enkidu; Achille perde Patroclo.",
-                "explain": "La morte di una persona amata cambia il percorso di entrambi."
-              },
-              {
-                "pair": [
-                  1,
-                  2
-                ],
-                "evidence": "Achille perde Patroclo; Rostam uccide senza saperlo il figlio Sohrab.",
-                "explain": "Due lutti, ma responsabilità e circostanze molto diverse."
-              }
-            ]
+            "id": "fight",
+            "label": "Resto a combattere, anche se sono stato umiliato",
+            "hypothesis": "Se restassi, i Greci avrebbero ancora il loro guerriero più forte. Ma l'offesa rimarrebbe e il conflitto con Agamennone non sarebbe risolto."
           },
           {
-            "id": "dovere",
-            "label": "Dovere",
-            "links": [
-              {
-                "pair": [
-                  3,
-                  4
-                ],
-                "evidence": "Enea lascia Didone per la missione in Italia; Arjuna esita davanti ai parenti prima di combattere.",
-                "explain": "Il dovere entra in conflitto con legami personali, ma le due situazioni non sono equivalenti."
-              }
-            ]
-          },
-          {
-            "id": "errore",
-            "label": "Errore",
-            "links": [
-              {
-                "pair": [
-                  1,
-                  2
-                ],
-                "evidence": "Achille lascia che l'ira guidi le sue azioni; Rostam combatte senza riconoscere Sohrab.",
-                "explain": "In entrambi i casi un'azione ha esiti tragici, per motivi differenti."
-              }
-            ]
-          },
-          {
-            "id": "morte",
-            "label": "Mortalità",
-            "links": [
-              {
-                "pair": [
-                  0,
-                  2
-                ],
-                "evidence": "Gilgamesh cerca di sfuggire alla morte; Rostam scopre troppo tardi che ha ferito suo figlio.",
-                "explain": "Uno affronta la propria mortalità; l'altro l'irreversibilità della morte altrui."
-              }
-            ]
+            "id": "withdraw",
+            "label": "Mi ritiro: non combatto per chi mi disonora",
+            "hypothesis": "Ritirarti protegge il tuo orgoglio, ma lascia i compagni senza il tuo aiuto nel momento in cui hanno bisogno di te."
           }
         ],
-        "example": "Esempio: Gilgamesh perde l'amico Enkidu; Achille perde Patroclo. Il tema comune è la perdita, ma Gilgamesh cerca di sfuggire alla propria morte, mentre Achille torna in guerra per vendetta. Non basta dire «sono uguali»: bisogna citare i fatti e spiegare una differenza.",
-        "reminders": [
+        "canonicalChoice": "withdraw",
+        "actual": "Nell'Iliade Achille si ritira. I Greci subiscono gravi perdite; Patroclo combatte con le sue armi e viene ucciso da Ettore. Solo allora Achille torna, uccide Ettore e affronta il dolore del padre Priamo.",
+        "explanation": "La sua ira non riguarda solo lui: pesa sull'intero esercito. L'epica mette in discussione il rapporto fra orgoglio personale, gloria e responsabilità verso gli altri.",
+        "bridges": [
           {
-            "name": "Gilgamesh",
-            "text": "È il re di Uruk. Quando l'amico Enkidu muore, si spaventa: capisce che un giorno morirà anche lui. Cerca l'immortalità, ma torna senza averla ottenuta."
+            "hero": "Arjuna",
+            "common": "Anche Arjuna esita a partecipare a una guerra che coinvolge la sua comunità.",
+            "difference": "Achille si rifiuta per un'offesa al proprio onore; Arjuna teme di uccidere parenti e maestri. Le due esitazioni hanno motivi diversi."
           },
           {
-            "name": "Achille",
-            "text": "Nell'Iliade litiga con Agamennone e si ritira dalla guerra. L'amico Patroclo viene ucciso da Ettore; Achille torna a combattere e uccide Ettore. Poi restituisce il corpo al padre Priamo."
-          },
-          {
-            "name": "Rostam",
-            "text": "Nell'epopea persiana Shāhnāmeh affronta in duello un giovane guerriero, Sohrab. Lo ferisce mortalmente e soltanto dopo scopre che è suo figlio. La sua forza non evita la tragedia."
-          },
-          {
-            "name": "Enea",
-            "text": "Scappa dalla città di Troia in fiamme portando il padre e il figlio. Ama Didone, regina di Cartagine, ma la lascia per partire verso l'Italia: sceglie il compito che ritiene affidatogli dal destino."
-          },
-          {
-            "name": "Arjuna",
-            "text": "Nel Mahabharata deve combattere una guerra, ma tra i nemici vede parenti e maestri. Esita perché non vuole ucciderli. Krishna gli parla del dovere e delle responsabilità dell'azione."
+            "hero": "Enea",
+            "common": "Entrambi devono scegliere fra ciò che desiderano e ciò che altri si aspettano da loro.",
+            "difference": "Achille inizialmente si sottrae alla lotta; Enea lascia Didone per portare avanti il futuro che crede destinato ai suoi discendenti."
           }
         ]
       }
@@ -936,125 +871,123 @@
     {
       "id": "epica_confronto_2",
       "type": "narrative",
-      "title": "Tre modi di affrontare la morte",
-      "text": "Associa ciascuna tradizione alla domanda che mette in scena.",
+      "title": "Il dilemma di Gilgamesh",
+      "text": "Scegli che cosa faresti. Il racconto mostrerà poi la decisione dell'eroe e i collegamenti con altre tradizioni epiche.",
       "art": "parole",
       "game": {
-        "mode": "match",
-        "left": [
-          "Gilgamesh",
-          "Achille",
-          "Eroi norreni"
-        ],
-        "right": [
-          "Posso sfuggire alla morte?",
-          "Che prezzo ha la gloria?",
-          "Come agire davanti al destino?"
-        ],
-        "answer": [
-          0,
-          1,
-          2
-        ],
-        "example": "Come ragionare: non cercare tre definizioni da memorizzare. Domandati che cosa fa ciascun personaggio davanti alla morte o alla possibilità di morire. Cerca un fatto del racconto che lo dimostri.",
-        "reminders": [
+        "mode": "dilemma",
+        "hero": "Gilgamesh",
+        "number": 2,
+        "setup": "Il tuo amico Enkidu è morto. Sei il potente re di Uruk, ma scopri che neppure un re può impedire la propria morte.",
+        "question": "Accetti il limite umano oppure parti alla ricerca della vita eterna?",
+        "choices": [
           {
-            "name": "Gilgamesh",
-            "text": "Dopo la morte di Enkidu, lascia Uruk per cercare la vita eterna. Trova una pianta che potrebbe ridare giovinezza, ma un serpente gliela sottrae."
+            "id": "stay",
+            "label": "Resto a Uruk: devo vivere sapendo che morirò",
+            "hypothesis": "Restando potresti occuparti della tua città e affrontare il lutto senza cercare una soluzione impossibile. Ma la paura della morte resterebbe."
           },
           {
-            "name": "Achille",
-            "text": "La morte di Patroclo lo spinge a tornare in battaglia. Uccide Ettore, ma il suo dolore non scompare: quando Priamo gli chiede il corpo del figlio, i due piangono insieme."
-          },
-          {
-            "name": "Tradizioni norrene",
-            "text": "Nei racconti sul Ragnarök, persino le divinità affrontano una battaglia destinata a distruggere il vecchio ordine del mondo. Il coraggio non garantisce la vittoria né cancella il destino."
+            "id": "search",
+            "label": "Parto: voglio scoprire come diventare immortale",
+            "hypothesis": "Il viaggio può farti conoscere il mondo e te stesso, ma non garantisce che troverai ciò che cerchi."
           }
         ],
-        "feedback": [
-          "Gilgamesh perde Enkidu e cerca di diventare immortale: si domanda se sia possibile evitare la propria morte.",
-          "Achille ottiene vendetta su Ettore, ma non riporta in vita Patroclo: la gloria del guerriero comporta dolore e perdite.",
-          "Nei racconti del Ragnarök gli dèi affrontano la catastrofe anche sapendo che il destino è terribile: conta il modo di agire."
+        "canonicalChoice": "search",
+        "actual": "Nell'Epopea di Gilgamesh il re parte in cerca dell'immortalità. Incontra Utnapishtim e ottiene una pianta che potrebbe restituire giovinezza; un serpente gliela sottrae. Gilgamesh torna a Uruk senza aver sconfitto la morte.",
+        "explanation": "Il viaggio non gli dà la vita eterna: gli fa incontrare il limite della condizione umana e il valore di ciò che gli esseri umani possono costruire.",
+        "bridges": [
+          {
+            "hero": "Achille",
+            "common": "Entrambi cambiano dopo la morte di una persona amata: Enkidu per Gilgamesh, Patroclo per Achille.",
+            "difference": "Gilgamesh cerca di sottrarsi alla propria morte; Achille reagisce tornando a combattere per vendetta. Un tema comune genera due storie diverse."
+          },
+          {
+            "hero": "Enea",
+            "common": "Un dolore personale provoca un viaggio che cambia la vita del protagonista.",
+            "difference": "Gilgamesh parte soprattutto per affrontare la paura di morire; Enea lascia Troia distrutta per cercare una terra dove possa vivere la sua comunità."
+          }
         ]
       }
     },
     {
       "id": "epica_confronto_3",
       "type": "narrative",
-      "title": "Partire non significa sempre la stessa cosa",
-      "text": "Abbina ogni viaggio al suo significato principale.",
+      "title": "Il dilemma di Odisseo",
+      "text": "Scegli che cosa faresti. Il racconto mostrerà poi la decisione dell'eroe e i collegamenti con altre tradizioni epiche.",
       "art": "reti",
       "game": {
-        "mode": "match",
-        "left": [
-          "Odisseo",
-          "Enea",
-          "Rama"
-        ],
-        "right": [
-          "Ritrovare casa",
-          "Cercare una nuova patria",
-          "Affrontare l'esilio e il dovere"
-        ],
-        "answer": [
-          0,
-          1,
-          2
-        ],
-        "example": "Un viaggio non ha sempre lo stesso scopo. Per esempio: se qualcuno attraversa il mare per ritrovare la propria casa, non sta facendo la stessa cosa di chi fugge da una città distrutta per fondarne un'altra.",
-        "reminders": [
+        "mode": "dilemma",
+        "hero": "Odisseo",
+        "number": 3,
+        "setup": "Hai accecato il ciclope Polifemo e stai fuggendo in nave. Ti sei salvato grazie all'inganno del nome «Nessuno». Il ciclope non sa chi sei.",
+        "question": "Parti in silenzio oppure riveli il tuo nome per vantarti della vittoria?",
+        "choices": [
           {
-            "name": "Odisseo",
-            "text": "Dopo la guerra di Troia impiega anni a tornare a Itaca. Sfugge al ciclope Polifemo chiamandosi «Nessuno» e, una volta a casa, si fa riconoscere da Penelope."
+            "id": "silent",
+            "label": "Taccio: la cosa importante è tornare a Itaca",
+            "hypothesis": "Se partissi senza farti riconoscere, probabilmente avresti meno rischi immediati. La gloria dell'impresa rimarrebbe nascosta al ciclope."
           },
           {
-            "name": "Enea",
-            "text": "Fugge da Troia distrutta con la famiglia. Durante il viaggio incontra Didone e la lascia; la sua meta è l'Italia, dove dovrà nascere una nuova patria per i suoi discendenti."
-          },
-          {
-            "name": "Rama",
-            "text": "Nel Ramayana lascia il regno e vive in esilio. Quando Sita viene rapita da Ravana, affronta una lunga lotta per ritrovarla. Il viaggio è legato anche ai doveri familiari e regali."
+            "id": "shout",
+            "label": "Grido il mio nome: Polifemo saprà chi l'ha sconfitto",
+            "hypothesis": "Rivendicare il tuo nome soddisfa l'orgoglio, ma offre al nemico un'informazione che potrebbe usare contro di te."
           }
         ],
-        "feedback": [
-          "Odisseo vuole tornare a Itaca, cioè nella patria che già aveva, e ritrovare la sua famiglia.",
-          "Enea non può tornare alla Troia distrutta: deve cercare una nuova terra per il futuro del suo popolo.",
-          "Rama vive l'esilio e cerca di ritrovare Sita: il suo percorso mette alla prova i legami e il dovere."
+        "canonicalChoice": "shout",
+        "actual": "Nell'Odissea Odisseo grida il proprio nome. Polifemo invoca suo padre Poseidone contro di lui: il ritorno a Itaca diventa ancora più difficile.",
+        "explanation": "L'astuzia aveva salvato Odisseo; il bisogno di farsi riconoscere lo espone a nuove conseguenze. Non basta essere intelligenti: bisogna anche controllare l'orgoglio.",
+        "bridges": [
+          {
+            "hero": "Achille",
+            "common": "La fama e il riconoscimento hanno un peso importante per entrambi gli eroi greci.",
+            "difference": "Achille reagisce a un'offesa lasciando la guerra; Odisseo rivela il nome dopo aver già vinto. La ricerca di prestigio crea problemi differenti."
+          },
+          {
+            "hero": "Enea",
+            "common": "Entrambi attraversano il Mediterraneo dopo la caduta di Troia.",
+            "difference": "Odisseo cerca di tornare alla casa che possiede già, Itaca. Enea cerca una patria nuova perché Troia è distrutta."
+          }
         ]
       }
     },
     {
       "id": "epica_confronto_scelta",
       "type": "narrative",
-      "title": "Due eroi, due destini",
-      "text": "Quale affermazione distingue correttamente le due vicende?",
+      "title": "Il dilemma di Enea",
+      "text": "Scegli che cosa faresti. Il racconto mostrerà poi la decisione dell'eroe e i collegamenti con altre tradizioni epiche.",
       "art": "memoria",
       "game": {
-        "mode": "contrast",
-        "left": [
-          "Scegli l'affermazione corretta"
-        ],
-        "right": [
-          "Odisseo cerca Itaca, Enea una nuova patria",
-          "Entrambi vogliono soltanto tornare a Troia",
-          "Entrambi rinunciano per sempre ai propri legami"
-        ],
-        "answer": [
-          0
-        ],
-        "reminders": [
+        "mode": "dilemma",
+        "hero": "Enea",
+        "number": 4,
+        "setup": "Sei arrivato a Cartagine dopo essere fuggito da Troia in fiamme. Ami la regina Didone. Ma ritieni che il destino ti imponga di partire verso l'Italia per il futuro dei tuoi discendenti.",
+        "question": "Rimani con Didone oppure riparti verso l'Italia?",
+        "choices": [
           {
-            "name": "Odisseo",
-            "text": "Itaca esiste ancora: il suo obiettivo è tornare alla moglie Penelope e alla propria casa dopo la guerra."
+            "id": "stay",
+            "label": "Resto a Cartagine con Didone",
+            "hypothesis": "Restare permetterebbe di proteggere il legame con Didone. Ma significherebbe rinunciare alla missione che Enea ritiene affidatagli dal destino."
           },
           {
-            "name": "Enea",
-            "text": "Troia è stata distrutta: attraversa il Mediterraneo cercando una terra in cui i suoi discendenti avranno un futuro."
+            "id": "leave",
+            "label": "Riparto: devo cercare una nuova patria",
+            "hypothesis": "Partire significa proseguire la missione, ma ferisce gravemente Didone. Un progetto collettivo può avere un costo umano personale."
           }
         ],
-        "example": "Esempio di confronto: due personaggi possono affrontare lo stesso mare, ma uno vuole recuperare ciò che ha perso, l'altro costruire qualcosa che ancora non esiste.",
-        "feedback": [
-          "Odisseo compie un ritorno a Itaca; Enea parte da Troia distrutta per costruire un futuro altrove. Questo distingue i due viaggi."
+        "canonicalChoice": "leave",
+        "actual": "Nell'Eneide Enea lascia Cartagine e riprende il viaggio verso l'Italia. Didone, disperata, si toglie la vita. Il poema presenta la scelta di Enea come fedeltà a una missione, senza cancellarne il dolore.",
+        "explanation": "Non è una gara fra risposta giusta e sbagliata. Virgilio mostra un conflitto fra affetti e dovere, e invita a considerare anche chi paga le conseguenze.",
+        "bridges": [
+          {
+            "hero": "Arjuna",
+            "common": "Entrambi affrontano un conflitto fra legami personali e un dovere sentito come superiore.",
+            "difference": "Enea deve abbandonare una persona amata per partire; Arjuna esita a combattere contro parenti e maestri. I loro contesti morali e religiosi non coincidono."
+          },
+          {
+            "hero": "Odisseo",
+            "common": "Entrambi viaggiano dopo la guerra di Troia e devono rinunciare a qualcosa lungo il percorso.",
+            "difference": "Odisseo torna a Itaca, la patria perduta di vista. Enea deve trovare una patria nuova per i suoi discendenti."
+          }
         ]
       }
     },
@@ -1068,74 +1001,82 @@
     {
       "id": "epica_scelta",
       "type": "narrative",
-      "title": "Una storia per una comunità",
-      "text": "Perché ricordiamo spesso la vicenda di un singolo eroe?",
+      "title": "Il dilemma di Arjuna",
+      "text": "Scegli che cosa faresti. Il racconto mostrerà poi la decisione dell'eroe e i collegamenti con altre tradizioni epiche.",
       "art": "memoria",
       "game": {
-        "mode": "contrast",
-        "left": [
-          "Scegli l'affermazione corretta"
-        ],
-        "right": [
-          "Perché rappresenta valori e conflitti collettivi",
-          "Perché ogni racconto epico è una cronaca esatta",
-          "Perché un popolo non ricorda più persone"
-        ],
-        "answer": [
-          0
-        ],
-        "reminders": [
+        "mode": "dilemma",
+        "hero": "Arjuna",
+        "number": 5,
+        "setup": "Sul campo di Kurukshetra, nell'epopea del Mahabharata, vedi davanti a te parenti e maestri. Hai un ruolo da guerriero, ma non vuoi uccidere persone che conosci e ami.",
+        "question": "Deposi l'arco oppure affronti la battaglia?",
+        "choices": [
           {
-            "name": "Achille",
-            "text": "La sua ira provoca una crisi tra i Greci; la morte di Patroclo e il dialogo con Priamo fanno riflettere su guerra, vendetta e dolore."
+            "id": "drop",
+            "label": "Depongo l'arco: non voglio combattere i miei parenti",
+            "hypothesis": "Rifiutare la lotta potrebbe evitare che tu uccida direttamente persone care, ma non risolve da solo il conflitto politico e il dovere che senti verso gli altri."
           },
           {
-            "name": "Enea",
-            "text": "Quando lascia Didone per continuare il viaggio, la sua scelta personale diventa anche un problema per il futuro di un popolo."
+            "id": "fight",
+            "label": "Combatto, pur sapendo che sarà doloroso",
+            "hypothesis": "Combattere significa assumerti il ruolo che senti di avere, ma comporta la possibilità concreta di ferire e perdere persone care."
           }
         ],
-        "example": "Esempio: raccontando le scelte di Achille, l'Iliade fa discutere non solo di un guerriero, ma anche delle conseguenze dell'ira per tutta la guerra.",
-        "feedback": [
-          "La vicenda dell'eroe mette in scena un conflitto condiviso: Achille rappresenta la tensione fra orgoglio, guerra, perdita e compassione."
+        "canonicalChoice": "fight",
+        "actual": "Nella Bhagavad Gītā, parte del Mahabharata, Krishna parla ad Arjuna del dovere, dell'azione e della natura della vita. Dopo il dialogo, Arjuna decide di combattere.",
+        "explanation": "Il testo non è un semplice invito alla violenza: è una riflessione complessa sul dovere (dharma), sull'azione e sulla responsabilità in una situazione tragica.",
+        "bridges": [
+          {
+            "hero": "Achille",
+            "common": "All'inizio di momenti cruciali entrambi non vogliono combattere.",
+            "difference": "Achille rifiuta perché si sente disonorato da Agamennone; Arjuna è sconvolto dall'idea di uccidere parenti e maestri. Il gesto sembra simile, la ragione no."
+          },
+          {
+            "hero": "Enea",
+            "common": "Entrambi mettono in discussione il rapporto fra desideri personali e responsabilità.",
+            "difference": "Enea deve scegliere se lasciare Didone e proseguire un viaggio; Arjuna deve decidere se prendere parte a una guerra contro persone amate."
+          }
         ]
       }
     },
     {
       "id": "epica_conflitto",
       "type": "narrative",
-      "title": "Una scelta, molte conseguenze",
-      "text": "Quale domanda aiuta a confrontare Achille, Enea e Arjuna?",
+      "title": "Il dilemma di Rama",
+      "text": "Scegli che cosa faresti. Il racconto mostrerà poi la decisione dell'eroe e i collegamenti con altre tradizioni epiche.",
       "art": "patto",
       "game": {
-        "mode": "contrast",
-        "left": [
-          "Scegli l'affermazione corretta"
-        ],
-        "right": [
-          "Chi viene protetto e chi paga il prezzo?",
-          "Chi ottiene il bottino più grande?",
-          "Chi viene citato più spesso nei libri?"
-        ],
-        "answer": [
-          0
-        ],
-        "reminders": [
+        "mode": "dilemma",
+        "hero": "Rama",
+        "number": 6,
+        "setup": "Nel Ramayana il padre di Rama, re Dasharatha, è vincolato a una promessa: il trono andrà a Bharata e Rama dovrà vivere in esilio per quattordici anni.",
+        "question": "Contesti la decisione oppure accetti l'esilio per rispettare la parola del padre?",
+        "choices": [
           {
-            "name": "Achille",
-            "text": "L'ira lo allontana dai compagni; dopo la morte di Patroclo torna a combattere, uccide Ettore e aumenta il dolore di altre famiglie."
+            "id": "contest",
+            "label": "Resto e contesto la decisione: il trono doveva essere mio",
+            "hypothesis": "Opporsi potrebbe difendere il tuo diritto al trono, ma aprirebbe uno scontro nella famiglia reale e metterebbe in discussione la parola data da tuo padre."
           },
           {
-            "name": "Enea",
-            "text": "Per seguire il destino che crede di avere, lascia Didone: il futuro dei suoi discendenti richiede una perdita personale molto concreta."
-          },
-          {
-            "name": "Arjuna",
-            "text": "Sul campo di battaglia vede parenti e maestri tra gli avversari. Vuole sottrarsi alla guerra, ma Krishna gli parla del suo dovere."
+            "id": "accept",
+            "label": "Accetto l'esilio per rispettare la promessa",
+            "hypothesis": "Partire preserva la promessa del padre, ma ti allontana dalla città e da una vita sicura. Anche Sita e Lakshmana affronteranno i pericoli del viaggio."
           }
         ],
-        "example": "Per confrontarli, chiediti: chi spera di salvare ciascuno? Chi soffre per la sua decisione? Ad esempio, l'impresa di Enea apre un futuro ma lascia Didone nella disperazione.",
-        "feedback": [
-          "Nei tre racconti una scelta coinvolge altre persone: compagni e nemici di Achille, Didone e i discendenti di Enea, parenti e avversari di Arjuna."
+        "canonicalChoice": "accept",
+        "actual": "Nel Ramayana Rama accetta l'esilio; Sita e Lakshmana lo accompagnano. In seguito Sita viene rapita da Ravana, Rama combatte per liberarla e, dopo molti eventi, torna al suo regno.",
+        "explanation": "Il racconto mette al centro il dovere verso la famiglia, la parola data e le responsabilità del sovrano. L'obbedienza non evita però sofferenze e conflitti.",
+        "bridges": [
+          {
+            "hero": "Enea",
+            "common": "Rama ed Enea rinunciano a una situazione familiare e affrontano un viaggio difficile.",
+            "difference": "Rama lascia temporaneamente il proprio regno e alla fine vi ritorna; Enea fugge da Troia distrutta e cerca una patria nuova."
+          },
+          {
+            "hero": "Odisseo",
+            "common": "Entrambi attraversano prove e cercano di riunirsi alla loro famiglia.",
+            "difference": "Odisseo deve tornare dopo una guerra; Rama affronta un esilio imposto da una promessa e, durante il viaggio, il rapimento di Sita."
+          }
         ]
       }
     },
