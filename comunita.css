@@ -119,3 +119,10 @@
 .lc-ar .lc-dilemma-intro h2{font-family:'Cairo',sans-serif;line-height:1.35;font-weight:800}
 @media(max-width:600px){.lc-game.lc-dilemma{box-shadow:3px 3px 0 var(--red);padding:.85rem}.lc-dilemma-hero{grid-template-columns:1fr}.lc-dilemma-art{min-height:0;aspect-ratio:16/7}.lc-dilemma-art svg{height:100%;object-fit:cover}.lc-dilemma-choices,.lc-bridge-grid{grid-template-columns:1fr}.lc-dilemma-option{min-height:88px;padding:.85rem}.lc-dilemma-intro{gap:.45rem}.lc-dilemma-task{padding-top:.85rem}}
 @media(prefers-reduced-motion:reduce){#prologue:has(.lc-dilemma){scroll-behavior:auto}.lc-dilemma-option{transition:none}}
+
+/* Navigazione reversibile, disponibile anche sulle schermate modali. */
+.lc-back{font-size:.9rem;white-space:nowrap}
+.lc-prologue-back{position:fixed;inset-block-start:max(12px,env(safe-area-inset-top));inset-inline-start:max(12px,env(safe-area-inset-left));z-index:10}
+.lc-prologue-back .lc-back{padding:.45rem .75rem;background:var(--white);box-shadow:2px 2px 0 var(--ink)}
+.lc-ar .lc-prologue-back .lc-back{font-family:'Cairo',sans-serif}
+@media(max-width:600px){.lc-prologue-back{inset-block-start:max(8px,env(safe-area-inset-top));inset-inline-start:max(8px,env(safe-area-inset-left))}.lc-prologue-back .lc-back{font-size:.82rem}}
