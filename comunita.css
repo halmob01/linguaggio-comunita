@@ -70,3 +70,52 @@
 .lc-feedback-examples p{border-top:1px solid currentColor;padding-top:.55rem}
 @media(max-width:35rem){.lc-game{padding:.85rem}.lc-epic-recall{padding:.75rem}.lc-recall-grid{grid-template-columns:1fr}.lc-recall-card{padding:.75rem}}
 .lc-ar .lc-recall-card,.lc-ar .lc-recall-example{text-align:start}
+
+/* Dilemmi epici: pagina editoriale, decisione a due vie e confronti disegnati dal motore. */
+#prologue:has(.lc-dilemma){align-items:flex-start;scroll-behavior:smooth}
+.lc-game.lc-dilemma{width:min(940px,100%);max-width:940px;margin:auto;padding:clamp(.9rem,3vw,1.8rem);gap:1.1rem;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--red)}
+.lc-dilemma-mast{display:flex;align-items:center;justify-content:space-between;gap:.8rem;border-bottom:3px solid var(--ink);padding-bottom:.65rem}
+.lc-dilemma-counter{font-family:var(--display);font-size:1.5rem;line-height:1;color:var(--red)}
+.lc-dilemma-hero{display:grid;grid-template-columns:minmax(0, .95fr) minmax(0,1.2fr);gap:1rem;align-items:stretch}
+.lc-dilemma-art{display:flex;align-items:center;min-height:190px;background:var(--soft);border:2px solid var(--ink);overflow:hidden;direction:ltr}
+.lc-dilemma-art svg{width:100%;height:auto;display:block}
+.lc-dilemma-intro{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:.5rem;min-width:0}
+.lc-dilemma-overline{font-size:.75rem;font-weight:800;letter-spacing:.085em;text-transform:uppercase;color:var(--red)}
+.lc-dilemma-intro h2{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,5vw,3.3rem);line-height:1.08;max-width:100%;margin:0}
+.lc-dilemma-intro p{margin:0;max-width:56ch;font-size:clamp(.97rem,2vw,1.08rem);font-weight:500;line-height:1.55}
+.lc-dilemma-task{display:grid;gap:.75rem;border-top:2px solid var(--ink);padding-top:1rem}
+.lc-dilemma-task h3{font-size:clamp(1.17rem,3vw,1.5rem);line-height:1.3;max-width:52ch}
+.lc-dilemma-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
+.lc-dilemma-option{display:flex;align-items:flex-start;gap:.65rem;min-height:112px;width:100%;padding:1rem;background:var(--white);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);color:var(--ink);text-align:start;cursor:pointer;font:700 1rem/1.4 var(--ui);transition:transform .16s ease,background .16s ease}
+.lc-dilemma-option-index{font-family:var(--display);font-size:1.65rem;line-height:1;font-weight:400;color:var(--red)}
+.lc-dilemma-arrow{font-size:1.15rem;margin-inline-start:auto;opacity:.65}
+.lc-dilemma-option:not(:disabled):hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink);background:var(--soft)}
+.lc-dilemma-option.is-picked{border-color:var(--red);box-shadow:3px 3px 0 var(--red);background:var(--soft)}
+.lc-dilemma-option:disabled{cursor:default;opacity:.68}
+.lc-dilemma-option.is-picked:disabled{opacity:1}
+.lc-dilemma-reveal{display:grid;gap:1rem;border-top:3px solid var(--ink);padding-top:1.3rem}
+.lc-dilemma-reveal>p{font-size:1.03rem;margin:.1rem 0 .2rem}
+.lc-dilemma-canon{background:var(--soft);border-inline-start:5px solid var(--red);padding:1rem 1.1rem;display:grid;gap:.5rem}
+.lc-dilemma-canon p{margin:0;max-width:72ch}
+.lc-dilemma-canon .lc-dilemma-meaning{font-weight:700}
+.lc-dilemma-bridges{display:grid;gap:.7rem;padding-top:.55rem}
+.lc-dilemma-bridges-head{display:grid;gap:.3rem}
+.lc-dilemma-bridges-head h3{font-size:clamp(1.35rem,3vw,1.85rem)}
+.lc-dilemma-bridges-head p{margin:0;font-size:.94rem;color:var(--mute)}
+.lc-bridge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+.lc-bridge{position:relative;border:2px solid var(--ink);padding:1rem;display:flex;flex-direction:column;gap:.8rem;min-width:0;background:var(--white)}
+.lc-bridge-line{position:absolute;top:0;inset-inline-start:0;bottom:0;width:6px;background:var(--red)}
+.lc-bridge-title{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:.45rem;line-height:1.25;font-size:1.04rem}
+.lc-bridge-hero{font-weight:800}
+.lc-bridge-link{font-weight:900;color:var(--red);font-size:1.3rem}
+.lc-bridge strong{display:block;font-size:.77rem;letter-spacing:.03em;text-transform:uppercase;color:var(--red)}
+.lc-bridge p{font-size:.94rem;line-height:1.52;margin:.2rem 0 0}
+.lc-dilemma-actions{display:flex;gap:1rem;align-items:center;justify-content:flex-start}
+.lc-dilemma-hint{margin:0;color:var(--mute);font-size:.91rem}
+.lc-dilemma button:focus-visible{outline:3px solid var(--red);outline-offset:4px}
+.lc-ar .lc-dilemma{font-family:'Cairo',sans-serif;line-height:1.8}
+.lc-ar .lc-dilemma-option{font-family:'Cairo',sans-serif}
+.lc-ar .lc-dilemma-overline,.lc-ar .lc-bridge strong{letter-spacing:0;line-height:1.6}
+.lc-ar .lc-dilemma-intro h2{font-family:'Cairo',sans-serif;line-height:1.35;font-weight:800}
+@media(max-width:600px){.lc-game.lc-dilemma{box-shadow:3px 3px 0 var(--red);padding:.85rem}.lc-dilemma-hero{grid-template-columns:1fr}.lc-dilemma-art{min-height:0;aspect-ratio:16/7}.lc-dilemma-art svg{height:100%;object-fit:cover}.lc-dilemma-choices,.lc-bridge-grid{grid-template-columns:1fr}.lc-dilemma-option{min-height:88px;padding:.85rem}.lc-dilemma-intro{gap:.45rem}.lc-dilemma-task{padding-top:.85rem}}
+@media(prefers-reduced-motion:reduce){#prologue:has(.lc-dilemma){scroll-behavior:auto}.lc-dilemma-option{transition:none}}
