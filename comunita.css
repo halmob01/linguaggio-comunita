@@ -32,97 +32,14 @@
 .lc-ar .ep-stat-head,.lc-ar .ep-change{direction:rtl}
 .lc-ar .ep-choices,.lc-ar .pro-body{direction:rtl}
 
-/* Mini-giochi di confronto, indipendenti dagli indicatori della simulazione. */
-.lc-game{padding:clamp(1rem,3vw,2rem);background:var(--paper);display:grid;gap:1rem;max-width:800px;margin:auto}
-.lc-game h2{font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.1}
-.lc-game p{max-width:58ch;line-height:1.5}
-.lc-game-grid{display:grid;gap:.6rem}
-.lc-game-row{display:grid;grid-template-columns:minmax(110px,1fr) minmax(0,1.6fr);gap:.7rem;align-items:center;padding:.7rem;background:var(--soft);border-left:4px solid var(--ink)}
-.lc-game-row select{font:inherit;max-width:100%;min-width:0;border:2px solid var(--ink);border-radius:4px;padding:.65rem;background:white;color:var(--ink)}
-.lc-game-feedback{padding:1rem;border-left:4px solid var(--ink);background:var(--soft);font-weight:700}
-.lc-ar .lc-game{font-family:Cairo,sans-serif;direction:rtl}.lc-ar .lc-game-row{border-left:0;border-right:4px solid var(--ink)}
-@media(max-width:35rem){.lc-game-row{grid-template-columns:1fr}}
-
-/* Rete degli eroi: selezione a tocco, nessun drag obbligatorio. */
-.lc-network-step{display:grid;gap:.65rem;padding:.9rem 0;border-top:1px solid currentColor}
-.lc-theme-list,.lc-hero-grid{display:flex;flex-wrap:wrap;gap:.55rem}
-.lc-theme,.lc-hero-card,.lc-evidence{font:inherit;color:inherit;border:2px solid currentColor;background:transparent;border-radius:7px;padding:.7rem .85rem;cursor:pointer;text-align:start}
-.lc-theme.is-selected,.lc-hero-card.is-selected,.lc-evidence.is-selected{background:#245e63;color:#fff;border-color:#245e63}
-.lc-hero-card{display:grid;gap:.4rem;min-width:125px;flex:1 1 125px;max-width:200px}
-.lc-hero-symbol{font-size:1.7rem;line-height:1}
-.lc-evidence-list{display:grid;gap:.55rem}
-.lc-evidence{width:100%;line-height:1.4}
-.lc-network button:focus-visible{outline:3px solid #cc7a2b;outline-offset:3px}
-.lc-ar .lc-evidence,.lc-ar .lc-hero-card{text-align:right}
-
-/* Richiami narrativi prima dei confronti: leggibili su telefono, senza nascondere le storie. */
-.lc-epic-recall{display:grid;gap:.85rem;padding:1rem;background:var(--soft);border:2px solid var(--ink)}
-.lc-epic-recall-head{display:grid;gap:.2rem}
-.lc-epic-recall-head p{font-size:.93rem;margin:0;color:var(--mute)}
-.lc-recall-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,205px),1fr));gap:.65rem}
-.lc-recall-card{padding:.85rem;background:var(--paper);border:1px solid var(--ink);border-top:4px solid #245e63;min-width:0}
-.lc-recall-card h3{font-size:1.06rem;line-height:1.3;margin:0 0 .4rem}
-.lc-recall-card p{font-size:.94rem;line-height:1.55;margin:0}
-.lc-recall-example{border-inline-start:4px solid #245e63;padding:.7rem .9rem;background:var(--paper)}
-.lc-recall-example strong{display:block;font-size:.84rem;letter-spacing:.01em;margin-bottom:.3rem}
-.lc-recall-example p,.lc-feedback-examples p{margin:.35rem 0 0;line-height:1.55}
-.lc-feedback-examples{display:grid;gap:.5rem;margin-top:.65rem;font-weight:500}
-.lc-feedback-examples p{border-top:1px solid currentColor;padding-top:.55rem}
-@media(max-width:35rem){.lc-game{padding:.85rem}.lc-epic-recall{padding:.75rem}.lc-recall-grid{grid-template-columns:1fr}.lc-recall-card{padding:.75rem}}
-.lc-ar .lc-recall-card,.lc-ar .lc-recall-example{text-align:start}
-
-/* Dilemmi epici: pagina editoriale, decisione a due vie e confronti disegnati dal motore. */
-#prologue:has(.lc-dilemma){align-items:flex-start;scroll-behavior:smooth}
-.lc-game.lc-dilemma{width:min(940px,100%);max-width:940px;margin:auto;padding:clamp(.9rem,3vw,1.8rem);gap:1.1rem;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--red)}
-.lc-dilemma-mast{display:flex;align-items:center;justify-content:space-between;gap:.8rem;border-bottom:3px solid var(--ink);padding-bottom:.65rem}
-.lc-dilemma-counter{font-family:var(--display);font-size:1.5rem;line-height:1;color:var(--red)}
-.lc-dilemma-hero{display:grid;grid-template-columns:minmax(0, .95fr) minmax(0,1.2fr);gap:1rem;align-items:stretch}
-.lc-dilemma-art{display:flex;align-items:center;min-height:190px;background:var(--soft);border:2px solid var(--ink);overflow:hidden;direction:ltr}
-.lc-dilemma-art svg{width:100%;height:auto;display:block}
-.lc-dilemma-intro{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:.5rem;min-width:0}
-.lc-dilemma-overline{font-size:.75rem;font-weight:800;letter-spacing:.085em;text-transform:uppercase;color:var(--red)}
-.lc-dilemma-intro h2{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,5vw,3.3rem);line-height:1.08;max-width:100%;margin:0}
-.lc-dilemma-intro p{margin:0;max-width:56ch;font-size:clamp(.97rem,2vw,1.08rem);font-weight:500;line-height:1.55}
-.lc-dilemma-task{display:grid;gap:.75rem;border-top:2px solid var(--ink);padding-top:1rem}
-.lc-dilemma-task h3{font-size:clamp(1.17rem,3vw,1.5rem);line-height:1.3;max-width:52ch}
-.lc-dilemma-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
-.lc-dilemma-option{display:flex;align-items:flex-start;gap:.65rem;min-height:112px;width:100%;padding:1rem;background:var(--white);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);color:var(--ink);text-align:start;cursor:pointer;font:700 1rem/1.4 var(--ui);transition:transform .16s ease,background .16s ease}
-.lc-dilemma-option-index{font-family:var(--display);font-size:1.65rem;line-height:1;font-weight:400;color:var(--red)}
-.lc-dilemma-arrow{font-size:1.15rem;margin-inline-start:auto;opacity:.65}
-.lc-dilemma-option:not(:disabled):hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink);background:var(--soft)}
-.lc-dilemma-option.is-picked{border-color:var(--red);box-shadow:3px 3px 0 var(--red);background:var(--soft)}
-.lc-dilemma-option:disabled{cursor:default;opacity:.68}
-.lc-dilemma-option.is-picked:disabled{opacity:1}
-.lc-dilemma-reveal{display:grid;gap:1rem;border-top:3px solid var(--ink);padding-top:1.3rem}
-.lc-dilemma-reveal>p{font-size:1.03rem;margin:.1rem 0 .2rem}
-.lc-dilemma-canon{background:var(--soft);border-inline-start:5px solid var(--red);padding:1rem 1.1rem;display:grid;gap:.5rem}
-.lc-dilemma-canon p{margin:0;max-width:72ch}
-.lc-dilemma-canon .lc-dilemma-meaning{font-weight:700}
-.lc-dilemma-bridges{display:grid;gap:.7rem;padding-top:.55rem}
-.lc-dilemma-bridges-head{display:grid;gap:.3rem}
-.lc-dilemma-bridges-head h3{font-size:clamp(1.35rem,3vw,1.85rem)}
-.lc-dilemma-bridges-head p{margin:0;font-size:.94rem;color:var(--mute)}
-.lc-bridge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
-.lc-bridge{position:relative;border:2px solid var(--ink);padding:1rem;display:flex;flex-direction:column;gap:.8rem;min-width:0;background:var(--white)}
-.lc-bridge-line{position:absolute;top:0;inset-inline-start:0;bottom:0;width:6px;background:var(--red)}
-.lc-bridge-title{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:.45rem;line-height:1.25;font-size:1.04rem}
-.lc-bridge-hero{font-weight:800}
-.lc-bridge-link{font-weight:900;color:var(--red);font-size:1.3rem}
-.lc-bridge strong{display:block;font-size:.77rem;letter-spacing:.03em;text-transform:uppercase;color:var(--red)}
-.lc-bridge p{font-size:.94rem;line-height:1.52;margin:.2rem 0 0}
-.lc-dilemma-actions{display:flex;gap:1rem;align-items:center;justify-content:flex-start}
-.lc-dilemma-hint{margin:0;color:var(--mute);font-size:.91rem}
-.lc-dilemma button:focus-visible{outline:3px solid var(--red);outline-offset:4px}
-.lc-ar .lc-dilemma{font-family:'Cairo',sans-serif;line-height:1.8}
-.lc-ar .lc-dilemma-option{font-family:'Cairo',sans-serif}
-.lc-ar .lc-dilemma-overline,.lc-ar .lc-bridge strong{letter-spacing:0;line-height:1.6}
-.lc-ar .lc-dilemma-intro h2{font-family:'Cairo',sans-serif;line-height:1.35;font-weight:800}
-@media(max-width:600px){.lc-game.lc-dilemma{box-shadow:3px 3px 0 var(--red);padding:.85rem}.lc-dilemma-hero{grid-template-columns:1fr}.lc-dilemma-art{min-height:0;aspect-ratio:16/7}.lc-dilemma-art svg{height:100%;object-fit:cover}.lc-dilemma-choices,.lc-bridge-grid{grid-template-columns:1fr}.lc-dilemma-option{min-height:88px;padding:.85rem}.lc-dilemma-intro{gap:.45rem}.lc-dilemma-task{padding-top:.85rem}}
-@media(prefers-reduced-motion:reduce){#prologue:has(.lc-dilemma){scroll-behavior:auto}.lc-dilemma-option{transition:none}}
-
 /* Navigazione reversibile, disponibile anche sulle schermate modali. */
 .lc-back{font-size:.9rem;white-space:nowrap}
 .lc-prologue-back{position:fixed;inset-block-start:max(12px,env(safe-area-inset-top));inset-inline-start:max(12px,env(safe-area-inset-left));z-index:10}
 .lc-prologue-back .lc-back{padding:.45rem .75rem;background:var(--white);box-shadow:2px 2px 0 var(--ink)}
 .lc-ar .lc-prologue-back .lc-back{font-family:'Cairo',sans-serif}
 @media(max-width:600px){.lc-prologue-back{inset-block-start:max(8px,env(safe-area-inset-top));inset-inline-start:max(8px,env(safe-area-inset-left))}.lc-prologue-back .lc-back{font-size:.82rem}}
+
+.lc-next{margin-top:1rem;box-shadow:6px 6px 0 var(--ink);background:var(--soft)}
+.lc-ar .lc-next{direction:rtl}
+a.btn{display:inline-block;text-decoration:none;text-align:center}
+@media (max-width:52rem){.lc-next{box-shadow:4px 4px 0 var(--ink)}}

@@ -43,15 +43,11 @@ function play(selections,checkRestore=true){
   return session;
 }
 
-test('60 scene: simulazione, epiche comparate e miti contemporanei prima di Ettore',()=>{
+test('26 scene: simulazione della comunità, esercizi e ponte verso l’attività sull’epica',()=>{
   assert.equal(engine.validateStory(story),story);
-  assert.equal(story.scenes.length,60);
-  for(const id of ['epica_araba','epica_persiana','epica_sundiata','epica_libri','epica_trasmissione','miti_oggi','miti_vincitori','miti_algoritmi','miti_ponte','miti_conclusione'])assert.ok(story.scenes.some(x=>x.id===id),id);
-  assert.ok(story.scenes.find(x=>x.id==='epica_sapere').text.includes('oralità'));
-  assert.equal(story.scenes.find(x=>x.id==='epica_confronto_1').game.mode,'dilemma');
-  assert.equal(story.scenes.find(x=>x.id==='epica_confronto_2').game.mode,'dilemma');
-  assert.equal(story.scenes.find(x=>x.id==='epica_confronto_3').game.mode,'dilemma');
-  assert.equal(story.scenes.filter(x=>x.game).length,7);
+  assert.equal(story.scenes.length,26);
+  assert.ok(story.scenes.every(x=>!/^(epica_|miti_)/.test(x.id)),'nessuna scena epica nell’attività 1');
+  assert.equal(story.scenes.filter(x=>x.game).length,0);
   assert.equal(story.scenes.find(x=>x.id==='imparato').type,'narrative');
   assert.equal(story.scenes.find(x=>x.id==='trasferimento').type,'reflection');
   assert.ok(story.scenes.find(x=>x.id==='imparato').text.includes('sociopoietica'));
@@ -60,13 +56,14 @@ test('60 scene: simulazione, epiche comparate e miti contemporanei prima di Etto
   assert.equal(story.scenes.filter(x=>x.type==='decision').length,11);
   assert.deepEqual(story.scenes.filter(x=>x.type==='decision').map(x=>x.id),['patto','mercato','acqua','assemblea','nuovi_arrivi','promessa','scuola','voce','statua','confine','pericolo']);
   assert.equal(story.scenes.filter(x=>x.activity==='quiz').length,4);
-  assert.equal(story.scenes.at(-2).id,'miti_conclusione');
-  assert.ok(story.scenes.findIndex(x=>x.id==='epica_sintesi')<story.scenes.findIndex(x=>x.id==='miti_oggi'));
+  assert.equal(story.scenes.at(-1).id,'ponte');
+  assert.equal(story.scenes.at(-2).id,'trasferimento');
   assert.equal(story.scenes.find(x=>x.id==='trasferimento').type,'reflection');
-  assert.ok(story.scenes.findIndex(x=>x.id==='ex_punti_vista')<story.scenes.findIndex(x=>x.id==='epica_domanda'));
+  assert.ok(story.scenes.findIndex(x=>x.id==='ex_punti_vista')<story.scenes.findIndex(x=>x.id==='ponte'));
   assert.deepEqual(story.scenes.slice(0,5).map(x=>x.type),Array(5).fill('narrative'));
   assert.deepEqual(story.stats.map(x=>x.id),['fiducia','risorse','coesione']);
-  assert.ok(story.scenes.at(-1).text.includes('Ettore'));
+  assert.ok(!JSON.stringify(story).includes('Ettore'),'Ettore compare solo nell’attività 2');
+  assert.ok(story.scenes.at(-1).text.includes('cinque di queste storie'));
   assert.ok(story.scenes.find(x=>x.id==='sociopoietica').text.includes('sociopoietica'));
 });
 
@@ -212,62 +209,13 @@ test('pagina e script caricati nell’ordine e senza riferimenti a dati di altre
  for(const f of scripts)assert.ok(fs.existsSync(f));
  for(const f of scripts)new vm.Script(fs.readFileSync(f,'utf8'),{filename:f});
  const app=fs.readFileSync('comunita-app.js','utf8');
- assert.ok(app.includes('linguaggio-comunita-session-v1'));
+ assert.ok(app.includes('linguaggio-comunita-session-v2'));
+ assert.ok(app.includes('href="epica.html"'));
+ assert.ok(html.includes('href="epica.html"'));
  assert.ok(app.includes("selected('pericolo')"));
  assert.ok(!app.includes('epica-romanzo-session-v1'));
 });
 
-
-test('sei dilemmi narrativi con confronti automatici, italiano e arabo completi',()=>{
- const context={};vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../ar.js'),'utf8'),context);
- const games=story.scenes.filter(x=>x.game);
- const dilemmas=games.filter(x=>x.game.mode==='dilemma');
- assert.equal(games.length,7);
- assert.equal(dilemmas.length,6);
- assert.equal(story.scenes.find(x=>x.id==='miti_ponte').game.mode,'sources');
- assert.deepEqual(dilemmas.map(x=>x.game.hero),['Achille','Gilgamesh','Odisseo','Enea','Arjuna','Rama']);
- const ids=new Set();
- for(const [i,scene] of dilemmas.entries()){
-  const g=scene.game,tr=context.ComunitaArabic.scenes[scene.id]?.game;
-  assert.equal(scene.type,'narrative',scene.id);
-  assert.equal(g.number,i+1,scene.id);
-  assert.ok(g.setup.length>100&&g.question.length>30,scene.id);
-  assert.ok(g.actual.length>130&&g.explanation.length>100,scene.id);
-  assert.ok(tr?.hero&&tr?.setup.length>40&&tr?.question.length>15,scene.id+' localizzazione mancante');
-  assert.ok(tr.actual.length>40&&tr.explanation.length>40);
-  assert.equal(g.choices.length,2);
-  assert.equal(tr.choices.length,2);
-  assert.ok(g.choices.some(c=>c.id===g.canonicalChoice));
-  assert.equal(g.bridges.length,2);
-  assert.equal(tr.bridges.length,2);
-  for(const [j,choice] of g.choices.entries()){
-   assert.ok(choice.label.length>15&&choice.hypothesis.length>70,scene.id);
-   assert.equal(tr.choices[j].id,choice.id);
-   assert.ok(tr.choices[j].label.length>10&&tr.choices[j].hypothesis.length>25);
-  }
-  for(const [j,b] of g.bridges.entries()){
-   assert.notEqual(b.hero,g.hero);
-   assert.ok(b.common.length>60&&b.difference.length>60,scene.id);
-   assert.ok(tr.bridges[j].hero&&tr.bridges[j].common.length>20&&tr.bridges[j].difference.length>20);
-  }
-  ids.add(scene.id);
- }
- assert.equal(ids.size,6);
-});
-test('il dilemma obbliga a scegliere, mostra le conseguenze e lascia i progressi invariati',()=>{
- const app=fs.readFileSync('comunita-app.js','utf8');
- const css=fs.readFileSync('comunita.css','utf8');
- assert.ok(app.includes('function dilemma(scene)'));
- assert.ok(app.includes("scene.game.mode==='dilemma'?dilemma(scene):comparison(scene)"));
- assert.ok(app.includes('if(session.phase===\'scene\'&&now?.game?.mode===\'dilemma\'&&!dilemmaChoices[now.id])return;'));
- assert.ok(app.includes('data-dilemma-choice'));
- assert.ok(app.includes('DILEMMA_STORE'));
- assert.ok(app.includes('lc-dilemma-reveal'));
- assert.ok(app.includes('lc-bridge-grid'));
- assert.ok(css.includes('@media(max-width:600px)'));
- const a=play({patto:'aiuto',mercato:'baratto',pericolo:'difesa',racconto:'cura'});
- assert.equal(a.phase,'end');
-});
 
 test('rewind torna alla schermata precedente senza rifare il percorso né alterare gli indicatori',()=>{
  let s=engine.newSession(story),states=[JSON.parse(JSON.stringify(s))];
@@ -295,5 +243,4 @@ test('rewind torna alla schermata precedente senza rifare il percorso né altera
  const app=fs.readFileSync('comunita-app.js','utf8');
  assert.ok(app.includes('function back()'));
  assert.ok(app.includes("case 'back':back()"));
- assert.ok(app.includes("delete dilemmaChoices[scene.id]"));
 });
