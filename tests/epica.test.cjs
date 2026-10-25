@@ -323,11 +323,10 @@ test('interfaccia in arabo: percorso completo, RTL e frecce invertite',()=>{
 });
 
 test('mossa 3 e proemio leggono le scelte dell’attività 1 senza modificarle',()=>{
-  const a1={decisions:[{sceneId:'patto',choiceId:'liberta'},{sceneId:'nuovi_arrivi',choiceId:'prova'},{sceneId:'statua',choiceId:'targhe'},{sceneId:'pericolo',choiceId:'famiglie'},{sceneId:'x',choiceId:'y'}]};
+  const a1={decisions:[{sceneId:'patto',choiceId:'liberta'},{sceneId:'nuovi_arrivi',choiceId:'prova'},{sceneId:'statua',choiceId:'targhe'},{sceneId:'anziani',choiceId:'registro'},{sceneId:'dovere',choiceId:'sorte'},{sceneId:'esilio',choiceId:'legame'},{sceneId:'pericolo',choiceId:'famiglie'},{sceneId:'x',choiceId:'y'}]};
   const raw=JSON.stringify(a1);
   const env=boot({store:{'linguaggio-comunita-session-v2':raw}});
   const goto=id=>{const s=JSON.parse(env.storage['linguaggio-epica-session-v1']||'{}');return s;};
-  // porta l'utente alla mossa 3 saltando per capitoli
   env.click({act:'start'});
   env.click({act:'chapters'});env.click({act:'goto',ch:'3'});
   let st=JSON.parse(env.storage['linguaggio-epica-session-v1']);
@@ -341,12 +340,14 @@ test('mossa 3 e proemio leggono le scelte dell’attività 1 senza modificarle',
     env.click({act:'next'});
   }
   assert.equal(JSON.parse(env.storage['linguaggio-epica-session-v1']).slide,'m3_pericolo');
-  assert.ok(env.root.innerHTML.includes('Date priorità a mettere al sicuro le famiglie.'),'mostra la scelta fatta nella crisi');
-  env.click({act:'m3pick',scene:'pericolo',q:'C'});env.click({act:'next'});
-  assert.ok(env.root.innerHTML.includes('Proponete un periodo di lavoro'));
-  env.click({act:'m3pick',scene:'nuovi_arrivi',q:'B'});env.click({act:'next'});
-  assert.ok(env.root.innerHTML.includes('Raccontate sia i successi'));
-  env.click({act:'m3pick',scene:'statua',q:'A'});env.click({act:'next'});
+  const step=(scene,q,nextText)=>{env.click({act:'m3pick',scene,q});env.click({act:'next'});if(nextText)assert.ok(env.root.innerHTML.includes(nextText),nextText);};
+  assert.ok(env.root.innerHTML.includes('Date priorità a mettere al sicuro le famiglie.'));
+  step('pericolo','C','Incaricate qualcuno di scrivere le storie in un registro.');
+  step('anziani','A','Proponete un periodo di lavoro');
+  step('nuovi_arrivi','B','Tirate a sorte fra tutte le famiglie.');
+  step('dovere','C','Raccontate sia i successi');
+  step('statua','A','Proponete che alcuni partano');
+  step('esilio','B');
   // proemio: il valore del patto è preselezionato (libertà) e la riga sulla crisi riprende la scelta
   assert.ok(env.root.innerHTML.includes('Abbiamo preselezionato'));
   env.click({act:'pepi',opt:'mura'});env.click({act:'next'});
@@ -366,9 +367,7 @@ test('senza dati dell’attività 1 la mossa 3 e il proemio funzionano lo stesso
     env.click({act:'next'});
   }
   assert.ok(env.root.innerHTML.includes('Se hai giocato all’attività 1 su questo telefono'));
-  env.click({act:'m3pick',scene:'pericolo',q:'A'});env.click({act:'next'});
-  env.click({act:'m3pick',scene:'nuovi_arrivi',q:'A'});env.click({act:'next'});
-  env.click({act:'m3pick',scene:'statua',q:'A'});env.click({act:'next'});
+  for(const sc of ['pericolo','anziani','nuovi_arrivi','dovere','statua','esilio']){env.click({act:'m3pick',scene:sc,q:'A'});env.click({act:'next'});}
   assert.ok(attr(env.root.innerHTML,'next')[0]._disabled,'serve scegliere valore ed epiteto');
   env.click({act:'pvalue',opt:'astuzia'});env.click({act:'pepi',opt:'voci'});env.click({act:'next'});
   assert.ok(env.root.innerHTML.includes('l’astuzia.')&&env.root.innerHTML.includes('Il pericolo arrivò'));

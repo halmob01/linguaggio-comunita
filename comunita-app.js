@@ -146,11 +146,11 @@
         <div><span>La storia tramandata</span><strong>${esc(labelFor('racconto',memory?.choiceId))}</strong></div>
       </div>
       <h3>Le scelte che ritroverai nell’attività 2</h3>
-      <div class="lc-summary lc-carry">${['pericolo','nuovi_arrivi','statua'].map(id=>{const sc=story.scenes.find(x=>x.id===id),d=selected(id);return d?`<div><span>${esc(sc.title)}</span><strong>${esc(labelFor(id,d.choiceId))}</strong></div>`:'';}).join('')}</div>
-      <p class="ep-notice">Anche gli eroi antichi si sono trovati davanti a situazioni come queste: restare o partire, accogliere o chiudere, che cosa ricordare. Nell’attività 2 vedrai che domande nascondono.</p>
+      <div class="lc-summary lc-carry">${['pericolo','nuovi_arrivi','statua','anziani','esilio','dovere'].map(id=>{const sc=story.scenes.find(x=>x.id===id),d=selected(id);return d?`<div><span>${esc(sc.title)}</span><strong>${esc(labelFor(id,d.choiceId))}</strong></div>`:'';}).join('')}</div>
+      <p class="ep-notice">Anche gli eroi antichi si sono trovati davanti a situazioni come queste: restare o partire, accogliere o chiudere, che cosa ricordare, a chi affidare i compiti più duri. Nell’attività 2 vedrai che domande nascondono.</p>
       <h3>Le conseguenze della vostra simulazione</h3>
       <div class="ep-change-list">${recap.values.map(v=>`<div class="ep-change"><span>${esc(v.label)}</span><b>${v.before} → ${v.after}</b></div>`).join('')}</div>
-      <p class="ep-notice">Hai affrontato ${decisionCount} decisioni collettive e collegato il gioco alla tua scuola. I quattro esercizi ti hanno aiutato a ragionare: non danno un voto e non cambiano gli indicatori.</p>
+      <p class="ep-notice">Hai affrontato molte decisioni collettive e collegato il gioco alla tua scuola. I quattro esercizi ti hanno aiutato a ragionare: non danno un voto e non cambiano gli indicatori.</p>
       <div class="note"><b>Che cosa ho imparato?</b><p>Il gioco ci ha insegnato che le decisioni collettive comportano compromessi e che la memoria sceglie eventi, protagonisti e valori. Una comunità non ricorda tutto: ricorda le storie in cui riconosce i propri valori.</p></div>
       <div class="note"><b>La domanda per la prossima attività</b><p>Che cosa ci dice un eroe sul popolo che lo racconta?</p><p>Nella prossima attività incontrerai cinque eroi di cinque popoli: Gilgamesh, Odisseo, Enea, Rostam e Abū Zayd.</p></div>
       <div class="row"><a class="btn" href="epica.html">Vai all’attività 2: Le voci dell’epica →</a>

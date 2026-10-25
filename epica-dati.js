@@ -198,9 +198,14 @@ const DATA = {
       {id:'c4_rete', kind:'network', title:'La rete delle grandi domande',
         body:['Nessun eroe ha una sola domanda. Nessuna domanda appartiene a un solo popolo.','Le domande si somigliano; le risposte cambiano, perché cambiano i valori di chi racconta.'],
         legend:['Cuore della storia','Collegamento possibile']},
+      {id:'c4_comunita', kind:'text', art:'racconto', title:'Anche la vostra comunità se l’è chiesto',
+        body:['Nel gioco hai preso molte decisioni. Ora guarda sei di quelle situazioni.','Per ognuna, scegli a quale grande domanda somiglia di più.']},
       {id:'m3_pericolo', kind:'move3', scene:'pericolo'},
+      {id:'m3_anziani', kind:'move3', scene:'anziani'},
       {id:'m3_nuovi_arrivi', kind:'move3', scene:'nuovi_arrivi'},
-      {id:'m3_statua', kind:'move3', scene:'statua'}
+      {id:'m3_dovere', kind:'move3', scene:'dovere'},
+      {id:'m3_statua', kind:'move3', scene:'statua'},
+      {id:'m3_esilio', kind:'move3', scene:'esilio'}
     ]},
     {id:'c5', title:'Il poema della vostra comunità', slides:[
       {id:'c5_scelta', kind:'poem1', art:'epiteto', title:'Se la vostra comunità avesse un’epica',
@@ -325,6 +330,45 @@ const DATA = {
           A:'Anche l’accoglienza riguarda ciò che resta di una comunità. Ma la domanda più vicina è un’altra.',
           B:'Quelle famiglie cercavano una casa, come i Banū Hilāl e i profughi di Enea. Voi avete deciso che cosa fare di loro.',
           C:'Accogliere o no è anche una domanda sul dovere verso gli altri. La più vicina però è «Dov’è casa?».'}},
+      anziani:{
+        title:'Le storie di chi non c’è più',
+        eyebrow:'La memoria della vostra comunità',
+        closest:'A',
+        heroes:'Gilgamesh e Firdusi',
+        choices:[
+          {id:'voce', label:'Chiedete a chi le ricorda di raccontarle a voce, la sera, davanti a tutti.'},
+          {id:'registro', label:'Incaricate qualcuno di scrivere le storie in un registro.'},
+          {id:'libero', label:'Lasciate che ognuno ricordi come preferisce.'}],
+        comment:{
+          A:'Decidere come conservare le storie significa decidere che cosa resta di voi: è la domanda di Gilgamesh, e anche di Firdusi, che scrive perché la memoria del suo popolo non muoia.',
+          B:'Anche le storie viaggiano di bocca in bocca, come i popoli. Ma la domanda più vicina è su che cosa resta di una comunità.',
+          C:'Chi custodisce le storie ha un dovere verso gli altri. Ma qui la domanda più vicina è su ciò che resta di noi.'}},
+      esilio:{
+        title:'Chi vuole partire',
+        eyebrow:'Una partenza nella vostra comunità',
+        closest:'B',
+        heroes:'Odisseo e Abū Zayd',
+        choices:[
+          {id:'partire', label:'Li lasciate partire con provviste e un saluto.'},
+          {id:'restare', label:'Chiedete loro di restare finché la città non è al sicuro.'},
+          {id:'legame', label:'Proponete che alcuni partano e restino in contatto con la città.'}],
+        comment:{
+          A:'Chi parte lascia qualcosa dietro di sé, ma la domanda più vicina è un’altra.',
+          B:'Partire, restare o tenere un legame con la città: è la domanda di Odisseo e dei Banū Hilāl su che cosa sia casa.',
+          C:'Chi vuole partire può sentire un dovere verso la comunità che lascia. Ma la domanda più vicina è «Dov’è casa?».'}},
+      dovere:{
+        title:'Un compito che nessuno vuole',
+        eyebrow:'Un peso da dividere',
+        closest:'C',
+        heroes:'Rostam e Abū Zayd',
+        choices:[
+          {id:'volontari', label:'Chiedete dei volontari e promettete onore a chi accetta.'},
+          {id:'sorte', label:'Tirate a sorte fra tutte le famiglie.'},
+          {id:'liberi', label:'Lo affidate a chi ha meno obblighi di famiglia.'}],
+        comment:{
+          A:'Chi veglia sul ponte può essere ricordato dopo di lui. Ma la domanda più vicina è su ciò che ognuno deve alla comunità.',
+          B:'Il compito riguarda chi resta a guardia della casa comune. Ma la domanda più vicina è un’altra.',
+          C:'Qualcuno deve pagare un costo per tutti, come Rostam e Abū Zayd, che rischiano per il proprio popolo. Voi avete deciso come distribuirlo.'}},
       statua:{
         title:'Un monumento divide la piazza',
         eyebrow:'Una scelta sulla memoria',

@@ -15,6 +15,9 @@ const choicesByScene={
   nuovi_arrivi:['accoglienza','prova','confine'],
   promessa:['ascolto','sanzione','riparazione'],
   scuola:['scrittura','mestieri','racconti'],
+  anziani:['voce','registro','libero'],
+  esilio:['partire','restare','legame'],
+  dovere:['volontari','sorte','liberi'],
   voce:['verifica','silenzio','assemblea_aperta'],
   statua:['eroi','targhe','spazio'],
   confine:['accordo','autonomia','rifiuto'],
@@ -43,9 +46,9 @@ function play(selections,checkRestore=true){
   return session;
 }
 
-test('26 scene: simulazione della comunità, esercizi e ponte verso l’attività sull’epica',()=>{
+test('29 scene: simulazione della comunità, esercizi e ponte verso l’attività sull’epica',()=>{
   assert.equal(engine.validateStory(story),story);
-  assert.equal(story.scenes.length,26);
+  assert.equal(story.scenes.length,29);
   assert.ok(story.scenes.every(x=>!/^(epica_|miti_)/.test(x.id)),'nessuna scena epica nell’attività 1');
   assert.equal(story.scenes.filter(x=>x.game).length,0);
   assert.equal(story.scenes.find(x=>x.id==='imparato').type,'narrative');
@@ -53,8 +56,8 @@ test('26 scene: simulazione della comunità, esercizi e ponte verso l’attivit�
   assert.ok(story.scenes.find(x=>x.id==='imparato').text.includes('sociopoietica'));
   assert.ok(story.scenes.find(x=>x.id==='imparato').text.includes('punto di partenza'));
   assert.ok(story.scenes.find(x=>x.id==='imparato').text.includes('memoria collettiva'));
-  assert.equal(story.scenes.filter(x=>x.type==='decision').length,11);
-  assert.deepEqual(story.scenes.filter(x=>x.type==='decision').map(x=>x.id),['patto','mercato','acqua','assemblea','nuovi_arrivi','promessa','scuola','voce','statua','confine','pericolo']);
+  assert.equal(story.scenes.filter(x=>x.type==='decision').length,14);
+  assert.deepEqual(story.scenes.filter(x=>x.type==='decision').map(x=>x.id),['patto','mercato','acqua','assemblea','nuovi_arrivi','promessa','scuola','anziani','voce','statua','esilio','confine','dovere','pericolo']);
   assert.equal(story.scenes.filter(x=>x.activity==='quiz').length,4);
   assert.equal(story.scenes.at(-1).id,'ponte');
   assert.equal(story.scenes.at(-2).id,'trasferimento');
@@ -104,7 +107,7 @@ test('tutte le 81 ramificazioni arrivano al finale, e restore regge ogni passagg
     for(const c of choicesByScene.pericolo)
      for(const r of choicesByScene.racconto){
        const x=play({patto:p,mercato:m,pericolo:c,racconto:r});
-       assert.equal(x.decisions.length,17);
+       assert.equal(x.decisions.length,20);
        for(const stat of story.stats)assert.ok(x.values[stat.id]>=0&&x.values[stat.id]<=100);
        n++;
      }
@@ -150,7 +153,7 @@ test('tutte le 81 combinazioni di risposte agli esercizi avanzano e si ripristin
       const choices={...base,ex_gettoni:a,ex_conseguenze:b,ex_fatti:c,ex_punti_vista:d};
       const end=play(choices);
       assert.equal(end.phase,'end');
-      assert.equal(end.decisions.length,17);
+      assert.equal(end.decisions.length,20);
       assert.equal(end.decisions.filter(x=>x.sceneId.startsWith('ex_')).length,4);
       n++;
     }
@@ -213,7 +216,7 @@ test('pagina e script caricati nell’ordine e senza riferimenti a dati di altre
  assert.ok(app.includes('href="epica.html"'));
  assert.ok(app.includes('Le scelte che ritroverai nell’attività 2'));
  assert.ok(app.includes('translateUI(ending())'));
- assert.ok(story.scenes.at(-1).text.includes('ritroverai tre delle scelte'));
+ assert.ok(story.scenes.at(-1).text.includes('ritroverai alcune delle situazioni'));
  assert.ok(html.includes('href="epica.html"'));
  assert.ok(app.includes("selected('pericolo')"));
  assert.ok(!app.includes('epica-romanzo-session-v1'));

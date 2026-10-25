@@ -352,6 +352,48 @@
       ]
     },
     {
+      "id": "anziani",
+      "type": "decision",
+      "title": "Le storie di chi non c’è più",
+      "text": "Muore una delle persone più anziane della comunità. Conosceva a memoria le storie dei fondatori e nessuno le ha mai scritte. Che cosa fate?",
+      "art": "memoria",
+      "choices": [
+        {
+          "id": "voce",
+          "label": "Chiedete a chi le ricorda di raccontarle a voce, la sera, davanti a tutti.",
+          "effects": {
+            "coesione": 9,
+            "fiducia": 3,
+            "risorse": -5
+          },
+          "feedback": "Le storie tornano a circolare e ognuno le ascolta con le proprie parole. Ma ogni narratore ne cambia qualche dettaglio.",
+          "why": "Raccontare a voce unisce chi ascolta, però la memoria cambia ogni volta che passa da una persona all’altra."
+        },
+        {
+          "id": "registro",
+          "label": "Incaricate qualcuno di scrivere le storie in un registro.",
+          "effects": {
+            "fiducia": 7,
+            "risorse": -7,
+            "coesione": -2
+          },
+          "feedback": "Le storie restano uguali nel tempo, ma chi le scrive decide che cosa tenere e che cosa lasciare fuori.",
+          "why": "La scrittura fissa la memoria, ma chi scrive sceglie anche che cosa è degno di essere conservato."
+        },
+        {
+          "id": "libero",
+          "label": "Lasciate che ognuno ricordi come preferisce.",
+          "effects": {
+            "risorse": 6,
+            "coesione": -8,
+            "fiducia": -2
+          },
+          "feedback": "Nessuno deve occuparsene, ma dopo qualche anno ci sono molte versioni diverse e qualcuno non sa più che cosa sia accaduto.",
+          "why": "Una memoria condivisa richiede qualcuno che se ne prenda cura; senza, ciascuno ricorda a modo suo."
+        }
+      ]
+    },
+    {
       "id": "voce",
       "type": "decision",
       "title": "Una voce corre per la città",
@@ -436,6 +478,48 @@
       ]
     },
     {
+      "id": "esilio",
+      "type": "decision",
+      "title": "Chi vuole partire",
+      "text": "Un gruppo di giovani vuole lasciare la città per cercare terre più fertili. Alcuni anziani chiedono di trattenerli: la comunità ha bisogno di loro.",
+      "art": "reti",
+      "choices": [
+        {
+          "id": "partire",
+          "label": "Li lasciate partire con provviste e un saluto.",
+          "effects": {
+            "fiducia": 6,
+            "coesione": -6,
+            "risorse": -5
+          },
+          "feedback": "I giovani partono con il vostro appoggio. In città si sente la loro mancanza, ma nessuno si sente tradito.",
+          "why": "Lasciare andare chi vuole partire può mantenere la fiducia, anche se la comunità diventa più piccola."
+        },
+        {
+          "id": "restare",
+          "label": "Chiedete loro di restare finché la città non è al sicuro.",
+          "effects": {
+            "coesione": 7,
+            "fiducia": -6,
+            "risorse": 4
+          },
+          "feedback": "La città resta unita e ha più braccia, ma qualcuno si sente obbligato a una scelta che non ha fatto.",
+          "why": "Il bisogno del gruppo può entrare in conflitto con il desiderio di una persona."
+        },
+        {
+          "id": "legame",
+          "label": "Proponete che alcuni partano e restino in contatto con la città.",
+          "effects": {
+            "fiducia": 5,
+            "risorse": 4,
+            "coesione": -5
+          },
+          "feedback": "Nasce un legame fra due luoghi, ma servono messaggeri e visite, e non tutti si fidano.",
+          "why": "Chi parte non smette di far parte della comunità, se rimane un modo per restare in contatto."
+        }
+      ]
+    },
+    {
       "id": "confine",
       "type": "decision",
       "title": "Il ponte verso un'altra città",
@@ -474,6 +558,48 @@
           },
           "feedback": "La città resta indipendente, ma perde alcune opportunità e si allontana dai vicini.",
           "why": "Le storie che raccontiamo su chi siamo possono favorire l'incontro oppure la separazione."
+        }
+      ]
+    },
+    {
+      "id": "dovere",
+      "type": "decision",
+      "title": "Un compito che nessuno vuole",
+      "text": "Per tutto l’inverno qualcuno dovrà vegliare giorno e notte sul ponte, per avvisare la città in caso di piena. È un compito duro, ma serve a tutti. Come lo assegnate?",
+      "art": "ponte",
+      "choices": [
+        {
+          "id": "volontari",
+          "label": "Chiedete dei volontari e promettete onore a chi accetta.",
+          "effects": {
+            "coesione": 6,
+            "fiducia": 4,
+            "risorse": -6
+          },
+          "feedback": "Si fanno avanti in pochi e sono ammirati da tutti. Il peso però cade sempre sulle stesse persone.",
+          "why": "Un onore può spingere qualcuno a sacrificarsi, ma non distribuisce il peso in modo equo."
+        },
+        {
+          "id": "sorte",
+          "label": "Tirate a sorte fra tutte le famiglie.",
+          "effects": {
+            "fiducia": 8,
+            "coesione": -3,
+            "risorse": -4
+          },
+          "feedback": "Tutti hanno la stessa probabilità di essere scelti, ma chi viene estratto spesso lo vive come una sfortuna.",
+          "why": "Una regola uguale per tutti è equa, però non basta a far sentire il compito come proprio."
+        },
+        {
+          "id": "liberi",
+          "label": "Lo affidate a chi ha meno obblighi di famiglia.",
+          "effects": {
+            "risorse": 8,
+            "coesione": -7,
+            "fiducia": -3
+          },
+          "feedback": "La soluzione è comoda e veloce, ma c’è chi pensa che il dovere sia scaricato su chi ha meno voce.",
+          "why": "Chi ha meno vincoli può farsi carico del compito, ma la comunità deve evitare che diventi un obbligo ingiusto."
         }
       ]
     },
@@ -730,7 +856,7 @@
       "id": "ponte",
       "type": "narrative",
       "title": "Le storie in cui ci riconosciamo",
-      "text": "Una comunità non tramanda soltanto regole: tramanda storie in cui riconosce i propri valori. Anche i popoli antichi lo hanno fatto, con racconti che chiamiamo epica. Nella prossima attività ascolterai cinque di queste storie e ritroverai tre delle scelte che hai fatto: la crisi, i nuovi arrivi e la statua.",
+      "text": "Una comunità non tramanda soltanto regole: tramanda storie in cui riconosce i propri valori. Anche i popoli antichi lo hanno fatto, con racconti che chiamiamo epica. Nella prossima attività ascolterai cinque di queste storie e ritroverai alcune delle situazioni che hai affrontato nel gioco.",
       "art": "ponte"
     }
   ]

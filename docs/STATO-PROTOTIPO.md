@@ -6,9 +6,9 @@
 
 **Attività 1 — La comunità**
 - Riuso di `engine.js` da `epica-romanzo/base-feudo`, sorgente commit `90b798bd54920cdea5d20d272ffc36349520c537`; grafica ereditata da Feudo.
-- Cinque card di richiamo, undici decisioni con tre indicatori, memoria collettiva con scelta interpretativa, riepilogo finale.
+- Cinque card di richiamo, quattordici decisioni con tre indicatori, memoria collettiva con scelta interpretativa, riepilogo finale.
 - Quattro esercizi di riflessione (tre alternative, una risposta meglio fondata, feedback specifico, nessun voto). Dettagli: [REVIEW-ESERCIZI.md](REVIEW-ESERCIZI.md).
-- Ponte finale verso l'attività 2, senza anticipare Ettore.
+- Ponte finale verso l'attività 2, senza anticipare Ettore; sei situazioni (crisi, nuovi arrivi, statua, storie degli anziani, partenza dei giovani, compito del ponte) tornano nel gioco dell'attività 2.
 - Salvataggio e ripristino locali (`linguaggio-comunita-session-v2`); nessuna classifica, login o backend.
 
 **Attività 2 — Le voci dell'epica** (specifica in [ARCHITETTURA-DUE-ATTIVITA.md](ARCHITETTURA-DUE-ATTIVITA.md))

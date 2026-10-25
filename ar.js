@@ -61,8 +61,7 @@
     "La scelta nella crisi": "اختياركم أثناء الأزمة",
     "La storia tramandata": "القصة التي نقلتموها",
     "Le scelte che ritroverai nell’attività 2": "الاختيارات التي ستجدها في النشاط الثاني",
-  "Anche gli eroi antichi si sono trovati davanti a situazioni come queste: restare o partire, accogliere o chiudere, che cosa ricordare. Nell’attività 2 vedrai che domande nascondono.": "واجه الأبطال القدماء أيضًا مواقف مثل هذه: البقاء أو الرحيل، والاستقبال أو الإغلاق، وما الذي نتذكره. في النشاط الثاني سترى أي أسئلة تخفيها.",
-  "Le conseguenze della vostra simulazione": "نتائج المحاكاة",
+    "Le conseguenze della vostra simulazione": "نتائج المحاكاة",
     "Che cosa ho imparato?": "ماذا تعلمت؟",
     "Prima sapevamo già che il linguaggio costruisce accordi e realtà condivise. Oggi abbiamo imparato tre cose nuove: 1. Le decisioni collettive richiedono compromessi fra bisogni diversi. 2. La memoria di una comunità seleziona alcuni eventi e ne dimentica altri. 3. Ogni racconto sceglie protagonisti, valori e punti di vista.": "كنا نعرف أن اللغة تبني الاتفاقات والواقع المشترك. تعلمنا اليوم ثلاث أفكار: ١. القرارات الجماعية تحتاج إلى موازنة احتياجات مختلفة. ٢. ذاكرة المجتمع تختار أحداثًا وتتجاهل أخرى. ٣. تختار كل قصة أبطالًا وقيمًا ووجهات نظر.",
     "La domanda per la prossima lezione": "سؤال الدرس القادم",
@@ -73,18 +72,19 @@
     "Fine dell’attività 1 · dalla comunità alle storie": "نهاية النشاط الأول · من المجتمع إلى القصص",
     "Fine dell'attività 1 · dalla comunità alle storie": "نهاية النشاط الأول · من المجتمع إلى القصص",
     "Le vostre regole hanno organizzato la vita comune. Poi avete vissuto una crisi e scelto che cosa raccontare alle generazioni successive.": "نظمت قواعدكم الحياة المشتركة، ثم واجهتم أزمة واخترتم ما تروونه للأجيال القادمة.",
-    "Hai affrontato 11 decisioni collettive e collegato il gioco alla tua scuola. I quattro esercizi ti hanno aiutato a ragionare: non danno un voto e non cambiano gli indicatori.": "واجهت 11 قرارًا جماعيًا وربطت اللعبة بمدرستك. ساعدتك التمارين الأربعة على التفكير: لا تمنح درجة ولا تغيّر المؤشرات.",
     "Il gioco ci ha insegnato che le decisioni collettive comportano compromessi e che la memoria sceglie eventi, protagonisti e valori. Una comunità non ricorda tutto: ricorda le storie in cui riconosce i propri valori.": "تعلمنا في اللعبة أن القرارات الجماعية تتطلب حلولًا وسطًا، وأن الذاكرة تختار الأحداث والأبطال والقيم. المجتمع لا يتذكر كل شيء: يتذكر القصص التي يرى فيها قيمه.",
     "La domanda per la prossima attività": "سؤال النشاط القادم",
     "Che cosa ci dice un eroe sul popolo che lo racconta?": "ماذا يخبرنا البطل عن الشعب الذي يرويه؟",
     "Nella prossima attività incontrerai cinque eroi di cinque popoli: Gilgamesh, Odisseo, Enea, Rostam e Abū Zayd.": "في النشاط القادم ستلتقي خمسة أبطال من خمسة شعوب: جلجامش وأوديسيوس وأينياس ورستم وأبو زيد.",
     "Vai all’attività 2: Le voci dell’epica →": "انتقل إلى النشاط الثاني: أصوات الملحمة ←",
     "Percorso · circa quaranta minuti": "مسار",
-    "Cinque card di ripasso, undici decisioni, esercizi di riflessione e una domanda sulle storie che ci tramandiamo.": "خمس بطاقات مراجعة، وأحد عشر قرارًا، وتمارين للتفكير، وسؤال عن القصص التي نتوارثها.",
     "Attività 1 · La comunità": "النشاط الأول · المجتمع",
     "Attività 2 · Le voci dell’epica": "النشاط الثاني · أصوات الملحمة",
     "Cinque popoli antichi raccontano i loro eroi. Che cosa dicono, in realtà, dei valori di chi li ascoltava?": "خمسة شعوب قديمة تروي أبطالها. ماذا تقول هذه القصص في الحقيقة عن قيم من كانوا يستمعون إليها؟",
-    "Vai all’epica →": "انتقل إلى الملحمة ←"
+    "Vai all’epica →": "انتقل إلى الملحمة ←",
+    "Cinque card di ripasso, quattordici decisioni, esercizi di riflessione e una domanda sulle storie che ci tramandiamo.": "خمس بطاقات مراجعة، وأربعة عشر قرارًا، وتمارين للتفكير، وسؤال عن القصص التي نتوارثها.",
+    "Hai affrontato molte decisioni collettive e collegato il gioco alla tua scuola. I quattro esercizi ti hanno aiutato a ragionare: non danno un voto e non cambiano gli indicatori.": "واجهت قرارات جماعية كثيرة وربطت اللعبة بمدرستك. ساعدتك التمارين الأربعة على التفكير: لا تمنح درجة ولا تغيّر المؤشرات.",
+    "Anche gli eroi antichi si sono trovati davanti a situazioni come queste: restare o partire, accogliere o chiudere, che cosa ricordare, a chi affidare i compiti più duri. Nell’attività 2 vedrai che domande nascondono.": "واجه الأبطال القدماء أيضًا مواقف مثل هذه: البقاء أو الرحيل، والاستقبال أو الإغلاق، وما الذي نتذكره، ولمن نسند المهام الأصعب. في النشاط الثاني سترى أي أسئلة تخفيها."
   },
   "scenes": {
     "come": {
@@ -478,7 +478,70 @@
     },
     "ponte": {
       "title": "القصص التي نتعرّف فيها على أنفسنا",
-      "text": "لا ينقل المجتمع القواعد وحدها، بل ينقل أيضًا قصصًا يرى فيها قيمه. وقد فعلت الشعوب القديمة ذلك أيضًا بحكايات نسميها الملحمة. في النشاط التالي ستستمع إلى خمس من هذه القصص، وستجد ثلاثًا من اختياراتك: الأزمة، والوافدون الجدد، والنصب التذكاري."
+      "text": "لا ينقل المجتمع القواعد وحدها، بل ينقل أيضًا قصصًا يرى فيها قيمه. وقد فعلت الشعوب القديمة ذلك أيضًا بحكايات نسميها الملحمة. في النشاط التالي ستستمع إلى خمس من هذه القصص، وستجد بعض المواقف التي واجهتها في اللعبة."
+    },
+    "anziani": {
+      "title": "قصص من رحلوا",
+      "text": "توفي أحد أكبر أفراد المجتمع سنًّا. كان يحفظ عن ظهر قلب قصص المؤسسين، ولم يكتبها أحد قط. ماذا تفعلون؟",
+      "choices": {
+        "voce": {
+          "label": "نطلب ممن يتذكرونها أن يرووها شفاهةً في المساء أمام الجميع",
+          "feedback": "تعود القصص إلى التداول ويسمعها كل واحد بكلماته. لكن كل راوٍ يغيّر بعض التفاصيل.",
+          "why": "الرواية الشفوية توحّد من يستمع، لكن الذاكرة تتغير كلما انتقلت من شخص إلى آخر."
+        },
+        "registro": {
+          "label": "نكلّف أحدًا بكتابة القصص في سجل",
+          "feedback": "تبقى القصص كما هي عبر الزمن، لكن من يكتبها يقرر ما يحتفظ به وما يتركه خارجها.",
+          "why": "الكتابة تثبّت الذاكرة، لكن الكاتب يختار أيضًا ما يستحق أن يُحفظ."
+        },
+        "libero": {
+          "label": "نترك كل واحد يتذكر كما يشاء",
+          "feedback": "لا أحد مضطر إلى الاهتمام بالأمر، لكن بعد سنوات تظهر روايات كثيرة مختلفة ولا يعود بعضهم يعرف ما حدث.",
+          "why": "الذاكرة المشتركة تحتاج إلى من يعتني بها؛ وبدونه يتذكر كل واحد على طريقته."
+        }
+      }
+    },
+    "esilio": {
+      "title": "من يريد الرحيل",
+      "text": "تريد مجموعة من الشباب مغادرة المدينة بحثًا عن أراضٍ أخصب. ويطلب بعض كبار السن إبقاءهم: فالمجتمع يحتاج إليهم.",
+      "choices": {
+        "partire": {
+          "label": "نتركهم يرحلون بمؤن وبوداع",
+          "feedback": "يرحل الشباب بدعمكم. تُفتقد غيبتهم في المدينة، لكن لا أحد يشعر بأنه تعرّض للخيانة.",
+          "why": "ترك من يريد الرحيل يرحل قد يحفظ الثقة، حتى لو صار المجتمع أصغر."
+        },
+        "restare": {
+          "label": "نطلب منهم البقاء حتى تصبح المدينة آمنة",
+          "feedback": "تبقى المدينة متماسكة ولديها أيدٍ أكثر، لكن بعضهم يشعر بأنه مجبر على اختيار لم يختره.",
+          "why": "حاجة الجماعة قد تتعارض مع رغبة شخص."
+        },
+        "legame": {
+          "label": "نقترح أن يرحل بعضهم ويبقوا على اتصال بالمدينة",
+          "feedback": "ينشأ رابط بين مكانين، لكن يلزم رسل وزيارات، وليس الجميع واثقين.",
+          "why": "من يرحل لا يتوقف عن الانتماء إلى المجتمع، إذا بقيت وسيلة للاتصال."
+        }
+      }
+    },
+    "dovere": {
+      "title": "مهمة لا يريدها أحد",
+      "text": "طوال الشتاء يجب أن يسهر أحد ليلًا ونهارًا على الجسر لينبّه المدينة إلى الفيضان. مهمة شاقة، لكنها تفيد الجميع. كيف توزعونها؟",
+      "choices": {
+        "volontari": {
+          "label": "نطلب متطوعين ونعد بالتكريم لمن يقبل",
+          "feedback": "يتقدم قليلون ويحظون بإعجاب الجميع. لكن العبء يقع دائمًا على الأشخاص أنفسهم.",
+          "why": "التكريم قد يدفع أحدًا إلى التضحية، لكنه لا يوزّع العبء بإنصاف."
+        },
+        "sorte": {
+          "label": "نجري قرعة بين كل العائلات",
+          "feedback": "للجميع الاحتمال نفسه في أن يُختاروا، لكن من تقع عليه القرعة يعدّها غالبًا سوء حظ.",
+          "why": "القاعدة المتساوية عادلة، لكنها لا تكفي لتجعل المهمة تبدو مهمة الجميع."
+        },
+        "liberi": {
+          "label": "نكلّف بها من عليه التزامات عائلية أقل",
+          "feedback": "الحل مريح وسريع، لكن هناك من يرى أن الواجب يُلقى على من صوته أضعف.",
+          "why": "من عليه قيود أقل يمكنه تحمّل المهمة، لكن على المجتمع ألا يجعلها التزامًا ظالمًا."
+        }
+      }
     }
   }
 };

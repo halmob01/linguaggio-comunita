@@ -9,7 +9,7 @@ Applicazione didattica statica in due attività collegate, per una lezione sul l
 ### Attività 1 — La comunità (`index.html`)
 
 1. **5 card di prologo:** ritorno alle lezioni su cooperazione, linguaggio, finzioni condivise e funzione sociopoietica.
-2. **11 decisioni:** patto per la comunità, scambi fra sconosciuti, crisi; indicatori `Fiducia`, `Risorse`, `Coesione` e conseguenze commentate.
+2. **14 decisioni:** patto per la comunità, scambi fra sconosciuti, memoria, partenze, doveri, crisi; indicatori `Fiducia`, `Risorse`, `Coesione` e conseguenze commentate.
 3. **Memoria collettiva:** cento anni dopo, la città sceglie che cosa tramandare dell'accaduto.
 4. **4 micro-esercizi formativi:** convenzioni, compromessi, fatto/interpretazione, punti di vista. Feedback e risposta spiegata, **senza voto**.
 5. **Ponte:** «le storie in cui ci riconosciamo» e un bottone verso l'attività 2.
@@ -23,7 +23,7 @@ Circa 55 schermate brevi, in 6 capitoli navigabili dall'indice «Capitoli»:
 1. **Dalla vostra comunità all'epica** — che cos'è un valore.
 2. **Che cos'è l'epica** — epos, aedi, formule ed epiteti, ingredienti, epica e storia.
 3. **Cinque popoli, cinque storie** — mappa e linea del tempo, poi per ciascuna tradizione (Gilgamesh, Odissea, Eneide, Shāhnāmeh, Sīrat Banī Hilāl): carta d'identità, storia in due schermate, valori e domanda della storia, verifica rapida.
-4. **Il gioco delle grandi domande** — dalla vicenda alla domanda (5 turni); le domande si somigliano (3 domande, collegamento degli eroi, rete finale); anche la vostra comunità se l'è chiesto (legge, in sola lettura, le scelte fatte nell'attività 1).
+4. **Il gioco delle grandi domande** — dalla vicenda alla domanda (5 turni); le domande si somigliano (3 domande, collegamento degli eroi, rete finale); anche la vostra comunità se l'è chiesto (legge, in sola lettura, sei scelte fatte nell'attività 1).
 5. **Il poema della vostra comunità** — valore e epiteto della città, proemio in stile epico.
 6. **Verso la prossima lezione** — sintesi e domanda sull'Iliade e su Ettore, senza anticipare la trama.
 
