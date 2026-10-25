@@ -145,6 +145,9 @@
         <div><span>La scelta nella crisi</span><strong>${esc(labelFor('pericolo',crisis?.choiceId))}</strong></div>
         <div><span>La storia tramandata</span><strong>${esc(labelFor('racconto',memory?.choiceId))}</strong></div>
       </div>
+      <h3>Le scelte che ritroverai nell’attività 2</h3>
+      <div class="lc-summary lc-carry">${['pericolo','nuovi_arrivi','statua'].map(id=>{const sc=story.scenes.find(x=>x.id===id),d=selected(id);return d?`<div><span>${esc(sc.title)}</span><strong>${esc(labelFor(id,d.choiceId))}</strong></div>`:'';}).join('')}</div>
+      <p class="ep-notice">Anche gli eroi antichi si sono trovati davanti a situazioni come queste: restare o partire, accogliere o chiudere, che cosa ricordare. Nell’attività 2 vedrai che domande nascondono.</p>
       <h3>Le conseguenze della vostra simulazione</h3>
       <div class="ep-change-list">${recap.values.map(v=>`<div class="ep-change"><span>${esc(v.label)}</span><b>${v.before} → ${v.after}</b></div>`).join('')}</div>
       <p class="ep-notice">Hai affrontato ${decisionCount} decisioni collettive e collegato il gioco alla tua scuola. I quattro esercizi ti hanno aiutato a ragionare: non danno un voto e non cambiano gli indicatori.</p>
@@ -185,7 +188,7 @@
     $('chapterTag').textContent=t(scene?.id==='racconto'||scene?.id==='un_secolo'||scene?.id==='ponte'?'La memoria':'La comunità');
     $('turnTag').textContent=`${session.index+1} / ${chapters}`;
     if(session.phase==='end'){
-      $('prologue').hidden=true;$('panel').innerHTML=ending();
+      $('prologue').hidden=true;$('panel').innerHTML=translateUI(ending());
     }else if(previewIndex!==null||(session.phase==='scene'&&scene?.type==='narrative')){
       $('panel').innerHTML='<p class="ep-lead">Segui le card illustrate.</p>';prologue();
     }else{

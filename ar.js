@@ -60,7 +60,9 @@
     "Il vostro patto": "اتفاقكم",
     "La scelta nella crisi": "اختياركم أثناء الأزمة",
     "La storia tramandata": "القصة التي نقلتموها",
-    "Le conseguenze della vostra simulazione": "نتائج المحاكاة",
+    "Le scelte che ritroverai nell’attività 2": "الاختيارات التي ستجدها في النشاط الثاني",
+  "Anche gli eroi antichi si sono trovati davanti a situazioni come queste: restare o partire, accogliere o chiudere, che cosa ricordare. Nell’attività 2 vedrai che domande nascondono.": "واجه الأبطال القدماء أيضًا مواقف مثل هذه: البقاء أو الرحيل، والاستقبال أو الإغلاق، وما الذي نتذكره. في النشاط الثاني سترى أي أسئلة تخفيها.",
+  "Le conseguenze della vostra simulazione": "نتائج المحاكاة",
     "Che cosa ho imparato?": "ماذا تعلمت؟",
     "Prima sapevamo già che il linguaggio costruisce accordi e realtà condivise. Oggi abbiamo imparato tre cose nuove: 1. Le decisioni collettive richiedono compromessi fra bisogni diversi. 2. La memoria di una comunità seleziona alcuni eventi e ne dimentica altri. 3. Ogni racconto sceglie protagonisti, valori e punti di vista.": "كنا نعرف أن اللغة تبني الاتفاقات والواقع المشترك. تعلمنا اليوم ثلاث أفكار: ١. القرارات الجماعية تحتاج إلى موازنة احتياجات مختلفة. ٢. ذاكرة المجتمع تختار أحداثًا وتتجاهل أخرى. ٣. تختار كل قصة أبطالًا وقيمًا ووجهات نظر.",
     "La domanda per la prossima lezione": "سؤال الدرس القادم",
@@ -476,7 +478,7 @@
     },
     "ponte": {
       "title": "القصص التي نتعرّف فيها على أنفسنا",
-      "text": "لا ينقل المجتمع القواعد وحدها، بل ينقل أيضًا قصصًا يرى فيها قيمه. وقد فعلت الشعوب القديمة ذلك أيضًا بحكايات نسميها الملحمة. في النشاط التالي ستستمع إلى خمس من هذه القصص."
+      "text": "لا ينقل المجتمع القواعد وحدها، بل ينقل أيضًا قصصًا يرى فيها قيمه. وقد فعلت الشعوب القديمة ذلك أيضًا بحكايات نسميها الملحمة. في النشاط التالي ستستمع إلى خمس من هذه القصص، وستجد ثلاثًا من اختياراتك: الأزمة، والوافدون الجدد، والنصب التذكاري."
     }
   }
 };

@@ -190,6 +190,7 @@
             <button class="btn" type="button" data-act="start">${esc(t(saved?'Ricomincia dall’inizio':'Inizia'))} ${arrow('fwd')}</button>
             ${saved?`<button class="btn ghost" type="button" data-act="resume">${esc(t('Riprendi'))}: ${esc(L.chapters[at.ci].title)} ${arrow('fwd')}</button>`:''}
           </div>
+          ${(()=>{const pt=a1Choice('patto');return pt?`<p class="ev-mine">${esc(t('Hai già fondato una comunità. Il vostro patto:'))} ${esc(pt.label)}</p>`:'';})()}
           <p class="ev-note">${esc(t('Non ci sono account né raccolta di dati: i progressi restano su questo telefono.'))}</p>
         </div>
       </section>`;

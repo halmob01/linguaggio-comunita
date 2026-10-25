@@ -211,6 +211,9 @@ test('pagina e script caricati nell’ordine e senza riferimenti a dati di altre
  const app=fs.readFileSync('comunita-app.js','utf8');
  assert.ok(app.includes('linguaggio-comunita-session-v2'));
  assert.ok(app.includes('href="epica.html"'));
+ assert.ok(app.includes('Le scelte che ritroverai nell’attività 2'));
+ assert.ok(app.includes('translateUI(ending())'));
+ assert.ok(story.scenes.at(-1).text.includes('ritroverai tre delle scelte'));
  assert.ok(html.includes('href="epica.html"'));
  assert.ok(app.includes("selected('pericolo')"));
  assert.ok(!app.includes('epica-romanzo-session-v1'));

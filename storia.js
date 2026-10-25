@@ -730,7 +730,7 @@
       "id": "ponte",
       "type": "narrative",
       "title": "Le storie in cui ci riconosciamo",
-      "text": "Una comunità non tramanda soltanto regole: tramanda storie in cui riconosce i propri valori. Anche i popoli antichi lo hanno fatto, con racconti che chiamiamo epica. Nella prossima attività ascolterai cinque di queste storie.",
+      "text": "Una comunità non tramanda soltanto regole: tramanda storie in cui riconosce i propri valori. Anche i popoli antichi lo hanno fatto, con racconti che chiamiamo epica. Nella prossima attività ascolterai cinque di queste storie e ritroverai tre delle scelte che hai fatto: la crisi, i nuovi arrivi e la statua.",
       "art": "ponte"
     }
   ]

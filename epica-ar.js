@@ -21,6 +21,7 @@
     'Hai individuato il punto':'لقد فهمت الفكرة',
     'Il valore al centro':'القيمة في المركز',
     'Indietro':'رجوع',
+    'Hai già fondato una comunità. Il vostro patto:':'لقد أسّستم مجتمعًا بالفعل. اتفاقكم:',
     'Inizia':'ابدأ',
     'La domanda di questa storia':'سؤال هذه القصة',
     'La più vicina':'الأقرب',
