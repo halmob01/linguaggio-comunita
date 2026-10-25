@@ -43,6 +43,7 @@ La CI verifica la sintassi e i test. Sono state percorse **81 combinazioni di sc
 - [Stato del prototipo](docs/STATO-PROTOTIPO.md)
 - [Audit esercizi con la skill `verifiche-didattiche`](docs/REVIEW-ESERCIZI.md)
 - [Piano di riuso della base](docs/RIUSO-MOTORE.md)
+- [Architettura delle due attività (comunità ed epica)](docs/ARCHITETTURA-DUE-ATTIVITA.md)
 
 Non unire e pubblicare per la classe prima di aver revisionato il testo e collaudato l'interfaccia su desktop e telefono.
 
