@@ -2,7 +2,8 @@
 
 **Stato:** prologo approvato nel confronto con il docente; simulazione e valori numerici ancora da approvare.  
 **Destinatari:** classe della formazione professionale, attività pomeridiana; accesso anche da smartphone.  
-**Durata-obiettivo:** 35–40 minuti complessivi, inclusa discussione, non 40 minuti di lettura.  
+**Durata:** da misurare in classe; le durate indicate in questo documento sono ipotesi di progetto non verificate. L'attività non deve diventare 40 minuti di lettura.
+**Nota (25 ottobre 2026):** questo documento descrive l'attività 1. La parte sull'epica è stata separata e riprogettata: vedi [ARCHITETTURA-DUE-ATTIVITA.md](ARCHITETTURA-DUE-ATTIVITA.md).  
 **Prerequisito:** gli studenti **hanno già studiato** tutto il percorso sul linguaggio. Questa attività è un richiamo e un avanzamento concettuale, **non** la trasposizione integrale degli appunti in quiz.
 
 ## 1. Obiettivo e linea didattica
@@ -164,7 +165,7 @@ Messaggio finale possibile:
 
 Questa frase è un **aggancio**, non un riassunto della trama o una definizione definitiva dell'epica. Evitare di far coincidere in modo rigido «eroe epico = altruismo» o «storia collettiva = tutti d'accordo».
 
-## 5. Sequenza in aula
+## 5. Sequenza in aula (durate ipotetiche, non verificate)
 
 | Momento | Durata orientativa |
 | --- | ---: |

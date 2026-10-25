@@ -1,29 +1,41 @@
-# Linguaggio e comunità — dal linguaggio all'epica
+# Linguaggio e comunità — due attività: la comunità e l'epica
 
-Applicazione didattica statica per una lezione sul linguaggio, le convenzioni condivise e la memoria collettiva. Realizzata a partire da `sito-feudo` e dal motore generalizzato di `epica-romanzo/base-feudo`.
+Applicazione didattica statica in due attività collegate, per una lezione sul linguaggio, le convenzioni condivise, la memoria collettiva e il modo in cui un popolo racconta i propri valori. Realizzata a partire da `sito-feudo` e dal motore generalizzato di `epica-romanzo/base-feudo`.
 
-**Versione giocabile in:** [`feat/primo-simulatore`](https://github.com/halmob01/linguaggio-comunita/tree/feat/primo-simulatore), proposta dalla [PR #1](https://github.com/halmob01/linguaggio-comunita/pull/1) ancora in bozza. **Non ancora collaudata su smartphone reale o pubblicata per la classe.**
+**Non ancora collaudata su uno smartphone reale con studenti.** Le durate non sono state misurate: da rilevare in classe.
 
-## Percorso
+## Le due attività
+
+### Attività 1 — La comunità (`index.html`)
 
 1. **5 card di prologo:** ritorno alle lezioni su cooperazione, linguaggio, finzioni condivise e funzione sociopoietica.
 2. **11 decisioni:** patto per la comunità, scambi fra sconosciuti, crisi; indicatori `Fiducia`, `Risorse`, `Coesione` e conseguenze commentate.
 3. **Memoria collettiva:** cento anni dopo, la città sceglie che cosa tramandare dell'accaduto.
 4. **4 micro-esercizi formativi:** convenzioni, compromessi, fatto/interpretazione, punti di vista. Feedback e risposta spiegata, **senza voto**.
-5. **Epica comparata:** oralità, memoria, scrittura e tradizioni di Gilgamesh, Iliade, Odissea, Eneide, Mahabharata, Ramayana, Edda e saghe norrene; confronti fra gloria, dovere, morte, ritorno e fondazione, con tre riflessioni guidate. Include anche Sīrat Banī Hilāl, Shāhnāmeh, Sundiata, due schede sulle opere e sulla trasmissione, miti contemporanei e la simulazione dei punti di vista sulla battaglia del ponte. Ettore resta il ponte verso la lezione successiva.
+5. **Ponte:** «le storie in cui ci riconosciamo» e un bottone verso l'attività 2.
 
-**Durata obiettivo aggiornata:** circa 75–100 minuti con discussione, preferibilmente due lezioni; da verificare con gli studenti; stima da verificare con gli studenti.
+### Attività 2 — Le voci dell'epica (`epica.html`)
 
-## Architettura e origine
+Filo conduttore: *l'epica è il racconto con cui un popolo parla di sé; attraverso le scelte di un eroe mette alla prova i propri valori. Popoli lontani si fanno domande simili e rispondono in modo diverso.*
 
-- `engine.js`: motore narrativo **invariato**, importato da `halmob01/epica-romanzo` / `base-feudo`, commit `90b798bd54920cdea5d20d272ffc36349520c537`.
-- `storia.js`: contenuti, scene, scelte e quiz.
-- `comunita-map.js`: illustrazioni SVG responsive.
-- `comunita-app.js`: prologo, scelte, feedback, salvataggio/ripresa e riepilogo personalizzato.
-- `stile.css`, `simulazione.css`, `comunita.css`: identità visiva derivata da Feudo, adattata al percorso.
-- `tests/simulatore.test.cjs`: test delle scelte, del ripristino e degli esercizi.
+Circa 55 schermate brevi, in 6 capitoli navigabili dall'indice «Capitoli»:
 
-Non ci sono servizi remoti, login, classifiche o dati personali degli studenti.
+1. **Dalla vostra comunità all'epica** — che cos'è un valore.
+2. **Che cos'è l'epica** — epos, aedi, formule ed epiteti, ingredienti, epica e storia.
+3. **Cinque popoli, cinque storie** — mappa e linea del tempo, poi per ciascuna tradizione (Gilgamesh, Odissea, Eneide, Shāhnāmeh, Sīrat Banī Hilāl): carta d'identità, storia in due schermate, valori e domanda della storia, verifica rapida.
+4. **Il gioco delle grandi domande** — dalla vicenda alla domanda (5 turni); le domande si somigliano (3 domande, collegamento degli eroi, rete finale); anche la vostra comunità se l'è chiesto (legge, in sola lettura, le scelte fatte nell'attività 1).
+5. **Il poema della vostra comunità** — valore e epiteto della città, proemio in stile epico.
+6. **Verso la prossima lezione** — sintesi e domanda sull'Iliade e su Ettore, senza anticipare la trama.
+
+Nessun voto, nessuna classifica, nessun account.
+
+## Architettura
+
+- Attività 1: `engine.js` (motore narrativo **invariato**, importato da `halmob01/epica-romanzo` / `base-feudo`, commit `90b798bd54920cdea5d20d272ffc36349520c537`), `storia.js` (scene, scelte, quiz), `comunita-map.js` (SVG), `comunita-app.js` (interfaccia), `ar.js` (arabo).
+- Attività 2: `epica-dati.js` (contenuti), `epica-arte.js` (SVG: scene, emblemi, mappa con coste di Natural Earth, rete delle domande), `epica-app.js` (slide, verifiche, gioco, proemio), `epica-ar.js` (arabo), `epica.css`.
+- `stile.css`, `simulazione.css`, `comunita.css`: identità visiva derivata da Feudo, condivisa fra le due attività.
+- I salvataggi sono locali e separati (`linguaggio-comunita-session-v2`, `linguaggio-epica-session-v1`). L'attività 2 **legge soltanto** le scelte dell'attività 1 e non le modifica; se mancano, funziona lo stesso.
+- Non ci sono servizi remoti, login, classifiche o dati personali degli studenti.
 
 ## Prova e verifica
 
@@ -31,23 +43,24 @@ Da un server statico locale:
 
 ```sh
 python3 -m http.server 8000
-# Aprire http://localhost:8000
+# Attività 1: http://localhost:8000/        Attività 2: http://localhost:8000/epica.html
 node --test tests/*.test.cjs
 ```
 
-La CI verifica la sintassi e i test. Sono state percorse **81 combinazioni di scelte della comunità** e **81 combinazioni degli esercizi**. Non equivale a una prova su dispositivo reale.
+La CI verifica la sintassi e i test (struttura dei contenuti, risposte, traduzioni arabe, assenza di anticipazioni su Ettore, percorso completo dell'interfaccia in italiano e in arabo con un DOM simulato). Le due attività sono state percorse inoltre in un browser reale in formato telefono (390×844). **Non equivale a una prova su dispositivo reale con studenti.**
 
 ## Documentazione
 
-- [Progetto didattico](docs/PROGETTO-DIDATTICO.md)
+- [Progetto didattico dell'attività 1](docs/PROGETTO-DIDATTICO.md)
+- [Architettura delle due attività](docs/ARCHITETTURA-DUE-ATTIVITA.md)
 - [Stato del prototipo](docs/STATO-PROTOTIPO.md)
 - [Audit esercizi con la skill `verifiche-didattiche`](docs/REVIEW-ESERCIZI.md)
 - [Piano di riuso della base](docs/RIUSO-MOTORE.md)
-- [Architettura delle due attività (comunità ed epica)](docs/ARCHITETTURA-DUE-ATTIVITA.md)
-
-Non unire e pubblicare per la classe prima di aver revisionato il testo e collaudato l'interfaccia su desktop e telefono.
-
 
 ## Italiano e arabo
 
-L'interfaccia è in italiano per impostazione predefinita. Il pulsante `عربي / Italiano` permette di cambiare lingua senza perdere i progressi. `ar.js` contiene le traduzioni arabe delle 52 scene, delle 63 opzioni, dei feedback e delle spiegazioni; il motore `engine.js` resta indipendente dai testi. In arabo si usa il layout RTL e il font Cairo. La traduzione è in arabo standard moderno semplificato e richiede una verifica linguistica con parlanti competenti prima dell'impiego definitivo in classe.
+L'interfaccia è in italiano per impostazione predefinita. Il pulsante `عربي / Italiano` permette di cambiare lingua senza perdere i progressi; la scelta vale per entrambe le attività. `ar.js` e `epica-ar.js` contengono le traduzioni; i motori e i dati restano indipendenti dai testi. In arabo si usa il layout RTL e il font Cairo. La traduzione è in arabo standard moderno semplificato e **richiede una verifica linguistica con parlanti competenti** prima dell'impiego definitivo in classe.
+
+## Contenuti da verificare prima dell'uso definitivo
+
+I fatti delle cinque storie (date approssimative, dettagli degli episodi, in particolare per la Sīrat Banī Hilāl, che varia molto fra le versioni regionali, e per lo Shāhnāmeh) sono scritti a partire da conoscenze generali e vanno controllati su fonti prima di un uso stabile. Le coste della mappa derivano da Natural Earth (pubblico dominio) e sono semplificate.

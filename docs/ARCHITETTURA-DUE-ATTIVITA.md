@@ -1,6 +1,6 @@
 # Architettura definitiva — due attività: «La comunità» e «Le voci dell'epica»
 
-**Stato:** specifica approvata nel confronto con il docente (25 ottobre 2026), da implementare.
+**Stato:** specifica approvata nel confronto con il docente (25 ottobre 2026) e implementata il giorno stesso; per i risultati vedi [STATO-PROTOTIPO.md](STATO-PROTOTIPO.md). Scostamenti dalla specifica: la mappa usa coste reali semplificate (Natural Earth) invece di poligoni disegnati a mano; l'attività 2 comprende 55 schermate; le etichette brevi della rete sono più corte di quelle indicate.
 **Destinatari dell'implementazione:** chi sviluppa (anche un altro modello) senza aver seguito la discussione. Questo documento è autosufficiente: contiene decisioni, contenuti di riferimento, schema dei dati, criteri di accettazione e ordine di lavoro.
 **Uso in classe:** ogni studente usa il **proprio telefono**. Progettare mobile-first (390×844), funzionante anche su desktop/LIM.
 

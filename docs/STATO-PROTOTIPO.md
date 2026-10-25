@@ -1,34 +1,38 @@
-# Stato prototipo — 18 ottobre 2026
+# Stato del prototipo — 25 ottobre 2026
 
-**Ramo:** `feat/primo-simulatore`. PR [#1](https://github.com/halmob01/linguaggio-comunita/pull/1) in bozza; progetto statico GitHub Pages, non ancora distribuito alla classe.
+**Pubblicazione:** progetto statico GitHub Pages. Due attività: `index.html` (La comunità) ed `epica.html` (Le voci dell'epica).
 
 ## Funzionalità implementate
 
+**Attività 1 — La comunità**
 - Riuso di `engine.js` da `epica-romanzo/base-feudo`, sorgente commit `90b798bd54920cdea5d20d272ffc36349520c537`; grafica ereditata da Feudo.
-- Cinque card di richiamo iniziale, tre scelte che modificano tre indicatori, scena della memoria collettiva con scelta interpretativa e riepilogo finale.
-- **Quattro esercizi di riflessione** nel segmento precedente al ponte con l'epica: gettoni/convenzioni, compromessi, fatto vs interpretazione, differenti punti di vista sul racconto.
-- Gli esercizi hanno tre alternative ciascuno, una risposta meglio fondata, feedback specifico sulle risposte sbagliate, spiegazione della corretta dopo la scelta e nessun voto.
-- La crisi e la sua variazione degli indicatori sono richiamate nel secondo esercizio. L'ultima domanda sul racconto prepara l'apertura verso Ettore.
-- Salvataggio e ripristino locali; nessuna classifica, login, backend o raccolta di dati personali.
+- Cinque card di richiamo, undici decisioni con tre indicatori, memoria collettiva con scelta interpretativa, riepilogo finale.
+- Quattro esercizi di riflessione (tre alternative, una risposta meglio fondata, feedback specifico, nessun voto). Dettagli: [REVIEW-ESERCIZI.md](REVIEW-ESERCIZI.md).
+- Ponte finale verso l'attività 2, senza anticipare Ettore.
+- Salvataggio e ripristino locali (`linguaggio-comunita-session-v2`); nessuna classifica, login o backend.
+
+**Attività 2 — Le voci dell'epica** (specifica in [ARCHITETTURA-DUE-ATTIVITA.md](ARCHITETTURA-DUE-ATTIVITA.md))
+- Sei capitoli e circa 55 schermate brevi; indice dei capitoli; salvataggio e ripresa (`linguaggio-epica-session-v1`).
+- Cinque tradizioni (Gilgamesh, Odissea, Eneide, Shāhnāmeh, Sīrat Banī Hilāl) con carta d'identità, storia, valori, domanda e verifica rapida.
+- Mappa con coste reali semplificate e linea del tempo; un emblema illustrato per tradizione; rete finale delle domande.
+- Gioco «Le grandi domande» in tre mosse, senza punteggio; legge in sola lettura le scelte dell'attività 1 e funziona anche senza.
+- Proemio epico generato dalle scelte dello studente.
+- Italiano e arabo (layout RTL).
 
 ## Verifiche eseguite
 
-- **Skill allegata `verifiche-didattiche`**: istruzioni lette, script eseguito su quattro item normalizzati; 0 errori, 0 avvisi, nessuna risposta corretta unica più lunga. Le posizioni nell'ordine di presentazione sono B–C–A–B.
-- Test interni della skill: 8 superati.
-- Suite `tests/simulatore.test.cjs`: 81 combinazioni della simulazione e 81 combinazioni di risposte degli esercizi, ripristino di stato, limiti 0–100, assenza di punteggio sugli esercizi, struttura delle scene e sintassi JavaScript.
-- CI GitHub Actions: esito positivo dopo le modifiche.
-
-Dettagli: [REVIEW-ESERCIZI.md](REVIEW-ESERCIZI.md).
+- Suite `node --test tests/*.test.cjs`: attività 1 (81 combinazioni di scelte, 81 di esercizi, ripristino, limiti 0–100, assenza di punteggio negli esercizi, struttura, traduzioni) e attività 2 (struttura e lunghezza delle schermate, una sola risposta esatta per quesito, assenza di indizi di lunghezza e posizione, copertura della traduzione araba, assenza di anticipazioni su Ettore, percorso completo dell'interfaccia in italiano e arabo con un DOM simulato, lettura senza scrittura dei dati dell'attività 1, ripresa e dati corrotti).
+- Percorso completo delle due attività in un browser reale in formato telefono (390×844), con schermata per schermata ispezionata; nessun errore in console e nessuno scorrimento orizzontale; passaggio dall'attività 1 all'attività 2 con le scelte riportate.
+- CI GitHub Actions: sintassi e test.
 
 ## Limiti
 
-**Non verificati:** rendering e navigazione in un browser reale e su smartphone, tempi di completamento e prova didattica con studenti. I delta degli indicatori sono convenzioni del gioco, non dati scientifici. Il motore non valuta produzioni scritte o competenze argomentative autonome.
+**Non verificati:** prova su un telefono reale, tempi di completamento, comprensione delle consegne da parte degli studenti, comportamento con carta di rete lenta o senza connessione ai Google Fonts (il testo resta leggibile con i caratteri di ripiego). Le durate non sono state misurate e non sono dichiarate.
 
-## Controlli prima del merge
+**Da controllare con una persona competente:** accuratezza dei fatti sulle cinque storie e sulle date (scritti da conoscenze generali, non da fonti consultate durante il lavoro); traduzione araba di entrambe le attività; scenari e valori numerici dell'attività 1.
 
-1. Prova visuale su desktop e un telefono reale, compresi prologo e schermi finali.
-2. Controllo dei quattro item su display piccolo e del feedback dopo risposte corrette/sbagliate.
-3. Revisione docente degli scenari, dei valori numerici e delle formulazioni.
-4. Verifica del tempo effettivo della lezione, stimato in **35–45 minuti compresa la discussione**.
+## Idee non ancora realizzate
 
-Non considerare la PR un rilascio finale destinato alla classe finché questi controlli non sono completati.
+- «Il consiglio degli eroi»: la città in pericolo chiede consiglio agli eroi (capitolo facoltativo che riusa le cinque tradizioni).
+- Altre tradizioni (Sundiata, Mahabharata, Ramayana, saghe norrene) come capitoli facoltativi con la stessa struttura.
+- Raccordo con la lezione su Ettore e l'Iliade (progetto `epica-romanzo`).

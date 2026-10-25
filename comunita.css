@@ -43,3 +43,4 @@
 .lc-ar .lc-next{direction:rtl}
 a.btn{display:inline-block;text-decoration:none;text-align:center}
 @media (max-width:52rem){.lc-next{box-shadow:4px 4px 0 var(--ink)}}
+@media (max-width:36rem){.ep-mast .ep-kicker{display:none}}

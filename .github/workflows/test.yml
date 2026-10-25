@@ -18,5 +18,9 @@ jobs:
           node --check storia.js
           node --check comunita-map.js
           node --check comunita-app.js
+          node --check epica-dati.js
+          node --check epica-arte.js
+          node --check epica-ar.js
+          node --check epica-app.js
       - name: Test logica e struttura
         run: node --test tests/*.test.cjs
