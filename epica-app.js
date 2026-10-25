@@ -89,9 +89,19 @@
   function feedbackFor(options,tries){
     const last=options.find(o=>o.id===tries.at(-1));
     if(!last)return '';
-    return `<div class="ev-feedback ${last.correct?'ok':'again'}" role="status"><strong>${esc(t(last.correct?'Hai individuato il punto':'Non ancora'))}</strong><p>${esc(last.feedback)}</p>${last.correct?'':`<p class="ev-hint">${esc(t('Scegli un’altra risposta.'))}</p>`}</div>`;
+    const point=last.correct?`<p class="ev-point ${tries.length===1?'yes':'no'}">${esc(t(tries.length===1?'Primo tentativo: +1 punto':'Trovata dopo alcuni tentativi: nessun punto, ma ora conosci la ragione.'))}</p>`:'';
+    return `<div class="ev-feedback ${last.correct?'ok':'again'}" role="status"><strong>${esc(t(last.correct?'Hai individuato il punto':'Non ancora'))}</strong><p>${esc(last.feedback)}</p>${point}${last.correct?'':`<p class="ev-hint">${esc(t('Scegli un’altra risposta.'))}</p>`}</div>`;
   }
   const cleanTries=(id,options)=>(st.tries[id]||[]).filter(x=>options.some(o=>o.id===x));
+  /* Punteggio personale: un punto per ogni domanda verificabile risolta al primo tentativo */
+  function scoreItems(){
+    return flat.filter(s=>s.kind==='check'||s.kind==='move1').map(s=>{
+      const options=s.kind==='move1'?L.game.move1[s.hero].options:s.options;
+      const tries=cleanTries(s.id,options);
+      const state=!tries.length?'none':options.find(o=>o.id===tries[0]).correct?'first':'late';
+      return {id:s.id,tradition:s.tradition||s.hero,kind:s.kind,state};
+    });
+  }
 
   /* Renderer per tipo di slide: restituiscono {html, ok} */
   const R={
@@ -120,6 +130,13 @@
       return {ok:true,html:`${p(s.body)}<div class="ev-ingredients">${s.cards.map((c,i)=>`<div><span class="ev-num">${i+1}</span><strong>${esc(c.name)}</strong><span>${esc(c.line)}</span></div>`).join('')}</div>`};
     },
     map(s){return {ok:true,html:p(s.body)};},
+    score(s){
+      const items=scoreItems(), n=items.filter(x=>x.state==='first').length, m=items.length, open=items.filter(x=>x.state==='none').length;
+      const msg=n>=8?s.messages.high:n>=5?s.messages.mid:s.messages.low;
+      const mark=x=>`<i class="ev-dot ${x.state}" role="img" aria-label="${esc(t(x.kind==='check'?'Verifica':'Domanda'))}: ${esc(t(x.state==='first'?'Primo tentativo':x.state==='late'?'Più tentativi':'Non affrontata'))}"></i>`;
+      const rows=L.traditions.map(tr=>`<li style="--c:${tr.accent}"><strong>${esc(tr.name)}</strong><span>${items.filter(x=>x.tradition===tr.id).sort((a,b)=>a.kind==='check'?1:-1).map(mark).join('')}</span></li>`).join('');
+      return {ok:true,html:`<div class="ev-score"><strong>${n}</strong><span>/ ${m}</span></div><p class="ev-lead">${esc(s.summary.replace('{n}',n).replace('{m}',m))}</p><ul class="ev-score-rows">${rows}</ul><div class="ev-legend"><span><i class="ev-dot first"></i>${esc(t('Primo tentativo'))}</span><span><i class="ev-dot late"></i>${esc(t('Più tentativi'))}</span><span><i class="ev-dot none"></i>${esc(t('Non affrontata'))}</span></div><p>${esc(msg)}</p>${open?`<p class="ev-hint">${esc(t('Alcune domande non sono state affrontate: puoi tornarci dall’indice dei capitoli.'))}</p>`:''}<p class="ev-note">${esc(s.note)}</p>`};
+    },
     move2(s){
       const q=L.game.questions.find(x=>x.id===s.q), state=st.m2[s.q]||{sel:[],done:false};
       const sel=(state.sel||[]).filter(h=>q.heroes[h]);

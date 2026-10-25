@@ -25,9 +25,9 @@ Circa 55 schermate brevi, in 6 capitoli navigabili dall'indice «Capitoli»:
 3. **Cinque popoli, cinque storie** — mappa e linea del tempo, poi per ciascuna tradizione (Gilgamesh, Odissea, Eneide, Shāhnāmeh, Sīrat Banī Hilāl): carta d'identità, storia in due schermate, valori e domanda della storia, verifica rapida.
 4. **Il gioco delle grandi domande** — dalla vicenda alla domanda (5 turni); le domande si somigliano (3 domande, collegamento degli eroi, rete finale); anche la vostra comunità se l'è chiesto (legge, in sola lettura, sei scelte fatte nell'attività 1).
 5. **Il poema della vostra comunità** — valore e epiteto della città, proemio in stile epico.
-6. **Verso la prossima lezione** — sintesi e domanda sull'Iliade e su Ettore, senza anticipare la trama.
+6. **Verso la prossima lezione** — il tuo percorso (punteggio personale), sintesi e domanda sull'Iliade e su Ettore, senza anticipare la trama.
 
-Nessun voto, nessuna classifica, nessun account.
+**Punteggio personale:** un punto per ogni risposta esatta al primo tentativo, solo sulle 10 domande verificabili (le 5 verifiche rapide e i 5 turni «dalla vicenda alla domanda»). Non ci sono punti per le decisioni, i confronti e il proemio. Il punteggio resta sul telefono dello studente: **nessuna classifica**, nessun confronto fra studenti, nessun account.
 
 ## Architettura
 

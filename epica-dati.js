@@ -214,6 +214,13 @@ const DATA = {
         note:'Avete fatto ciò che facevano gli aedi: trasformare le scelte di una comunità in un racconto che dice chi è.'}
     ]},
     {id:'c6', title:'Verso la prossima lezione', slides:[
+      {id:'c6_punteggio', kind:'score', art:'epiteto', title:'Il tuo percorso',
+        summary:'Hai trovato la risposta al primo tentativo in {n} domande su {m}.',
+        messages:{
+          high:'Hai ascoltato le storie con attenzione: ricordi le vicende e capisci perché venivano raccontate.',
+          mid:'Buon lavoro: alcune domande hanno chiesto un secondo tentativo, e anche questo è ragionare.',
+          low:'Alcune storie ti hanno fatto cambiare idea, ed è utile. Puoi tornare ai capitoli per rivederle.'},
+        note:'I punti misurano solo quanto ricordi delle vicende. Le grandi domande e i confronti non hanno punti: lì conta quello che pensi.'},
       {id:'c6_frase', kind:'text', art:'specchio', title:'Che cos’è l’epica?',
         body:['L’epica è il racconto con cui un popolo parla di sé.','Attraverso le scelte di un eroe mette alla prova i propri valori e affronta le grandi domande: la morte, la casa, il dovere.','Popoli lontani si fanno domande simili. Le risposte cambiano, perché cambiano i valori.']},
       {id:'c6_ettore', kind:'text', art:'troia', title:'Una domanda per la prossima lezione',

@@ -17,6 +17,7 @@
 - Mappa con coste reali semplificate e linea del tempo; un emblema illustrato per tradizione; rete finale delle domande.
 - Gioco «Le grandi domande» in tre mosse, senza punteggio; legge in sola lettura le scelte dell'attività 1 e funziona anche senza.
 - Proemio epico generato dalle scelte dello studente.
+- Punteggio personale (10 domande verificabili, un punto al primo tentativo) con schermata «Il tuo percorso»; deliberatamente nessuna classifica.
 - Italiano e arabo (layout RTL).
 
 ## Verifiche eseguite

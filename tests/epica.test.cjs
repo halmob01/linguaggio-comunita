@@ -13,7 +13,7 @@ const arContext={};vm.runInNewContext(read('epica-ar.js'),arContext);
 const AR=arContext.EpicaArabic;
 const slides=D.chapters.flatMap(c=>c.slides);
 const TRADITIONS=['gilgamesh','odissea','eneide','shahnameh','hilal'];
-const KINDS=['text','idcard','values','check','epithet','ingredients','map','move1','move2','answers','network','move3','poem1','poem2'];
+const KINDS=['text','idcard','values','check','epithet','ingredients','map','move1','move2','answers','network','move3','poem1','poem2','score'];
 
 test('struttura: 6 capitoli, id univoci e tipi noti',()=>{
   assert.equal(D.chapters.length,6);
@@ -108,7 +108,7 @@ test('nessuna anticipazione: Ettore compare solo nell’ultima schermata, in ita
     walk(obj,trail);return out;
   };
   const it=where(D.chapters,'Ettore');
-  assert.equal(it.length,1,'Ettore: '+it);assert.ok(it[0].startsWith('5.slides.1.'),it[0]);
+  assert.equal(it.length,1,'Ettore: '+it);assert.ok(it[0].startsWith('5.slides.2.'),it[0]);
   const ar=where(AR.slides,'هكتور');
   assert.equal(ar.length,1);assert.ok(ar[0].startsWith('c6_ettore'));
   assert.deepEqual(where(D.game,'Ettore'),[]);assert.deepEqual(where(AR.game,'هكتور'),[]);
@@ -124,7 +124,7 @@ function leaves(v,p=[],out=[]){
   return out;
 }
 const get=(o,p)=>p.split('.').reduce((a,k)=>a==null?a:a[k],o);
-const TEXT_FIELDS=['title','body','lead','keyword','rows','note','values','question','answer','options','cards','legend','feedback'];
+const TEXT_FIELDS=['title','body','lead','keyword','rows','note','values','question','answer','options','cards','legend','feedback','summary','messages'];
 
 test('arabo: ogni testo di ogni schermata ha la sua traduzione e la stessa struttura',()=>{
   for(const s of slides){
@@ -185,7 +185,8 @@ test('arabo: tutte le stringhe dell’interfaccia usate da epica-app.js hanno un
   }
   used.add(D.title);
   assert.ok(used.size>30,'estrazione delle stringhe: '+used.size);
-  const missing=[...used].filter(s=>!(s in AR.ui)&&!['Navigazione'].includes(s)||(!(s in AR.ui)));
+  const code=new Set(['check','first','late','none','yes','no']);
+  const missing=[...used].filter(s=>!code.has(s)&&!(s in AR.ui));
   assert.deepEqual(missing,[],'stringhe senza traduzione');
 });
 
@@ -383,4 +384,45 @@ test('ripresa: una sessione salvata si riapre e uno stato corrotto viene ignorat
   assert.ok(!broken.root.innerHTML.includes('data-act="resume"'));
   const junk=boot({store:{'linguaggio-epica-session-v1':'%%%'}});
   assert.ok(junk.root.innerHTML.includes('data-act="start"'));
+});
+
+test('punteggio personale: un punto per risposta esatta al primo tentativo, solo su 10 domande, senza confronti',()=>{
+  const run=(firstCorrect)=>{
+    const env=boot();env.click({act:'start'});
+    let guard=0;
+    while(JSON.parse(env.storage['linguaggio-epica-session-v1']).slide!=='c6_punteggio'&&guard++<120){
+      const html=env.root.innerHTML,kind=(html.match(/data-kind="([^"]+)"/)||[])[1];
+      if(kind==='check'||kind==='move1'){
+        const id=JSON.parse(env.storage['linguaggio-epica-session-v1']).slide;
+        const s=slides.find(x=>x.id===id);
+        const options=kind==='move1'?D.game.move1[s.hero].options:s.options;
+        const first=options.find(o=>o.correct===firstCorrect);
+        env.click({act:'pick',slide:id,opt:first.id});
+        let h=env.root.innerHTML;
+        assert.ok(h.includes(firstCorrect?'+1 punto':'nessun punto')||!firstCorrect);
+        while(!h.includes('is-right')){env.click(dset(attr(h,'pick').filter(o=>!o._disabled)[0]));h=env.root.innerHTML;}
+        assert.ok(h.includes(firstCorrect?'Primo tentativo: +1 punto':'nessun punto, ma ora conosci la ragione'));
+      }
+      if(kind==='epithet')env.click(dset(attr(html,'epithet')[0]));
+      if(kind==='move2'){env.click(dset(attr(html,'m2toggle')[0]));env.click(dset(attr(env.root.innerHTML,'m2check')[0]));}
+      if(kind==='move3')env.click(dset(attr(html,'m3pick')[0]));
+      if(kind==='poem1'){env.click(dset(attr(html,'pvalue')[0]));env.click(dset(attr(env.root.innerHTML,'pepi')[0]));}
+      env.click({act:'next'});
+    }
+    return env.root.innerHTML;
+  };
+  const perfect=run(true);
+  assert.ok(perfect.includes('<strong>10</strong><span>/ 10</span>'));
+  assert.ok(perfect.includes('in 10 domande su 10'));
+  assert.equal((perfect.match(/ev-dot first/g)||[]).length,10+1,'dieci punti più la legenda');
+  const poor=run(false);
+  assert.ok(poor.includes('<strong>0</strong><span>/ 10</span>'));
+  assert.ok(poor.includes('Alcune storie ti hanno fatto cambiare idea'));
+  assert.equal((poor.match(/ev-dot late/g)||[]).length,10+1);
+  // chi salta i capitoli vede le domande non affrontate, non un punteggio negativo
+  const env=boot();env.click({act:'start'});env.click({act:'chapters'});env.click({act:'goto',ch:'5'});
+  assert.ok(env.root.innerHTML.includes('<strong>0</strong><span>/ 10</span>')&&env.root.innerHTML.includes('non sono state affrontate'));
+  // il punteggio non tocca i dati dell'attività 1 e non compare nell'attività 1
+  assert.ok(!read('comunita-app.js').includes('ev-score'));
+  assert.ok(!/classifica|leaderboard/i.test(read('epica-app.js')));
 });
